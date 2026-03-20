@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ОГНИ ЭЛЬФОВ — Корпоративный мерч</title>
+
+  <!-- Google Fonts: Onest 300-900 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Onest', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: '#1D1D1F',
+            secondary: '#6E6E73',
+            tertiary: '#86868B',
+            accent: '#C6F24E',
+            'bg-secondary': '#F5F5F7',
+          },
+          maxWidth: {
+            container: '1280px',
+          },
+          letterSpacing: {
+            heading: '-0.03em',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-white text-primary font-sans antialiased">
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-[1280px] mx-auto px-6 flex items-center justify-between h-16">
+      <a href="#" class="font-extrabold text-lg tracking-tight">ОГНИ ЭЛЬФОВ</a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="#services" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Услуги</a>
+        <a href="#catalog" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Каталог</a>
+        <a href="#cases" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Кейсы</a>
+        <a href="#about" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">О нас</a>
+        <a href="#contacts" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Контакты</a>
+      </div>
+      <a href="#cta" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="pt-32 pb-24 md:pb-32">
+    <div class="max-w-[1280px] mx-auto px-6 text-center">
+
+      <!-- Heading -->
+      <h1 class="font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-heading leading-none max-w-3xl mx-auto reveal">
+        Корпоративный мерч, который хочется носить
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg text-[#6E6E73] mt-6 max-w-lg mx-auto leading-relaxed reveal">
+        Полный цикл — от идеи до доставки. Собственное производство в Москве, 20 лет опыта
+      </p>
+
+      <!-- CTAs -->
+      <div class="mt-10 flex items-center justify-center gap-6 reveal">
+        <a href="#cta" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 text-base font-semibold inline-block">
+          Обсудить проект
+        </a>
+        <a href="#catalog" class="text-base font-medium text-[#1D1D1F] border-b border-[#1D1D1F] pb-0.5 hover:opacity-70 transition-opacity">
+          Смотреть каталог &rarr;
+        </a>
+      </div>
+
+      <!-- Trust logos -->
+      <div class="mt-16 flex items-center justify-center gap-8 md:gap-12 flex-wrap reveal">
+        <span class="text-xs font-semibold tracking-widest opacity-25">ЯНДЕКС</span>
+        <span class="text-xs font-semibold tracking-widest opacity-25">СБЕР</span>
+        <span class="text-xs font-semibold tracking-widest opacity-25">OZON</span>
+        <span class="text-xs font-semibold tracking-widest opacity-25">VK</span>
+        <span class="text-xs font-semibold tracking-widest opacity-25">МТС</span>
+        <span class="text-xs font-semibold tracking-widest opacity-25">МФТИ</span>
+      </div>
+
+      <!-- Hero image placeholder -->
+      <div class="mt-16 bg-[#F5F5F7] rounded-2xl h-80 md:h-[480px] flex items-center justify-center reveal">
+        <p class="text-[#86868B] text-sm font-medium max-w-md">
+          Фото: команда в брендированном мерче на фоне производства — худи, футболки, шопперы с фирменным стилем
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Animations -->
+  <script src="js/animations.js"></script>
+</body>
+</html>
