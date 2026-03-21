@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@800&amp;display=swap');
+  </style>
+
+  <!-- Print Mark Symbol -->
+  <g transform="translate(16, 28)">
+    <!-- Main square with one rounded corner (bottom-right) -->
+    <path
+      d="M0,0 L52,0 L52,40 Q52,52 40,52 L0,52 Z"
+      fill="#1D1D1F"
+    />
+    <!-- Registration mark at rounded corner — lime accent -->
+    <rect x="43" y="43" width="9" height="9" rx="2" fill="#C6F24E"/>
+  </g>
+
+  <!-- Brand text — stacked -->
+  <text
+    x="88"
+    y="48"
+    font-family="Onest, sans-serif"
+    font-weight="800"
+    font-size="22"
+    letter-spacing="-0.03em"
+    fill="#1D1D1F"
+  >ОГНИ</text>
+
+  <text
+    x="88"
+    y="76"
+    font-family="Onest, sans-serif"
+    font-weight="800"
+    font-size="22"
+    letter-spacing="-0.03em"
+    fill="#1D1D1F"
+  >ЭЛЬФОВ</text>
+</svg>

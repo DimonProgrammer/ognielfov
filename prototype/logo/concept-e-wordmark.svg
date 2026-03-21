@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" width="400" height="80">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@800&amp;display=swap');
+  </style>
+  <defs>
+    <mask id="square-o-mask">
+      <rect x="20" y="22" width="36" height="36" rx="8" ry="8" fill="white"/>
+      <circle cx="38" cy="40" r="10" fill="black"/>
+    </mask>
+  </defs>
+  <!-- Lime geometric "О" — square with rounded corners and circular cutout -->
+  <rect x="20" y="22" width="36" height="36" rx="8" ry="8" fill="#C6F24E" mask="url(#square-o-mask)"/>
+  <!-- Remaining letters: "ГНИ ЭЛЬФОВ" -->
+  <text x="62" y="52" font-family="Onest, sans-serif" font-weight="800" font-size="30" letter-spacing="-0.9" fill="#1D1D1F" text-anchor="start" dominant-baseline="auto">ГНИ ЭЛЬФОВ</text>
+</svg>

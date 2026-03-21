@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дизайн-система (Lemon Tonic) — Огни Эльфов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Onest', system-ui, sans-serif;
+      background: #E8E8ED;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      background: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      transform-origin: top left;
+    }
+
+    /* Header bar */
+    .header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 72px;
+      background: #1D1D1F;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 64px;
+    }
+    .header-logo { color: #fff; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; }
+    .header-title { color: #86868B; font-size: 14px; font-weight: 500; }
+
+    /* Main grid */
+    .main {
+      position: absolute;
+      top: 72px; left: 0; right: 0; bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto 1fr 1fr;
+      gap: 0;
+    }
+
+    /* Section: Philosophy — full width */
+    .philosophy {
+      grid-column: 1 / -1;
+      padding: 40px 64px 32px;
+      border-bottom: 1px solid #F5F5F7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .philosophy h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #1D1D1F;
+    }
+    .philosophy p {
+      font-size: 14px;
+      color: #6E6E73;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    /* Panel base */
+    .panel {
+      padding: 32px;
+      border-right: 1px solid #F5F5F7;
+      border-bottom: 1px solid #F5F5F7;
+    }
+    .panel:nth-child(4n+1) { border-left: none; }
+    .panel-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #86868B;
+      margin-bottom: 20px;
+    }
+
+    /* Colors panel */
+    .colors-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .color-item { text-align: center; }
+    .color-swatch {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+    }
+    .color-swatch.bordered { border: 1px solid #E5E5E5; }
+    .color-hex { font-size: 10px; color: #6E6E73; font-weight: 500; font-family: 'Onest', monospace; }
+    .color-name { font-size: 9px; color: #86868B; margin-top: 2px; }
+
+    /* Typography panel */
+    .type-sample { margin-bottom: 14px; }
+    .type-sample .weight { color: #1D1D1F; }
+    .type-sample .meta { font-size: 10px; color: #86868B; margin-top: 2px; }
+    .type-heading-demo {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #1D1D1F;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .type-body-demo {
+      font-size: 14px;
+      color: #6E6E73;
+      line-height: 1.6;
+    }
+
+    /* Buttons panel */
+    .btn-demo {
+      display: inline-block;
+      border-radius: 50px;
+      font-family: 'Onest', sans-serif;
+      font-weight: 600;
+      cursor: default;
+      margin-bottom: 12px;
+    }
+    .btn-primary {
+      background: #F0E868;
+      color: #1D1D1F;
+      padding: 12px 28px;
+      font-size: 14px;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #1D1D1F;
+      padding: 10px 24px;
+      font-size: 13px;
+      border: 1.5px solid #1D1D1F;
+    }
+    .btn-spec { font-size: 10px; color: #86868B; margin-top: 4px; }
+
+    .text-link-demo {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1D1D1F;
+      border-bottom: 1px solid #1D1D1F;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* Cards panel */
+    .card-demo {
+      background: #F5F5F7;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .card-demo .icon {
+      width: 36px;
+      height: 36px;
+      background: #F0E868;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1D1D1F;
+      margin-bottom: 10px;
+    }
+    .card-demo h4 { font-size: 14px; font-weight: 700; color: #1D1D1F; }
+    .card-demo p { font-size: 11px; color: #6E6E73; margin-top: 4px; line-height: 1.5; }
+    .card-spec { font-size: 10px; color: #86868B; }
+
+    /* Nav panel */
+    .nav-demo {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .nav-demo-logo { font-weight: 800; font-size: 13px; color: #1D1D1F; }
+    .nav-demo-links { display: flex; gap: 14px; }
+    .nav-demo-links span { font-size: 11px; color: #6E6E73; }
+    .nav-demo-cta {
+      background: #F0E868;
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #1D1D1F;
+    }
+
+    /* Grid/Spacing panel */
+    .grid-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .grid-cell {
+      height: 40px;
+      background: #F5F5F7;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #86868B;
+    }
+    .spacing-list { font-size: 11px; color: #6E6E73; line-height: 2; }
+    .spacing-list strong { color: #1D1D1F; font-weight: 600; }
+
+    /* Animations panel */
+    .anim-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .anim-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #F0E868;
+      flex-shrink: 0;
+    }
+    .anim-dot.faded { opacity: 0.3; }
+    .anim-dot.lifted { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .anim-text { font-size: 11px; color: #6E6E73; }
+    .anim-text strong { color: #1D1D1F; font-weight: 600; display: block; font-size: 12px; }
+
+    /* Accent bar */
+    .accent-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: #F0E868;
+    }
+
+    /* Scale for screen */
+    @media (max-width: 1920px) {
+      .slide {
+        transform: scale(0.55);
+        margin: -240px -432px;
+      }
+    }
+    @media (max-width: 1200px) {
+      .slide {
+        transform: scale(0.4);
+        margin: -324px -576px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slide">
+  <!-- Header -->
+  <div class="header">
+    <span class="header-logo">ОГНИ ЭЛЬФОВ</span>
+    <span class="header-title">Дизайн-система · 2026</span>
+  </div>
+
+  <div class="main">
+    <!-- Philosophy row -->
+    <div class="philosophy">
+      <h1>Дизайн-система</h1>
+      <p>Минимализм Apple: чёрно-белая база, один акцентный цвет, максимум пространства. Каждый элемент несёт функцию — нет декора ради декора.</p>
+    </div>
+
+    <!-- Row 2: Colors | Typography | Buttons | Cards -->
+    <div class="panel">
+      <div class="panel-label">Цвета</div>
+      <div class="colors-grid">
+        <div class="color-item">
+          <div class="color-swatch bordered" style="background:#FFFFFF"></div>
+          <div class="color-hex">#FFFFFF</div>
+          <div class="color-name">Фон</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#1D1D1F"></div>
+          <div class="color-hex">#1D1D1F</div>
+          <div class="color-name">Текст</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#6E6E73"></div>
+          <div class="color-hex">#6E6E73</div>
+          <div class="color-name">Описания</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#86868B"></div>
+          <div class="color-hex">#86868B</div>
+          <div class="color-name">Подписи</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#F5F5F7"></div>
+          <div class="color-hex">#F5F5F7</div>
+          <div class="color-name">Секции</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background:#F0E868"></div>
+          <div class="color-hex">#F0E868</div>
+          <div class="color-name">Акцент</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Типографика · Onest</div>
+      <div class="type-heading-demo">Мерч под ключ</div>
+      <div class="type-body-demo">Собственное производство в Москве, 20 лет опыта</div>
+      <div style="margin-top:16px">
+        <div class="type-sample"><span class="weight" style="font-weight:800;font-size:16px">Extrabold 800</span><div class="meta">H1, цифры — 72px</div></div>
+        <div class="type-sample"><span class="weight" style="font-weight:700;font-size:14px">Bold 700</span><div class="meta">H2–H3 — 36–48px</div></div>
+        <div class="type-sample"><span class="weight" style="font-weight:600;font-size:13px">Semibold 600</span><div class="meta">Кнопки, подписи</div></div>
+        <div class="type-sample"><span class="weight" style="font-weight:400;font-size:12px">Regular 400</span><div class="meta">Основной текст — 14px</div></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Кнопки</div>
+      <div>
+        <div class="btn-demo btn-primary">Обсудить проект</div>
+        <div class="btn-spec">Primary · pill · #F0E868 · semibold</div>
+      </div>
+      <div style="margin-top:16px">
+        <div class="btn-demo btn-outline">Смотреть каталог</div>
+        <div class="btn-spec">Outline · pill · border 1.5px</div>
+      </div>
+      <div style="margin-top:16px">
+        <div class="text-link-demo">Подробнее &rarr;</div>
+        <div class="btn-spec">Text link · underline · medium</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Карточки</div>
+      <div class="card-demo">
+        <div class="icon">&#10022;</div>
+        <h4>Мерч с нуля</h4>
+        <p>От идеи до доставки в офис</p>
+      </div>
+      <div class="card-spec">
+        bg: #F5F5F7 &middot; radius: 16px &middot; padding: 32px<br>
+        hover: translateY(-4px) + shadow<br>
+        icon: 48&times;48 · #F0E868 · radius 12px
+      </div>
+    </div>
+
+    <!-- Row 3: Navigation | Grid & Spacing | Animations | Principle -->
+    <div class="panel">
+      <div class="panel-label">Навигация</div>
+      <div class="nav-demo">
+        <span class="nav-demo-logo">ОГНИ ЭЛЬФОВ</span>
+        <div class="nav-demo-links">
+          <span>Услуги</span>
+          <span>Каталог</span>
+          <span>Кейсы</span>
+        </div>
+        <span class="nav-demo-cta">CTA</span>
+      </div>
+      <div class="card-spec">
+        Fixed top · frosted glass<br>
+        backdrop-filter: blur(20px)<br>
+        bg: rgba(255,255,255, 0.85)<br>
+        border-bottom: rgba(0,0,0, 0.06)<br>
+        height: 64px
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Сетка и отступы</div>
+      <div class="grid-demo">
+        <div class="grid-cell">col</div>
+        <div class="grid-cell">col</div>
+        <div class="grid-cell">col</div>
+      </div>
+      <div class="spacing-list">
+        <strong>Контейнер:</strong> max 1280px<br>
+        <strong>Padding:</strong> 24px (px-6)<br>
+        <strong>Секции:</strong> py-24 / py-32<br>
+        <strong>Сетка:</strong> 1–4 col responsive<br>
+        <strong>Gap:</strong> 24–32px
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Анимации</div>
+      <div class="anim-item">
+        <div class="anim-dot faded"></div>
+        <div class="anim-dot"></div>
+        <div class="anim-text">
+          <strong>Fade-in on scroll</strong>
+          opacity 0&rarr;1, Y +20&rarr;0, 600ms
+        </div>
+      </div>
+      <div class="anim-item">
+        <div class="anim-dot" style="opacity:0.4"></div>
+        <div class="anim-dot" style="opacity:0.7"></div>
+        <div class="anim-dot"></div>
+        <div class="anim-text">
+          <strong>Stagger</strong>
+          +100ms delay между элементами
+        </div>
+      </div>
+      <div class="anim-item">
+        <div class="anim-dot lifted"></div>
+        <div class="anim-text">
+          <strong>Card hover</strong>
+          Y -4px, shadow 0 8px 30px
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" style="background:#1D1D1F; display:flex; flex-direction:column; justify-content:center;">
+      <div class="panel-label" style="color:#86868B">Принцип</div>
+      <p style="color:#fff; font-size:20px; font-weight:700; line-height:1.4; letter-spacing:-0.02em;">
+        Чёрное.<br>
+        Белое.<br>
+        <span style="color:#F0E868">Lemon Tonic</span> — только<br>
+        для главного.
+      </p>
+      <p style="color:#86868B; font-size:11px; margin-top:16px; line-height:1.6;">
+        Стиль Apple: минимум элементов,<br>максимум пространства и смысла.
+      </p>
+    </div>
+  </div>
+
+  <!-- Accent bar -->
+  <div class="accent-bar"></div>
+</div>
+
+</body>
+</html>

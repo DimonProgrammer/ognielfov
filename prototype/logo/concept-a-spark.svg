@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@800&amp;display=swap');
+  </style>
+
+  <!-- Sharp Spark Symbol — 4-pointed asymmetric star -->
+  <g transform="translate(42, 60)">
+    <!-- Bottom point -->
+    <polygon points="0,28 -5,3 5,3" fill="#1D1D1F"/>
+    <!-- Left point -->
+    <polygon points="-26,0 -3,-5 -3,5" fill="#1D1D1F"/>
+    <!-- Right point -->
+    <polygon points="26,0 3,-5 3,5" fill="#1D1D1F"/>
+    <!-- Top point — taller for dynamism -->
+    <polygon points="0,-34 -5,-3 5,-3" fill="#1D1D1F"/>
+    <!-- Top-right diagonal accent spark — lime -->
+    <polygon points="19,-22 3,-4 8,1" fill="#C6F24E"/>
+    <!-- Center diamond -->
+    <rect x="-5.5" y="-5.5" width="11" height="11" transform="rotate(45)" fill="#1D1D1F"/>
+  </g>
+
+  <!-- Brand text — single line -->
+  <text
+    x="88"
+    y="48"
+    font-family="Onest, sans-serif"
+    font-weight="800"
+    font-size="22"
+    letter-spacing="-0.03em"
+    fill="#1D1D1F"
+  >ОГНИ</text>
+
+  <text
+    x="88"
+    y="76"
+    font-family="Onest, sans-serif"
+    font-weight="800"
+    font-size="22"
+    letter-spacing="-0.03em"
+    fill="#1D1D1F"
+  >ЭЛЬФОВ</text>
+</svg>

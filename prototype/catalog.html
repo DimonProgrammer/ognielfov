@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Каталог мерча и продукции для брендирования | Огни Эльфов</title>
+  <meta name="description" content="Футболки, худи, аксессуары, посуда, канцелярия, текстиль для нанесения логотипа. Цены от 120 ₽. Собственное производство, Москва.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Каталог мерча и продукции для брендирования | Огни Эльфов">
+  <meta property="og:description" content="Футболки, худи, аксессуары, посуда, канцелярия, текстиль для нанесения логотипа. Цены от 120 ₽. Собственное производство, Москва.">
+  <meta property="og:image" content="https://elfprint.ru/og-image.jpg">
+  <meta property="og:url" content="https://elfprint.ru/catalog">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Огни Эльфов">
+
+  <link rel="canonical" href="https://elfprint.ru/catalog">
+
+  <!-- Google Fonts: Onest 300-900 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Onest', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: '#1D1D1F',
+            secondary: '#6E6E73',
+            tertiary: '#86868B',
+            accent: '#C6F24E',
+            'bg-secondary': '#F5F5F7',
+          },
+          maxWidth: {
+            container: '1280px',
+          },
+          letterSpacing: {
+            heading: '-0.03em',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Каталог мерча и продукции для брендирования",
+    "description": "Футболки, худи, аксессуары, посуда, канцелярия, текстиль для нанесения логотипа. Цены от 120 ₽.",
+    "url": "https://elfprint.ru/catalog",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Огни Эльфов",
+      "url": "https://elfprint.ru"
+    }
+  }
+  </script>
+</head>
+<body class="bg-white text-[#1D1D1F] font-sans antialiased">
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-[1280px] mx-auto px-6 flex items-center justify-between h-16">
+      <a href="index.html" class="font-extrabold text-lg tracking-tight">ОГНИ ЭЛЬФОВ</a>
+      <div class="hidden md:flex items-center gap-7">
+        <a href="uslugi.html" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Услуги</a>
+        <a href="catalog.html" class="text-sm font-medium text-[#1D1D1F]">Каталог</a>
+        <a href="portfolio.html" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Кейсы</a>
+        <a href="o-kompanii.html" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">О нас</a>
+        <a href="kontakty.html" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Контакты</a>
+      </div>
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="tel:+74953804032" class="text-sm font-medium text-[#1D1D1F] hover:opacity-70 transition-opacity">+7 (495) 380-40-32</a>
+        <div class="flex items-center gap-2">
+          <a href="https://t.me/FiresElfs" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="Telegram" target="_blank" rel="noopener">TG</a>
+          <a href="#" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="VKontakte">VK</a>
+          <a href="https://wa.me/79152648880" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="WhatsApp" target="_blank" rel="noopener">WA</a>
+        </div>
+        <a href="#cta" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+      </div>
+      <a href="#cta" class="lg:hidden btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO — CATALOG ==================== -->
+  <section class="pt-32 pb-16 md:pt-40 md:pb-20">
+    <div class="max-w-[1280px] mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-heading leading-tight reveal">Каталог мерча для брендирования</h1>
+      <p class="text-lg md:text-xl text-[#6E6E73] mt-6 max-w-2xl mx-auto leading-relaxed reveal">Футболки, худи, аксессуары, посуда, канцелярия — всё доступно для нанесения логотипа 6 технологиями</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10 reveal">
+        <a href="#cta" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm">Обсудить заказ</a>
+        <a href="#" class="btn-pill border border-[#D1D1D6] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm hover:border-[#1D1D1F] transition-colors">Скачать прайс &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PRODUCT CARDS GRID ==================== -->
+  <section class="bg-[#F5F5F7] py-20 md:py-28">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
+
+        <!-- Featured: Одежда (col-span-2 row-span-2) -->
+        <a href="catalog-odezhda.html" class="sm:col-span-2 sm:row-span-2 bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 md:h-72 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5 md:p-6">
+            <h3 class="text-xl md:text-2xl font-bold tracking-heading">Одежда</h3>
+            <p class="text-sm text-[#6E6E73] mt-2 leading-relaxed">Футболки 180г/240г, лонгсливы 210г, худи 340г оверсайз</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от 184 ₽/шт.</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Аксессуары -->
+        <a href="#" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Аксессуары</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Шопперы, рюкзаки, кепки, зонты</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от 250 ₽/шт.</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Посуда -->
+        <a href="#" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Посуда</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Кружки, термосы, бутылки</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от 450 ₽</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Канцелярия -->
+        <a href="#" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Канцелярия</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Ручки, блокноты, ежедневники</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от 120 ₽</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Текстиль -->
+        <a href="#" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Текстиль</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Полотенца, пледы, подушки</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от 590 ₽</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Электроника -->
+        <a href="#" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Электроника</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Повербанки, колонки, наушники</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от 990 ₽</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TECHNOLOGIES STRIP ==================== -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading text-center reveal">Доступные технологии нанесения</h2>
+      <div class="flex flex-wrap justify-center gap-3 mt-10 reveal">
+        <a href="#" class="btn-pill border border-[#D1D1D6] text-[#1D1D1F] px-6 py-2.5 text-sm font-medium hover:border-[#1D1D1F] transition-colors">DTF от 10 шт.</a>
+        <a href="#" class="btn-pill border border-[#D1D1D6] text-[#1D1D1F] px-6 py-2.5 text-sm font-medium hover:border-[#1D1D1F] transition-colors">Шелкография от 100 шт.</a>
+        <a href="#" class="btn-pill border border-[#D1D1D6] text-[#1D1D1F] px-6 py-2.5 text-sm font-medium hover:border-[#1D1D1F] transition-colors">Сублимация</a>
+        <a href="#" class="btn-pill border border-[#D1D1D6] text-[#1D1D1F] px-6 py-2.5 text-sm font-medium hover:border-[#1D1D1F] transition-colors">Вышивка от 100 шт.</a>
+        <a href="#" class="btn-pill border border-[#D1D1D6] text-[#1D1D1F] px-6 py-2.5 text-sm font-medium hover:border-[#1D1D1F] transition-colors">УФ-печать</a>
+        <a href="#" class="btn-pill border border-[#D1D1D6] text-[#1D1D1F] px-6 py-2.5 text-sm font-medium hover:border-[#1D1D1F] transition-colors">Тампопечать</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA — LIGHT ==================== -->
+  <section class="bg-[#F5F5F7] py-20 md:py-24">
+    <div class="max-w-[1280px] mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading reveal">Не нашли нужную категорию?</h2>
+      <p class="text-lg text-[#6E6E73] mt-4 max-w-2xl mx-auto leading-relaxed reveal">У нас более 1 000 наименований для брендирования. Расскажите о задаче — подберём продукцию и рассчитаем стоимость</p>
+      <div class="mt-8 reveal">
+        <a href="#cta" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm inline-block">Обсудить заказ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA — Dark Panel with Split Layout ==================== -->
+  <section id="cta" class="dark-cta py-24 md:py-32">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <!-- LEFT: heading, description, messenger links -->
+        <div class="lg:w-1/2 reveal">
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">Обсудить проект</h2>
+          <p class="text-[#86868B] text-lg mt-4 max-w-md leading-relaxed">Расскажите о вашей задаче — подберём решение и рассчитаем стоимость. Ответим за 30 минут</p>
+          <p class="text-sm text-[#86868B] mt-8">Или напишите в мессенджер:</p>
+          <div class="flex gap-4 mt-3">
+            <a href="https://t.me/FiresElfs" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">Telegram</a>
+            <a href="https://wa.me/79152648880" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <!-- RIGHT: white form card -->
+        <div class="lg:w-1/2 w-full reveal">
+          <div class="cta-form-card p-8 md:p-10">
+            <h3 class="font-bold text-xl text-[#1D1D1F]">Оставить заявку</h3>
+            <form class="mt-6 flex flex-col gap-4">
+              <input type="text" name="name" placeholder="Ваше имя" class="bg-[#F5F5F7] rounded-xl px-5 py-3.5 border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#C6F24E]">
+              <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" class="bg-[#F5F5F7] rounded-xl px-5 py-3.5 border border-[#E5E5E5] text-sm focus:outline-none focus:border-[#C6F24E]">
+              <button type="submit" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm w-full">Отправить заявку</button>
+              <label class="flex items-start gap-2 text-xs text-[#86868B]">
+                <input type="checkbox" name="consent" required class="mt-0.5 accent-[#C6F24E]">
+                <span>Согласен на <a href="#" class="underline hover:text-[#6E6E73]">обработку персональных данных</a></span>
+              </label>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+<footer class="bg-[#1D1D1F] text-white py-16">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Company info -->
+      <div>
+        <a href="index.html" aria-label="Огни Эльфов"><svg viewBox="0 0 160 44" class="h-8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="4" height="40" rx="1" fill="#FFFFFF"/><rect x="7" y="2" width="6" height="40" rx="1" fill="#FFFFFF"/><rect x="16" y="2" width="9" height="40" rx="1" fill="#FFFFFF"/><rect x="28" y="2" width="13" height="40" rx="1" fill="#C6F24E"/><text x="50" y="18" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ОГНИ</text><text x="50" y="36" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ЭЛЬФОВ</text></svg></a>
+        <p class="text-sm text-[#86868B] mt-2">Корпоративный мерч под ключ</p>
+        <p class="text-sm text-[#86868B] mt-4">г. Москва, ул. Фабричная, д. 6, стр. 1</p>
+        <p class="text-xs text-[#86868B] mt-1">Фабрика &laquo;Победа труда&raquo;</p>
+        <div class="mt-4 inline-flex items-center gap-1.5 bg-[#2A2A2C] rounded-lg px-3 py-2">
+          <span class="text-[#FFB800] text-sm">&#9733;</span>
+          <span class="text-white text-sm font-semibold">4.9</span>
+          <span class="text-[#86868B] text-xs">Яндекс.Отзывы</span>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <div>
+        <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Навигация</h4>
+        <nav class="flex flex-col gap-3">
+          <a href="uslugi.html" class="text-sm text-[#86868B] hover:text-white transition-colors">Услуги</a>
+          <a href="catalog.html" class="text-sm text-[#86868B] hover:text-white transition-colors">Каталог</a>
+          <a href="portfolio.html" class="text-sm text-[#86868B] hover:text-white transition-colors">Кейсы</a>
+          <a href="blog.html" class="text-sm text-[#86868B] hover:text-white transition-colors">Блог</a>
+          <a href="kontakty.html" class="text-sm text-[#86868B] hover:text-white transition-colors">Контакты</a>
+        </nav>
+      </div>
+      <!-- Contacts & Social -->
+      <div>
+        <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Контакты</h4>
+        <p class="text-sm text-white font-medium"><a href="tel:+74953804032" class="hover:opacity-80 transition-opacity">+7 (495) 380-40-32</a></p>
+        <p class="text-sm text-[#86868B] mt-2">info@elfprint.ru</p>
+        <div class="flex flex-col gap-2 mt-4">
+          <a href="https://t.me/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">Telegram</a>
+          <a href="#" class="text-sm text-[#86868B] hover:text-white transition-colors">VKontakte</a>
+          <a href="https://wa.me/79152648880" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="mt-4 pt-4 border-t border-[#333]">
+          <p class="text-xs text-[#86868B]">ИНН: 7 721 525 448</p>
+          <p class="text-xs text-[#86868B] mt-1">ОГРН: 1 057 746 319 432</p>
+        </div>
+      </div>
+      <!-- Yandex Maps widget placeholder -->
+      <div>
+        <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Мы на карте</h4>
+        <div class="bg-[#2A2A2C] rounded-2xl h-48 flex items-center justify-center">
+          <p class="text-xs text-[#86868B] text-center px-4">Виджет Яндекс.Карт</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-[#333] mt-12 pt-8 flex flex-col md:flex-row justify-between gap-4">
+      <p class="text-xs text-[#86868B]">&copy; 2026 Огни Эльфов. Все права защищены.</p>
+      <div class="flex gap-4">
+        <a href="#" class="text-xs text-[#86868B] hover:text-white transition-colors">Политика конфиденциальности</a>
+        <span class="text-xs text-[#86868B]">|</span>
+        <a href="#" class="text-xs text-[#86868B] hover:text-white transition-colors">Оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="js/animations.js"></script>
+</body>
+</html>

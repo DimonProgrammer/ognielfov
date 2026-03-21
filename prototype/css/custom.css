@@ -40,3 +40,176 @@
 .reveal-stagger > .reveal:nth-child(4) { transition-delay: 300ms; }
 .reveal-stagger > .reveal:nth-child(5) { transition-delay: 400ms; }
 .reveal-stagger > .reveal:nth-child(6) { transition-delay: 500ms; }
+
+/* ======== TRUST LOGOS MARQUEE ======== */
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ======== STATS STRIP ======== */
+.stats-strip {
+  background: #C6F24E;
+  width: 100%;
+}
+.stats-strip .stat-divider {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  align-self: stretch;
+}
+
+/* CountUp animation */
+.count-up {
+  display: inline-block;
+}
+
+/* ======== PROCESS STEPPER ======== */
+.step-connector {
+  position: relative;
+}
+.step-connector::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(50% + 36px);
+  width: calc(100% - 72px);
+  height: 2px;
+  border-top: 2px dashed #D1D1D6;
+  transition: border-color 0.6s ease;
+}
+.step-connector.visible::after {
+  border-top-color: #C6F24E;
+  border-top-style: solid;
+}
+/* Hide connector on last step */
+.step-connector:last-child::after {
+  display: none;
+}
+/* Mobile: vertical connector */
+@media (max-width: 767px) {
+  .step-connector::after {
+    top: 56px;
+    left: 50%;
+    width: 2px;
+    height: calc(100% - 56px);
+    border-top: none;
+    border-left: 2px dashed #D1D1D6;
+    transform: translateX(-50%);
+  }
+  .step-connector.visible::after {
+    border-left-color: #C6F24E;
+    border-left-style: solid;
+    border-top: none;
+  }
+}
+
+/* ======== HORIZONTAL SCROLL (TECHNOLOGIES) ======== */
+.scroll-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.scroll-container:active {
+  cursor: grabbing;
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.scroll-container > * {
+  scroll-snap-align: start;
+}
+.scroll-fade {
+  position: relative;
+}
+.scroll-fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(to right, transparent, #F5F5F7);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ======== TESTIMONIALS MARQUEE ======== */
+.marquee-row {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+}
+.marquee-row-left {
+  animation: marquee-left 40s linear infinite;
+}
+.marquee-row-right {
+  animation: marquee-right 40s linear infinite;
+}
+.marquee-row:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.testimonial-card {
+  width: 320px;
+  min-width: 320px;
+  flex-shrink: 0;
+}
+
+/* ======== FAQ SPLIT ======== */
+.faq-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+@media (min-width: 768px) {
+  .faq-split {
+    grid-template-columns: 2fr 3fr;
+    gap: 64px;
+  }
+}
+.faq-sticky {
+  position: static;
+}
+@media (min-width: 768px) {
+  .faq-sticky {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+  }
+}
+
+/* ======== DARK CTA PANEL ======== */
+.dark-cta {
+  background: #1D1D1F;
+  color: #FFFFFF;
+}
+.dark-cta .cta-form-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.dark-cta input[type="text"],
+.dark-cta input[type="tel"] {
+  color: #1D1D1F;
+}

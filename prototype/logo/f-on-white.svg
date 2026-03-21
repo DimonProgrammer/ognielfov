@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Onest:wght@800&amp;display=swap');</style>
+  <!-- White bg: bars #1D1D1F, accent bar #C6F24E, text #1D1D1F -->
+  <rect x="20" y="38" width="5" height="44" rx="1" fill="#1D1D1F"/>
+  <rect x="29" y="38" width="8" height="44" rx="1" fill="#1D1D1F"/>
+  <rect x="41" y="38" width="12" height="44" rx="1" fill="#1D1D1F"/>
+  <rect x="57" y="38" width="17" height="44" rx="1" fill="#C6F24E"/>
+  <text x="95" y="55" font-family="Onest, sans-serif" font-weight="800" font-size="24" letter-spacing="-0.72" fill="#1D1D1F">ОГНИ</text>
+  <text x="95" y="81" font-family="Onest, sans-serif" font-weight="800" font-size="24" letter-spacing="-0.72" fill="#1D1D1F">ЭЛЬФОВ</text>
+</svg>

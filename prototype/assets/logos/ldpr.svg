@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <rect width="600" height="400" fill="#003DA5"/>
+  <rect x="50" y="50" width="500" height="300" rx="10" fill="#FFD700"/>
+  <text x="300" y="235" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="120" fill="#003DA5">ЛДПР</text>
+</svg>

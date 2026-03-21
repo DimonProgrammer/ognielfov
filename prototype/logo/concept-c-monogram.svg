@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@800&amp;display=swap');
+  </style>
+
+  <!-- Monogram ОЭ Symbol -->
+  <g transform="translate(42, 60)">
+    <!-- О = full circle (stroke only) -->
+    <circle cx="0" cy="0" r="24" fill="none" stroke="#1D1D1F" stroke-width="6"/>
+    <!-- Э right semicircle reinforcement (shares О's right curve) -->
+    <path
+      d="M 0,-24 A 24,24 0 0,1 0,24"
+      fill="none"
+      stroke="#1D1D1F"
+      stroke-width="6"
+      stroke-linecap="round"
+    />
+    <!-- Э horizontal crossbar — lime accent -->
+    <line x1="0" y1="0" x2="22" y2="0" stroke="#C6F24E" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Brand text — stacked -->
+  <text
+    x="88"
+    y="48"
+    font-family="Onest, sans-serif"
+    font-weight="800"
+    font-size="22"
+    letter-spacing="-0.03em"
+    fill="#1D1D1F"
+  >ОГНИ</text>
+
+  <text
+    x="88"
+    y="76"
+    font-family="Onest, sans-serif"
+    font-weight="800"
+    font-size="22"
+    letter-spacing="-0.03em"
+    fill="#1D1D1F"
+  >ЭЛЬФОВ</text>
+</svg>

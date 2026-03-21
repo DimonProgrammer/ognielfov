@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Onest:wght@800&amp;display=swap');
+  </style>
+  <defs>
+    <mask id="circle-cutout">
+      <circle cx="35" cy="60" r="25" fill="white"/>
+      <!-- Angular diamond/spark cutout -->
+      <polygon points="35,38 48,60 35,72 22,60" fill="black"/>
+    </mask>
+  </defs>
+  <!-- Solid circle with geometric negative space -->
+  <circle cx="35" cy="60" r="25" fill="#1D1D1F" mask="url(#circle-cutout)"/>
+  <!-- Small lime accent dot at bottom-right of circle -->
+  <circle cx="56" cy="78" r="3" fill="#C6F24E"/>
+  <!-- Wordmark -->
+  <text x="80" y="56" font-family="Onest, sans-serif" font-weight="800" font-size="24" letter-spacing="-0.72" fill="#1D1D1F" text-anchor="start" dominant-baseline="auto">ОГНИ</text>
+  <text x="80" y="82" font-family="Onest, sans-serif" font-weight="800" font-size="24" letter-spacing="-0.72" fill="#1D1D1F" text-anchor="start" dominant-baseline="auto">ЭЛЬФОВ</text>
+</svg>

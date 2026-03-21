@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Identity — Огни Эльфов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --dark: #1D1D1F;
+      --lime: #C6F24E;
+      --white: #FFFFFF;
+      --gray-bg: #F5F5F7;
+      --text-secondary: #6E6E73;
+      --text-tertiary: #86868B;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Onest', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ─── Section spacing ─── */
+    section {
+      padding: 128px 0;
+    }
+
+    .section-title {
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 48px;
+    }
+
+    .section-heading {
+      font-weight: 800;
+      font-size: 48px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+
+    /* ─── Fade-in animation ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ════════════════════════════════════════════
+       Section 1: Hero
+    ════════════════════════════════════════════ */
+    .hero {
+      background: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 128px 48px;
+    }
+
+    .hero-inner {
+      max-width: 640px;
+    }
+
+    .hero-logo {
+      width: 360px;
+      height: auto;
+      margin-bottom: 64px;
+    }
+
+    .hero-name {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .hero-tagline {
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--text-tertiary);
+    }
+
+    /* ════════════════════════════════════════════
+       Section 2: Concept
+    ════════════════════════════════════════════ */
+    .concept {
+      background: var(--white);
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: center;
+    }
+
+    .concept-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .concept-logo-wrap img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+    }
+
+    .concept-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .concept-points li {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--dark);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .concept-points li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--lime);
+    }
+
+    /* ════════════════════════════════════════════
+       Section 3: Color Versions
+    ════════════════════════════════════════════ */
+    .adaptivity {
+      background: var(--gray-bg);
+    }
+
+    .version-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .version-card {
+      border-radius: 16px;
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 16 / 9;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .version-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .version-card img {
+      width: 320px;
+      height: auto;
+    }
+
+    .version-card--white {
+      background: var(--white);
+      border: 1px solid #E5E5E7;
+    }
+
+    .version-card--dark {
+      background: var(--dark);
+    }
+
+    .version-card--lime {
+      background: var(--lime);
+    }
+
+    .version-card--gray {
+      background: var(--gray-bg);
+      border: 1px solid #E5E5E7;
+    }
+
+    .version-label {
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-top: 12px;
+    }
+
+    .version-note {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════
+       Section 4: Usage Examples
+    ════════════════════════════════════════════ */
+    .usage {
+      background: var(--white);
+    }
+
+    .usage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .mockup {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--gray-bg);
+      position: relative;
+    }
+
+    /* Nav bar mockup */
+    .mockup-nav {
+      aspect-ratio: 16 / 6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mockup-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .mockup-nav-bar img {
+      height: 36px;
+      width: auto;
+    }
+
+    .mockup-nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .mockup-nav-links li {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .mockup-nav-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mockup-nav-body-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .mockup-nav-body-lines span {
+      display: block;
+      height: 6px;
+      border-radius: 3px;
+      background: #E5E5E7;
+    }
+
+    .mockup-label {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Business cards mockup */
+    .mockup-cards {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 32px;
+    }
+
+    .bcard {
+      width: 200px;
+      height: 120px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      flex-shrink: 0;
+    }
+
+    .bcard--front {
+      background: var(--dark);
+      transform: rotate(-3deg);
+    }
+
+    .bcard--front img {
+      width: 140px;
+      height: auto;
+    }
+
+    .bcard--back {
+      background: var(--white);
+      transform: rotate(2deg);
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px;
+    }
+
+    .bcard--back img {
+      width: 100px;
+      height: auto;
+    }
+
+    .bcard--back-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .bcard--back-info span {
+      display: block;
+      height: 3px;
+      border-radius: 2px;
+      background: #E5E5E7;
+    }
+
+    /* Favicon mockup */
+    .mockup-favicon {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 32px;
+    }
+
+    .favicon-demo {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .favicon-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .favicon-square {
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .favicon-square--lg {
+      width: 64px;
+      height: 64px;
+    }
+
+    .favicon-square--md {
+      width: 32px;
+      height: 32px;
+    }
+
+    .favicon-square--sm {
+      width: 16px;
+      height: 16px;
+    }
+
+    .favicon-square svg {
+      width: 70%;
+      height: 70%;
+    }
+
+    .favicon-size {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+    }
+
+    /* Embroidery mockup */
+    .mockup-patch {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: #E8E5DF;
+    }
+
+    .patch-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 0 0 #2a2a2c, 0 4px 0 0 #333335;
+      position: relative;
+    }
+
+    .patch-circle::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(255, 255, 255, 0.2);
+    }
+
+    .patch-circle img {
+      width: 120px;
+      height: auto;
+    }
+
+    /* ════════════════════════════════════════════
+       Section 5: Typography
+    ════════════════════════════════════════════ */
+    .typography {
+      background: var(--gray-bg);
+    }
+
+    .type-specimen {
+      margin-bottom: 64px;
+    }
+
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid #E5E5E7;
+    }
+
+    .type-weight-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    .type-sample {
+      font-size: 36px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .type-sample--400 { font-weight: 400; }
+    .type-sample--600 { font-weight: 600; }
+    .type-sample--800 { font-weight: 800; }
+
+    .type-alphabet {
+      margin-bottom: 64px;
+    }
+
+    .type-alphabet-heading {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .type-alphabet-chars {
+      font-weight: 800;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+      color: var(--dark);
+    }
+
+    /* Color palette */
+    .palette-grid {
+      display: flex;
+      gap: 16px;
+    }
+
+    .palette-swatch {
+      flex: 1;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .palette-color {
+      height: 120px;
+    }
+
+    .palette-info {
+      padding: 16px;
+      background: var(--white);
+    }
+
+    .palette-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .palette-hex {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ════════════════════════════════════════════
+       Section 6: Guidelines
+    ════════════════════════════════════════════ */
+    .guidelines {
+      background: var(--white);
+    }
+
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .guideline-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #E5E5E7;
+    }
+
+    .guideline-visual {
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: var(--gray-bg);
+      position: relative;
+    }
+
+    .guideline-visual img {
+      width: 200px;
+      height: auto;
+    }
+
+    .guideline-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+
+    .guideline-badge--do {
+      background: #D4F5A0;
+      color: #2D5016;
+    }
+
+    .guideline-badge--dont {
+      background: #FFD5D5;
+      color: #8B1A1A;
+    }
+
+    .guideline-text {
+      padding: 20px 24px;
+    }
+
+    .guideline-title {
+      font-weight: 800;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .guideline-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Clear space visual */
+    .clearspace-wrap {
+      position: relative;
+      display: inline-flex;
+    }
+
+    .clearspace-border {
+      border: 1.5px dashed var(--lime);
+      padding: 24px;
+      border-radius: 4px;
+    }
+
+    .clearspace-border img {
+      width: 160px !important;
+      height: auto;
+    }
+
+    .clearspace-arrow {
+      position: absolute;
+      font-size: 10px;
+      color: var(--lime);
+      font-weight: 600;
+    }
+
+    .clearspace-arrow--top {
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .clearspace-arrow--left {
+      left: 4px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+    }
+
+    /* Don'ts visual */
+    .dont-examples {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .dont-example {
+      opacity: 0.5;
+    }
+
+    .dont-example--stretch img {
+      width: 100px;
+      height: auto;
+      transform: scaleX(1.5);
+    }
+
+    .dont-example--rotate img {
+      width: 100px;
+      height: auto;
+      transform: rotate(15deg);
+    }
+
+    .dont-example--recolor img {
+      width: 100px;
+      height: auto;
+      filter: hue-rotate(90deg) saturate(2);
+    }
+
+    .dont-cross {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .dont-cross::before,
+    .dont-cross::after {
+      content: '';
+      position: absolute;
+      width: 80%;
+      height: 2px;
+      background: #E53E3E;
+      opacity: 0.4;
+    }
+
+    .dont-cross::before { transform: rotate(45deg); }
+    .dont-cross::after { transform: rotate(-45deg); }
+
+    /* ════════════════════════════════════════════
+       Footer
+    ════════════════════════════════════════════ */
+    .footer {
+      padding: 48px 0;
+      text-align: center;
+      border-top: 1px solid #E5E5E7;
+    }
+
+    .footer p {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      font-weight: 400;
+    }
+
+    /* ════════════════════════════════════════════
+       Responsive
+    ════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .container { padding: 0 32px; }
+      section { padding: 96px 0; }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .version-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .usage-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .guidelines-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .palette-grid {
+        flex-wrap: wrap;
+      }
+
+      .palette-swatch {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 140px;
+      }
+
+      .section-heading {
+        font-size: 36px;
+      }
+
+      .hero-logo {
+        width: 280px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      section { padding: 72px 0; }
+      .hero { padding: 72px 20px; }
+
+      .section-heading {
+        font-size: 28px;
+      }
+
+      .hero-logo {
+        width: 220px;
+      }
+
+      .mockup-cards {
+        gap: 12px;
+      }
+
+      .bcard {
+        width: 140px;
+        height: 84px;
+      }
+
+      .bcard--front img { width: 100px; }
+      .bcard--back img { width: 70px; }
+
+      .type-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .type-sample {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════
+       Section 1: Hero
+  ════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner fade-in">
+      <img src="f-on-dark.svg" alt="Огни Эльфов — логотип" class="hero-logo" width="400" height="120">
+      <div class="hero-name">Огни Эльфов</div>
+      <div class="hero-tagline">Корпоративный мерч под ключ</div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       Section 2: Concept
+  ════════════════════════════════════════════ -->
+  <section class="concept">
+    <div class="container">
+      <div class="section-title fade-in">Идея</div>
+      <div class="concept-grid">
+        <div class="concept-logo-wrap fade-in">
+          <img src="f-on-white.svg" alt="Логотип Огни Эльфов на белом фоне" width="400" height="120">
+        </div>
+        <div class="fade-in">
+          <ul class="concept-points">
+            <li>20 лет роста — от первого станка до фабрики на 9 000 изделий в смену. Знак фиксирует эту динамику: четыре полосы нарастающей мощности.</li>
+            <li>Lime-акцент — это не декор, а маркер. Он мгновенно выделяет логотип в ленте клиентских логотипов и на полке с мерчем. На вышивке и на визитке читается одинаково.</li>
+            <li>Знак работает без привязки к конкретному продукту: он одинаково органичен на худи для Яндекса, на упаковке для WB-продавца и на визитке для Лукойла.</li>
+            <li>Минимум элементов — максимум узнаваемости. Никаких шестерёнок, огней и эльфов. Чистая геометрия для компании, которая делает, а не рассказывает.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       Section 3: Color Versions
+  ════════════════════════════════════════════ -->
+  <section class="adaptivity">
+    <div class="container">
+      <div class="section-title fade-in">Адаптивность</div>
+      <div class="version-grid">
+        <div class="fade-in">
+          <div class="version-card version-card--white">
+            <img src="f-on-white.svg" alt="Логотип на белом фоне" width="320" height="96">
+          </div>
+          <div class="version-label">На белом фоне</div>
+        </div>
+        <div class="fade-in">
+          <div class="version-card version-card--dark">
+            <img src="f-on-dark.svg" alt="Логотип на тёмном фоне" width="320" height="96">
+          </div>
+          <div class="version-label">На тёмном фоне</div>
+        </div>
+        <div class="fade-in">
+          <div class="version-card version-card--lime">
+            <img src="f-on-lime.svg" alt="Логотип на lime фоне" width="320" height="96">
+          </div>
+          <div class="version-label">На акцентном фоне</div>
+        </div>
+        <div class="fade-in">
+          <div class="version-card version-card--gray">
+            <img src="f-on-gray.svg" alt="Логотип на сером фоне" width="320" height="96">
+          </div>
+          <div class="version-label">На сером фоне</div>
+        </div>
+      </div>
+      <p class="version-note fade-in">Акцентная полоса всегда контрастирует с фоном: lime на нейтральных подложках, белая на акцентном фоне. Это обеспечивает узнаваемость логотипа в любом контексте.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       Section 4: Usage Examples
+  ════════════════════════════════════════════ -->
+  <section class="usage">
+    <div class="container">
+      <div class="section-title fade-in">Применение</div>
+      <div class="usage-grid">
+
+        <!-- Nav bar mockup -->
+        <div class="mockup mockup-nav fade-in">
+          <div class="mockup-nav-bar">
+            <img src="f-on-white.svg" alt="Логотип в навигации" width="120" height="36">
+            <ul class="mockup-nav-links">
+              <li>Каталог</li>
+              <li>Услуги</li>
+              <li>Портфолио</li>
+              <li>Контакты</li>
+            </ul>
+          </div>
+          <div class="mockup-nav-body">
+            <div class="mockup-nav-body-lines">
+              <span style="width: 200px;"></span>
+              <span style="width: 260px;"></span>
+              <span style="width: 160px;"></span>
+            </div>
+          </div>
+          <span class="mockup-label">Навигация сайта</span>
+        </div>
+
+        <!-- Business cards mockup -->
+        <div class="mockup mockup-cards fade-in">
+          <div class="bcard bcard--front">
+            <img src="f-on-dark.svg" alt="Визитка лицевая сторона" width="140" height="42">
+          </div>
+          <div class="bcard bcard--back">
+            <img src="f-on-white.svg" alt="Визитка обратная сторона" width="100" height="30">
+            <div class="bcard--back-info">
+              <span style="width: 70px;"></span>
+              <span style="width: 50px;"></span>
+              <span style="width: 60px;"></span>
+            </div>
+          </div>
+          <span class="mockup-label">Визитные карточки</span>
+        </div>
+
+        <!-- Favicon mockup -->
+        <div class="mockup mockup-favicon fade-in">
+          <div class="favicon-demo">
+            <div class="favicon-box">
+              <div class="favicon-square favicon-square--lg">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="14" width="6" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="19" y="14" width="9" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="31" y="14" width="13" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="47" y="14" width="17" height="36" rx="1.5" fill="#C6F24E"/>
+                </svg>
+              </div>
+              <span class="favicon-size">64 x 64</span>
+            </div>
+            <div class="favicon-box">
+              <div class="favicon-square favicon-square--md">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="14" width="6" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="19" y="14" width="9" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="31" y="14" width="13" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="47" y="14" width="17" height="36" rx="1.5" fill="#C6F24E"/>
+                </svg>
+              </div>
+              <span class="favicon-size">32 x 32</span>
+            </div>
+            <div class="favicon-box">
+              <div class="favicon-square favicon-square--sm">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="14" width="6" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="19" y="14" width="9" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="31" y="14" width="13" height="36" rx="1.5" fill="#1D1D1F"/>
+                  <rect x="47" y="14" width="17" height="36" rx="1.5" fill="#C6F24E"/>
+                </svg>
+              </div>
+              <span class="favicon-size">16 x 16</span>
+            </div>
+          </div>
+          <span class="mockup-label">Фавикон</span>
+        </div>
+
+        <!-- Embroidery patch mockup -->
+        <div class="mockup mockup-patch fade-in">
+          <div class="patch-circle">
+            <img src="f-on-dark.svg" alt="Логотип на нашивке" width="120" height="36">
+          </div>
+          <span class="mockup-label" style="color: var(--text-secondary);">Вышивка / нашивка</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       Section 5: Typography
+  ════════════════════════════════════════════ -->
+  <section class="typography">
+    <div class="container">
+      <div class="section-title fade-in">Типографика</div>
+
+      <div class="type-specimen fade-in">
+        <div class="type-row">
+          <span class="type-weight-label">Regular 400</span>
+          <span class="type-sample type-sample--400">Огни Эльфов — мерч под ключ</span>
+        </div>
+        <div class="type-row">
+          <span class="type-weight-label">Semibold 600</span>
+          <span class="type-sample type-sample--600">Огни Эльфов — мерч под ключ</span>
+        </div>
+        <div class="type-row">
+          <span class="type-weight-label">Extrabold 800</span>
+          <span class="type-sample type-sample--800">Огни Эльфов — мерч под ключ</span>
+        </div>
+      </div>
+
+      <div class="type-alphabet fade-in">
+        <div class="type-alphabet-heading">Кириллица, Onest 800</div>
+        <div class="type-alphabet-chars">
+          А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <div class="type-alphabet-heading" style="margin-bottom: 20px;">Цветовая палитра</div>
+        <div class="palette-grid">
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #1D1D1F;"></div>
+            <div class="palette-info">
+              <div class="palette-name">Dark</div>
+              <div class="palette-hex">#1D1D1F</div>
+            </div>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #C6F24E;"></div>
+            <div class="palette-info">
+              <div class="palette-name">Lime Accent</div>
+              <div class="palette-hex">#C6F24E</div>
+            </div>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #FFFFFF; border: 1px solid #E5E5E7; border-bottom: none;"></div>
+            <div class="palette-info">
+              <div class="palette-name">White</div>
+              <div class="palette-hex">#FFFFFF</div>
+            </div>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #F5F5F7; border: 1px solid #E5E5E7; border-bottom: none;"></div>
+            <div class="palette-info">
+              <div class="palette-name">Gray</div>
+              <div class="palette-hex">#F5F5F7</div>
+            </div>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #6E6E73;"></div>
+            <div class="palette-info">
+              <div class="palette-name">Secondary</div>
+              <div class="palette-hex">#6E6E73</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       Section 6: Guidelines
+  ════════════════════════════════════════════ -->
+  <section class="guidelines">
+    <div class="container">
+      <div class="section-title fade-in">Правила</div>
+      <div class="guidelines-grid">
+
+        <!-- DO: correct SVG per background -->
+        <div class="guideline-card fade-in">
+          <div class="guideline-visual">
+            <span class="guideline-badge guideline-badge--do">Do</span>
+            <div style="display: flex; gap: 12px;">
+              <div style="width: 88px; height: 56px; background: var(--dark); border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                <img src="f-on-dark.svg" alt="" width="72" height="22" style="width: 72px;">
+              </div>
+              <div style="width: 88px; height: 56px; background: var(--white); border: 1px solid #E5E5E7; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                <img src="f-on-white.svg" alt="" width="72" height="22" style="width: 72px;">
+              </div>
+            </div>
+          </div>
+          <div class="guideline-text">
+            <div class="guideline-title">Версия под фон</div>
+            <div class="guideline-desc">Используйте правильную версию SVG, соответствующую цвету подложки.</div>
+          </div>
+        </div>
+
+        <!-- DO: clear space -->
+        <div class="guideline-card fade-in">
+          <div class="guideline-visual">
+            <span class="guideline-badge guideline-badge--do">Do</span>
+            <div class="clearspace-wrap">
+              <span class="clearspace-arrow clearspace-arrow--top">X</span>
+              <span class="clearspace-arrow clearspace-arrow--left">X</span>
+              <div class="clearspace-border">
+                <img src="f-on-white.svg" alt="" width="160" height="48">
+              </div>
+            </div>
+          </div>
+          <div class="guideline-text">
+            <div class="guideline-title">Охранное поле</div>
+            <div class="guideline-desc">Вокруг логотипа сохраняйте свободное пространство не менее высоты одной полосы символа.</div>
+          </div>
+        </div>
+
+        <!-- DON'T -->
+        <div class="guideline-card fade-in">
+          <div class="guideline-visual" style="position: relative;">
+            <span class="guideline-badge guideline-badge--dont">Don't</span>
+            <div style="display: flex; gap: 16px; align-items: center;">
+              <div style="position: relative;">
+                <img src="f-on-white.svg" alt="" width="80" height="24" style="width: 80px; transform: scaleX(1.4); opacity: 0.4;">
+              </div>
+              <div style="position: relative;">
+                <img src="f-on-white.svg" alt="" width="80" height="24" style="width: 80px; transform: rotate(12deg); opacity: 0.4;">
+              </div>
+            </div>
+            <div class="dont-cross"></div>
+          </div>
+          <div class="guideline-text">
+            <div class="guideline-title">Искажения</div>
+            <div class="guideline-desc">Не растягивайте, не поворачивайте, не меняйте цвета и не добавляйте эффекты к логотипу.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       Footer
+  ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <p>Огни Эльфов &copy; 2026 — Brand Identity</p>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════
+       Scroll animations
+  ════════════════════════════════════════════ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var targets = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      targets.forEach(function (el) { observer.observe(el); });
+    });
+  </script>
+
+</body>
+</html>
