@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мерч-сайт — Итоги исследований</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f13; color: #e2e2e8; line-height: 1.6; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 24px; }
+
+  .header { text-align: center; margin-bottom: 56px; }
+  .badge { display: inline-block; background: #1e1e2e; border: 1px solid #2a2a3e; color: #7c7c99; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
+  h1 { font-size: 36px; font-weight: 700; color: #fff; letter-spacing: -.02em; margin-bottom: 12px; }
+  .subtitle { color: #7c7c99; font-size: 16px; }
+  .status-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .status-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #a0a0b8; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.green { background: #22c55e; }
+  .dot.yellow { background: #f59e0b; }
+
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: #5a5a78; font-weight: 600; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid #1e1e2e; }
+  h2 { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  p { color: #9898b0; font-size: 14px; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 700px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
+
+  .card { background: #14141c; border: 1px solid #1e1e2e; border-radius: 12px; padding: 20px; }
+  .card.accent { border-color: #2d2d50; background: #16162a; }
+  .card-icon { font-size: 22px; margin-bottom: 12px; }
+  .card h3 { font-size: 15px; font-weight: 600; color: #d4d4e8; margin-bottom: 6px; }
+  .card p { font-size: 13px; color: #6e6e8a; line-height: 1.5; }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
+  @media (max-width: 700px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
+  .metric { background: #14141c; border: 1px solid #1e1e2e; border-radius: 10px; padding: 16px; }
+  .metric .val { font-size: 24px; font-weight: 700; color: #fff; letter-spacing: -.02em; }
+  .metric .lbl { font-size: 11px; color: #5a5a78; margin-top: 2px; }
+
+  .seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 700px) { .seg { grid-template-columns: 1fr; } }
+  .seg-card { border-radius: 12px; padding: 20px; }
+  .seg-card.b2c { background: #1a1a2e; border: 1px solid #2d2d50; }
+  .seg-card.wb { background: #1a2420; border: 1px solid #1e3830; }
+  .seg-card.corp { background: #231a14; border: 1px solid #3d2a1a; }
+  .seg-label { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: 10px; }
+  .b2c .seg-label { color: #6b7ff0; }
+  .wb .seg-label { color: #22c55e; }
+  .corp .seg-label { color: #f59e0b; }
+  .seg-card h3 { font-size: 14px; color: #d4d4e8; font-weight: 600; margin-bottom: 8px; }
+  .seg-card .pain { font-size: 12px; color: #7070a0; line-height: 1.5; margin-bottom: 8px; }
+  .trigger-list { list-style: none; }
+  .trigger-list li { font-size: 11px; padding: 2px 0; }
+  .b2c .trigger-list li { color: #7080d0; }
+  .b2c .trigger-list li::before { content: '→ '; color: #4a5a9a; }
+  .wb .trigger-list li { color: #5a8a7a; }
+  .wb .trigger-list li::before { content: '→ '; color: #3a5a4a; }
+  .corp .trigger-list li { color: #c09040; }
+  .corp .trigger-list li::before { content: '→ '; color: #806020; }
+
+  .insight { display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: #14141c; border-radius: 8px; border: 1px solid #1e1e2e; margin-bottom: 8px; }
+  .insight-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .insight-body h4 { font-size: 13px; font-weight: 600; color: #d4d4e8; margin-bottom: 2px; }
+  .insight-body p { font-size: 12px; color: #6a6a88; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; }
+  .tag.red { background: #2a1a1a; color: #f07070; border: 1px solid #3a2020; }
+  .tag.green { background: #1a2a1a; color: #60d080; border: 1px solid #203020; }
+
+  .utp-box { background: #16162a; border: 1px solid #3030aa; border-left: 3px solid #6060ee; border-radius: 8px; padding: 20px; }
+  .utp-box p { color: #b0b0d8; font-size: 15px; font-style: italic; line-height: 1.6; }
+
+  .roadmap { display: flex; flex-direction: column; gap: 0; }
+  .road-item { display: flex; gap: 16px; }
+  .road-left { display: flex; flex-direction: column; align-items: center; }
+  .road-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .road-num.done { background: #1a3a1a; color: #22c55e; border: 1px solid #1e4a1e; }
+  .road-num.wait { background: #2a2a1a; color: #f59e0b; border: 1px solid #3a3a1a; }
+  .road-num.next { background: #1a1a3a; color: #6b7ff0; border: 1px solid #2a2a5a; }
+  .road-line { width: 1px; flex: 1; background: #1e1e2e; margin: 4px 0; min-height: 20px; }
+  .road-content { padding: 2px 0 24px 0; flex: 1; }
+  .road-content h4 { font-size: 13px; font-weight: 600; color: #d4d4e8; margin-bottom: 2px; }
+  .road-content p { font-size: 12px; color: #5a5a78; }
+
+  .gap-list { display: flex; flex-direction: column; gap: 8px; }
+  .gap-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #14141c; border-radius: 8px; border: 1px solid #1e1e2e; }
+  .gap-rank { width: 24px; height: 24px; border-radius: 50%; background: #1e1e2e; color: #5a5a78; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .gap-text { flex: 1; }
+  .gap-text strong { font-size: 13px; color: #d4d4e8; display: block; }
+  .gap-text span { font-size: 12px; color: #5a5a78; }
+  .gap-opp { font-size: 11px; color: #22c55e; background: #1a2a1a; padding: 3px 8px; border-radius: 4px; border: 1px solid #1e3a1e; white-space: nowrap; }
+
+  .footer { text-align: center; margin-top: 64px; padding-top: 32px; border-top: 1px solid #1e1e2e; color: #3a3a52; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="badge">Фаза 1A завершена · 19 марта 2026</div>
+    <h1>Мерч-сайт: итоги исследований</h1>
+    <p class="subtitle">9 файлов · 11 сайтов конкурентов · 4 скилла · рынок 80–90 млрд руб.</p>
+    <div class="status-row">
+      <span class="status-item"><span class="dot green"></span>Конкурентный анализ</span>
+      <span class="status-item"><span class="dot green"></span>SEO-ландшафт</span>
+      <span class="status-item"><span class="dot green"></span>UX/UI-бенчмарк</span>
+      <span class="status-item"><span class="dot green"></span>Психографика ЦА</span>
+      <span class="status-item"><span class="dot green"></span>JTBD + рынок</span>
+      <span class="status-item"><span class="dot green"></span>Реклама конкурентов</span>
+      <span class="status-item"><span class="dot yellow"></span>Ждём бриф</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Рынок</div>
+    <div class="metrics">
+      <div class="metric"><div class="val">80–90<span style="font-size:14px;color:#4a4a68"> млрд</span></div><div class="lbl">Объём рынка РФ 2024 (Sostav.ru)</div></div>
+      <div class="metric"><div class="val">+15–20%</div><div class="lbl">Рост г/г, стабилизация после ×2 в 2022–23</div></div>
+      <div class="metric"><div class="val">66 310<span style="font-size:14px;color:#4a4a68"> ₽</span></div><div class="lbl">Средний чек заказа 2024, +23% (T-Data)</div></div>
+      <div class="metric"><div class="val">−2%</div><div class="lbl">Продавцы WB/Ozon: впервые падение в 2025</div></div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-icon">🏭</div>
+        <h3>B2B корпоратив</h3>
+        <p>45–50% рынка (~40–45 млрд руб.). HR, маркетологи, event-менеджеры. Сезонные пики: сентябрь–декабрь.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛍</div>
+        <h3>B2C / инди</h3>
+        <p>30–35% рынка. Команды, блогеры, ивенты. Чек 15–80 тыс. ₽. Решение за 1–7 дней. Главный канал — поиск.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📦</div>
+        <h3>WB/Ozon СТМ</h3>
+        <p>15–20% рынка, темпы замедляются. Быстрорастущий в 2023–24, первая просадка числа продавцов в 2025.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Целевая аудитория · 3 сегмента</div>
+    <div class="seg">
+      <div class="seg-card b2c">
+        <div class="seg-label">B2C · Уровень Шварца 2–3</div>
+        <h3>Частники, команды, блогеры</h3>
+        <p class="pain">Боль: «отдам деньги — получу брак или опоздание».<br>Чек 15–80 тыс. ₽. Решение за 1–7 дней.</p>
+        <ul class="trigger-list">
+          <li>«от 1 штуки»</li>
+          <li>«образец перед тиражом»</li>
+          <li>«за 5 дней»</li>
+          <li>«ответим за 15 минут»</li>
+        </ul>
+      </div>
+      <div class="seg-card wb">
+        <div class="seg-label">WB/Ozon · Уровень Шварца 3–4</div>
+        <h3>Продавцы СТМ на маркетплейсах</h3>
+        <p class="pain">Боль: нестабильное качество → негативы → падение позиций.<br>Чек 50–800 тыс. ₽.</p>
+        <ul class="trigger-list">
+          <li>«документы WB/Ozon»</li>
+          <li>«Честный знак»</li>
+          <li>«тест-партия от 50 шт.»</li>
+          <li>«отгрузка на склад»</li>
+        </ul>
+      </div>
+      <div class="seg-card corp">
+        <div class="seg-label">Корпоратив · Уровень Шварца 1–3</div>
+        <h3>HR, маркетологи, event-команды</h3>
+        <p class="pain">Боль: «подрядчик подведёт к мероприятию — это моя репутация».<br>Чек 150 тыс. – 2 млн ₽.</p>
+        <ul class="trigger-list">
+          <li>«НДС»</li>
+          <li>«гарантия сроков в договоре»</li>
+          <li>«цветопроба по Pantone»</li>
+          <li>«личный менеджер»</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Позиционирование</div>
+    <div class="utp-box" style="margin-bottom:20px">
+      <p>«Производим мерч без сюрпризов: фиксированные сроки, образец перед тиражом, прозрачные цены — для частных заказов от 1 штуки, продавцов маркетплейсов и корпоративных команд»</p>
+    </div>
+    <div class="grid-2">
+      <div>
+        <p style="font-size:12px;color:#5a5a78;margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em">Все конкуренты делают (не повторять)</p>
+        <div class="tags">
+          <span class="tag red">«качество» без доказательств</span>
+          <span class="tag red">прячут цены за формой</span>
+          <span class="tag red">1–2 сегмента максимум</span>
+          <span class="tag red">нет калькулятора</span>
+          <span class="tag red">SEO-портянки на главной</span>
+          <span class="tag red">нет live-чата ни у кого</span>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px;color:#5a5a78;margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em">Никто не делает (наши возможности)</p>
+        <div class="tags">
+          <span class="tag green">3-сегментный сайт единым</span>
+          <span class="tag green">онлайн-калькулятор цен</span>
+          <span class="tag green">полный цикл для маркетплейсов</span>
+          <span class="tag green">образец = стандарт, не опция</span>
+          <span class="tag green">цены без «оставьте заявку»</span>
+          <span class="tag green">загрузи логотип → мокап</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Ключевые UX-инсайты · 11 сайтов конкурентов</div>
+    <div class="gap-list">
+      <div class="gap-item">
+        <div class="gap-rank">1</div>
+        <div class="gap-text"><strong>Ни у кого нет калькулятора цен</strong><span>Все российские сайты прячут цену за формой «позвоните нам». Printify показывает — конверсия кратно выше.</span></div>
+        <div class="gap-opp">Главный шанс</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-rank">2</div>
+        <div class="gap-text"><strong>Ни у кого нет live-чата</strong><span>Ни один из 11 сайтов не имеет онлайн-консультанта. Только Vistaprint — телефон+email+chat.</span></div>
+        <div class="gap-opp">Главный шанс</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-rank">3</div>
+        <div class="gap-text"><strong>SEO-портянки убивают конверсию</strong><span>Oasis, BrandPresent — огромные блоки текста внизу страницы. Паттерн 2015 года.</span></div>
+        <div class="gap-opp">Избежать</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-rank">4</div>
+        <div class="gap-text"><strong>Формы без обратной связи</strong><span>После отправки заявки — тишина. Ни один рос. сайт не говорит «ответим через 30 минут».</span></div>
+        <div class="gap-opp">Избежать</div>
+      </div>
+      <div class="gap-item">
+        <div class="gap-rank">5</div>
+        <div class="gap-text"><strong>Лучшие практики: Printify profit calc, Vistaprint #UGC, BenchMerch внешние рейтинги</strong><span>Интерактивный расчёт, галерея клиентских работ, рейтинги с Яндекс.Карт/2ГИС — три элемента, меняющих конверсию.</span></div>
+        <div class="gap-opp">Заимствовать</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">SEO-возможности</div>
+    <div class="grid-3">
+      <div class="card accent">
+        <div class="card-icon">🎯</div>
+        <h3>Страница WB/Ozon</h3>
+        <p>Минимальная конкуренция, максимальный потенциал. «Мерч для Wildberries» — голубой океан в поиске.</p>
+      </div>
+      <div class="card accent">
+        <div class="card-icon">🔍</div>
+        <h3>13 семантических кластеров</h3>
+        <p>SEO-карта на 17 страниц, 20 тем для блога. Нишевые запросы почти без конкуренции.</p>
+      </div>
+      <div class="card accent">
+        <div class="card-icon">📝</div>
+        <h3>Образовательный контент</h3>
+        <p>«Когда DTF, когда шелкография» — клиент приходит образованным. Никто из конкурентов не делает.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Реклама конкурентов</div>
+    <div class="grid-2">
+      <div>
+        <div class="insight">
+          <div class="insight-icon">📣</div>
+          <div class="insight-body"><h4>B2C: промокодный арбитраж</h4><p>Vsemayki, PrintBar, Printio — масштабное присутствие на агрегаторах (скидки до 80%). Партнёрки с 25% комиссией для блогеров. Vsemayki: рост с 300 млн до 1 млрд руб. через Яндекс РМП.</p></div>
+        </div>
+        <div class="insight">
+          <div class="insight-icon">🤝</div>
+          <div class="insight-body"><h4>B2B: контент + ивенты</h4><p>Проект 111 — «Школа маркетинга подарков». INARI — публикации на vc.ru + выставки. PINQ — кейсы с Яндекс, МТС, ВК.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="insight">
+          <div class="insight-icon">🔗</div>
+          <div class="insight-body"><h4>Лендинги под PPC</h4><p>У INARI обнаружены директории /l/ — признак Директ-кампаний с отдельными посадочными под сегменты.</p></div>
+        </div>
+        <div class="insight">
+          <div class="insight-icon">⚠️</div>
+          <div class="insight-body"><h4>Ограничение данных</h4><p>Точные тексты объявлений и VK-таргет недоступны без SpyWords/Keys.so. Паттерны собраны из открытых источников.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Дальнейшая работа</div>
+    <div class="roadmap">
+      <div class="road-item">
+        <div class="road-left"><div class="road-num done">✓</div><div class="road-line"></div></div>
+        <div class="road-content"><h4>Фаза 1A: Исследования завершены</h4><p>9 файлов, 4 скилла, 11 сайтов проанализированы. Все данные верифицированы.</p></div>
+      </div>
+      <div class="road-item">
+        <div class="road-left"><div class="road-num wait">⏳</div><div class="road-line"></div></div>
+        <div class="road-content"><h4>Фаза 0: Бриф от заказчика</h4><p>7 блокирующих вопросов без ответа (брендбук, кейсы, юридика, интеграции). Ждём через Филиппа.</p></div>
+      </div>
+      <div class="road-item">
+        <div class="road-left"><div class="road-num next">2</div><div class="road-line"></div></div>
+        <div class="road-content"><h4>Фаза 1.5: PRD</h4><p>После получения брифа. Центральный документ: ИА, функциональные требования, вертикальные срезы, контент-план.</p></div>
+      </div>
+      <div class="road-item">
+        <div class="road-left"><div class="road-num next">3</div><div class="road-line"></div></div>
+        <div class="road-content"><h4>Фаза 2: Контент и позиционирование</h4><p>УТП + Big Idea, копирайтинг-гайд (ToV), тексты страниц по уровням осведомлённости Шварца.</p></div>
+      </div>
+      <div class="road-item">
+        <div class="road-left"><div class="road-num next">4</div><div class="road-line"></div></div>
+        <div class="road-content"><h4>Фаза 3: Визуальная стратегия</h4><p>Мудборд, UI-Kit на shadcn/ui + Tailwind, вайрфреймы 7 ключевых страниц через Pencil MCP.</p></div>
+      </div>
+      <div class="road-item">
+        <div class="road-left"><div class="road-num next">5</div><div class="road-line"></div></div>
+        <div class="road-content"><h4>Фазы 4–7: Разработка → Деплой</h4><p>Next.js 15 (ISR) + Telegram-интеграция → Quality Hardening (OWASP, Core Web Vitals) → Vercel.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Мерч-сайт · Исследовательская фаза завершена · 19.03.2026 · 9 файлов в /Исследования/</div>
+</div>
+</body>
+</html>
