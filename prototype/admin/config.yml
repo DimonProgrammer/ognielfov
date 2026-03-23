@@ -1,0 +1,148 @@
+backend:
+  name: github
+  repo: DimonProgrammer/ognielfov
+  branch: main
+
+local_backend: true
+
+media_folder: "prototype/assets/blog"
+public_folder: "/assets/blog"
+
+locale: "ru"
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "blog"
+    label: "Статьи блога"
+    label_singular: "Статья"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    editor:
+      preview: false
+    sortable_fields: ["date", "title", "category"]
+    view_groups:
+      - label: "Категория"
+        field: category
+      - label: "Этап воронки"
+        field: funnel_stage
+    summary: "{{title}} — {{category}} ({{date}})"
+    fields:
+      - label: "Заголовок статьи (H1)"
+        name: "title"
+        widget: "string"
+        hint: "Основной заголовок. До 70 символов для SEO."
+
+      - label: "URL-slug"
+        name: "slug"
+        widget: "string"
+        hint: "Латиница, через дефис. Пример: sublimacija-vs-dtf"
+        pattern:
+          - "^[a-z0-9]+(-[a-z0-9]+)*$"
+          - "Только латинские буквы, цифры и дефисы"
+
+      - label: "Описание (meta description)"
+        name: "description"
+        widget: "text"
+        hint: "Для поисковой выдачи. 140–160 символов."
+
+      - label: "Дата публикации"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+
+      - label: "Дата обновления"
+        name: "updated"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        required: false
+
+      - label: "Категория"
+        name: "category"
+        widget: "select"
+        options:
+          - label: "Технологии печати"
+            value: "technologies"
+          - label: "Корпоративный мерч и HR"
+            value: "corporate"
+          - label: "Идеи и вдохновение"
+            value: "ideas"
+          - label: "Практические гайды"
+            value: "guides"
+          - label: "Кейсы и производство"
+            value: "cases"
+
+      - label: "Аудитория"
+        name: "audience"
+        widget: "select"
+        multiple: true
+        options:
+          - label: "B2C (физлица, стартапы)"
+            value: "b2c"
+          - label: "Корпоративные клиенты"
+            value: "corporate"
+          - label: "Маркетплейсы (WB/Ozon)"
+            value: "marketplaces"
+
+      - label: "Этап воронки"
+        name: "funnel_stage"
+        widget: "select"
+        options:
+          - label: "TOFU — Привлечение внимания"
+            value: "tofu"
+          - label: "MOFU — Сравнение и выбор"
+            value: "mofu"
+          - label: "BOFU — Решение о покупке"
+            value: "bofu"
+
+      - label: "Время чтения (мин)"
+        name: "reading_time"
+        widget: "number"
+        value_type: "int"
+        min: 1
+        max: 30
+        hint: "Среднее: 1500 слов ≈ 7 мин"
+
+      - label: "Обложка статьи"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Рекомендуемый размер: 1200×630px (формат OG)"
+
+      - label: "Alt-текст обложки"
+        name: "image_alt"
+        widget: "string"
+        required: false
+        hint: "Описание изображения для SEO и доступности"
+
+      - label: "Теги"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "Через запятую: DTF, шелкография, сравнение"
+
+      - label: "SEO Title"
+        name: "seo_title"
+        widget: "string"
+        required: false
+        hint: "Если отличается от H1. До 60 символов. Если пусто — используется заголовок."
+
+      - label: "Черновик"
+        name: "draft"
+        widget: "boolean"
+        default: true
+        hint: "Снимите галочку для публикации"
+
+      - label: "Текст статьи"
+        name: "body"
+        widget: "markdown"
+        hint: "Поддерживает заголовки H2-H3, списки, таблицы, изображения"

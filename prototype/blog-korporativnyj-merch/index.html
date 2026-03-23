@@ -78,6 +78,7 @@
     "dateModified": "2026-03-21"
   }
   </script>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body class="font-sans text-[#1D1D1F] bg-white antialiased">
 
@@ -86,7 +87,30 @@
     <div class="max-w-[1280px] mx-auto px-6 flex items-center justify-between h-16">
       <a href="/" class="flex items-center gap-0" aria-label="Огни Эльфов — Главная"><svg viewBox="0 0 160 44" class="h-7" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="4" height="40" rx="1" fill="#1D1D1F"/><rect x="7" y="2" width="6" height="40" rx="1" fill="#1D1D1F"/><rect x="16" y="2" width="9" height="40" rx="1" fill="#1D1D1F"/><rect x="28" y="2" width="13" height="40" rx="1" fill="#C6F24E"/><text x="50" y="18" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#1D1D1F">ОГНИ</text><text x="50" y="36" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#1D1D1F">ЭЛЬФОВ</text></svg></a>
       <div class="hidden md:flex items-center gap-7">
-        <a href="uslugi" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Услуги</a>
+        <div class="relative group">
+          <a href="uslugi" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors flex items-center gap-1">Услуги <svg class="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 12 12"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg border border-[#E8E8ED]/60 p-4 w-[280px]">
+              <a href="korporativnym-klientam" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                <span class="w-8 h-8 bg-[#1D1D1F] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#C6F24E] text-xs font-bold">B2B</span></span>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Корпоративным клиентам</p><p class="text-xs text-[#86868B]">Мерч под ключ, безнал с НДС</p></div>
+              </a>
+              <a href="catalog" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                <span class="w-8 h-8 bg-[#F5F5F7] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">10+</span></span>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Малые заказы</p><p class="text-xs text-[#86868B]">От 10 штук, от 3 дней</p></div>
+              </a>
+              <a href="marketplejsy" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                <span class="w-8 h-8 bg-[#C6F24E] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">WB</span></span>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Селлерам WB/Ozon</p><p class="text-xs text-[#86868B]">Печать, маркировка, фулфилмент</p></div>
+              </a>
+              <div class="border-t border-[#E8E8ED] mt-2 pt-2">
+                <a href="uslugi" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                  <span class="text-sm text-[#6E6E73]">Все услуги и технологии &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
         <a href="catalog" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Каталог</a>
         <a href="portfolio" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Кейсы</a>
         <a href="o-kompanii" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">О нас</a>
@@ -109,11 +133,11 @@
         <div class="flex items-center gap-2">
           <a href="https://t.me/FiresElfs" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="Telegram" target="_blank" rel="noopener">TG</a>
           <a href="#" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="VKontakte">VK</a>
-          <a href="https://wa.me/79152648880" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="WhatsApp" target="_blank" rel="noopener">WA</a>
+          <a href="https://max.ag/FiresElfs" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="MAX" target="_blank" rel="noopener">MAX</a>
         </div>
-        <a href="#cta" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+        <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
       </div>
-      <a href="#cta" class="lg:hidden btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+      <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="lg:hidden btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
     </div>
   </nav>
 
@@ -144,8 +168,12 @@
         </div>
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-heading mt-4 leading-tight">Корпоративный мерч: как спланировать бюджет и выбрать товар</h1>
         <p class="text-[#6E6E73] mt-4">Примеры на 100K, 500K и 1M рублей с расчётами</p>
-        <div class="mt-8 bg-[#E8E8ED] h-80 w-full rounded-2xl flex items-center justify-center">
-          <span class="text-[#86868B] text-sm">Корпоративный мерч</span>
+        <!-- ФОТО: Набор корпоративного мерча (flat lay): футболка + худи + кепка + шопер + блокнот с логотипом, разложены на светлом столе или в брендированной коробке. Горизонтальный кадр, 1200×630px. -->
+        <div class="mt-8 bg-[#E8E8ED] h-80 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
+          <div class="text-center px-8">
+            <span class="text-[#C6F24E] text-2xl font-bold block mb-2">ФОТО</span>
+            <span class="text-[#86868B] text-sm">Flat lay набора мерча: футболка + худи + кепка + шопер + блокнот с логотипом. Светлый фон, вид сверху, 1200×630px</span>
+          </div>
         </div>
       </header>
 
@@ -167,112 +195,178 @@
         <!-- Section 1 -->
         <section id="zachem-merch">
           <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Зачем компании заказывают корпоративный мерч</h2>
-          <p class="text-lg leading-relaxed text-[#1D1D1F]">Корпоративный мерч — это не просто подарок. Это инвестиция в имидж компании, инструмент мотивации сотрудников и способ создать эмоциональную связь с аудиторией. Футболка с логотипом работает дольше, чем любая реклама.</p>
-          <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4">Что мерч даёт бизнесу:</p>
+          <p class="text-lg leading-relaxed text-[#1D1D1F]">Компании заказывают мерч под конкретные задачи: onboarding новых сотрудников, конференции, корпоративы, партнёрские подарки. Каждая задача требует своего набора товаров и бюджета.</p>
+          <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4">Четыре типичных сценария:</p>
           <ul class="list-disc list-inside space-y-2 mt-4 text-lg text-[#1D1D1F]">
-            <li>Видимость на улице (все видят логотип компании)</li>
-            <li>Лояльность сотрудников (они чувствуют причастность)</li>
-            <li>Узнаваемость бренда (повторные контакты)</li>
-            <li>ROI выше, чем у контекстной рекламы</li>
+            <li><strong>Welcome-pack</strong> — футболка + худи + блокнот для каждого нового сотрудника</li>
+            <li><strong>Event-мерч</strong> — одежда и аксессуары для конференций и выставок</li>
+            <li><strong>Партнёрские подарки</strong> — премиум-товары для B2B-клиентов</li>
+            <li><strong>Внутренний мерч</strong> — форма для команды, мерч для корпоратива</li>
           </ul>
+
+          <!-- Инфографика: визуальная схема welcome-pack -->
+          <div class="mt-8 bg-[#F5F5F7] rounded-2xl p-6">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#86868B] mb-4">Типовой состав welcome-pack</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+              <div class="bg-white rounded-xl p-4 text-center">
+                <div class="text-3xl mb-2">👕</div>
+                <p class="text-xs font-semibold">Футболка</p>
+                <p class="text-[10px] text-[#86868B] mt-1">DTF-печать логотипа</p>
+              </div>
+              <div class="bg-white rounded-xl p-4 text-center">
+                <div class="text-3xl mb-2">🧥</div>
+                <p class="text-xs font-semibold">Худи</p>
+                <p class="text-[10px] text-[#86868B] mt-1">Вышивка на груди</p>
+              </div>
+              <div class="bg-white rounded-xl p-4 text-center">
+                <div class="text-3xl mb-2">📓</div>
+                <p class="text-xs font-semibold">Блокнот</p>
+                <p class="text-[10px] text-[#86868B] mt-1">Тиснение логотипа</p>
+              </div>
+              <div class="bg-white rounded-xl p-4 text-center">
+                <div class="text-3xl mb-2">🛍️</div>
+                <p class="text-xs font-semibold">Шопер</p>
+                <p class="text-[10px] text-[#86868B] mt-1">Шелкография 1 цвет</p>
+              </div>
+              <div class="bg-white rounded-xl p-4 text-center">
+                <div class="text-3xl mb-2">📦</div>
+                <p class="text-xs font-semibold">Упаковка</p>
+                <p class="text-[10px] text-[#86868B] mt-1">Брендированная коробка</p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- Section 2 -->
         <section id="budget-100k">
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Бюджет 100K: стартап-вариант</h2>
-          <p class="text-lg leading-relaxed text-[#1D1D1F]">Что купить на 100 тысяч рублей? Это самый экономный вариант — часто берут стартапы или на подарки сотрудникам на праздник.</p>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Бюджет 100K: базовый набор</h2>
+          <p class="text-lg leading-relaxed text-[#1D1D1F]">На 100 тысяч рублей можно закрыть одну задачу: подарки на праздник, небольшую партию для стенда, или welcome-паки для команды до 30 человек.</p>
 
           <div class="mt-6 space-y-3">
             <div class="border border-[#E5E5E5] rounded-lg p-4">
-              <h4 class="font-bold text-base">Вариант 1: Только одежда (500 шт)</h4>
-              <p class="text-sm text-[#6E6E73] mt-2">500 футболок × 200 ₽ = 100K</p>
-              <p class="text-sm mt-2">✓ DTF-печать логотипа спереди</p>
+              <h4 class="font-bold text-base">Вариант 1: Одежда с печатью</h4>
+              <p class="text-sm text-[#6E6E73] mt-2">~200 футболок с DTF-печатью логотипа (А4, спереди)</p>
+              <p class="text-sm mt-2">Подходит для корпоратива или event-раздачи</p>
             </div>
             <div class="border border-[#E5E5E5] rounded-lg p-4">
-              <h4 class="font-bold text-base">Вариант 2: Микс товаров (300 шт)</h4>
-              <p class="text-sm text-[#6E6E73] mt-2">200 футболок × 180 ₽ + 100 ручек × 20 ₽ = 100K</p>
-              <p class="text-sm mt-2">✓ Неплохо для welcome-пакета новых сотрудников</p>
+              <h4 class="font-bold text-base">Вариант 2: Welcome-pack на 25-30 человек</h4>
+              <p class="text-sm text-[#6E6E73] mt-2">Футболка + блокнот + ручка + стикерпак на каждого сотрудника</p>
+              <p class="text-sm mt-2">Подходит для onboarding в компаниях до 30 человек</p>
+            </div>
+          </div>
+          <p class="text-sm text-[#86868B] mt-4">Точный расчёт зависит от выбранных моделей и тиража — <a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="text-[#C6F24E] font-semibold hover:underline">напишите, посчитаем</a>.</p>
+        </section>
+
+        <!-- Инфографика: бюджетная шкала -->
+        <section>
+          <div class="bg-[#1D1D1F] rounded-2xl p-8 text-white">
+            <p class="text-xs font-semibold uppercase tracking-wider text-[#86868B] mb-6">Что можно на каждом бюджете</p>
+            <div class="relative">
+              <!-- Progress bar -->
+              <div class="hidden md:block absolute top-6 left-[8%] right-[8%] h-1 bg-[#3A3A3C] rounded-full">
+                <div class="h-full bg-gradient-to-r from-[#C6F24E] to-[#8BC34A] rounded-full" style="width:100%"></div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                <div class="text-center">
+                  <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#C6F24E] flex items-center justify-center text-[#1D1D1F] font-bold text-sm relative z-10">100K</div>
+                  <p class="text-sm font-semibold">Базовый набор</p>
+                  <p class="text-xs text-[#86868B] mt-2">1 категория товаров<br>1 технология печати<br>До 200 единиц</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#C6F24E] flex items-center justify-center text-[#1D1D1F] font-bold text-sm relative z-10">500K</div>
+                  <p class="text-sm font-semibold">Полный проект</p>
+                  <p class="text-xs text-[#86868B] mt-2">3-4 категории товаров<br>2 технологии + упаковка<br>200-1000 единиц</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-[#C6F24E] flex items-center justify-center text-[#1D1D1F] font-bold text-sm relative z-10">1M+</div>
+                  <p class="text-sm font-semibold">Комплексный</p>
+                  <p class="text-xs text-[#86868B] mt-2">5+ категорий товаров<br>3 технологии + VIP-линейка<br>1000+ единиц</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         <!-- Section 3 -->
         <section id="budget-500k">
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Бюджет 500K: средний пакет</h2>
-          <p class="text-lg leading-relaxed text-[#1D1D1F]">Это оптимальный бюджет для среднего офиса (50-100 сотрудников) или для event-мерча на конференцию.</p>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Бюджет 500K: полноценный мерч-проект</h2>
+          <p class="text-lg leading-relaxed text-[#1D1D1F]">500 тысяч позволяют собрать полноценный набор: несколько категорий товаров, комбинация технологий печати, упаковка. Типичные задачи — мерч на конференцию (200-500 участников) или годовой запас welcome-паков.</p>
 
           <div class="mt-6 space-y-3">
             <div class="border border-[#E5E5E5] rounded-lg p-4">
-              <h4 class="font-bold text-base">Рекомендуемый микс</h4>
+              <h4 class="font-bold text-base">Примерная раскладка</h4>
               <ul class="text-sm space-y-1 mt-2">
-                <li>✓ 1000 футболок × 180 ₽ = 180K</li>
-                <li>✓ 500 толстовок × 350 ₽ = 175K</li>
-                <li>✓ 500 бейсболок × 100 ₽ = 50K</li>
-                <li>✓ 500 эко-сумок × 60 ₽ = 30K</li>
-                <li>✓ Доставка и логистика = 65K</li>
+                <li>Футболки с DTF-печатью — основа набора</li>
+                <li>Худи или толстовки с вышивкой — для VIP-версии</li>
+                <li>Аксессуары (кепки, шоперы, блокноты) — дополнение</li>
+                <li>Упаковка в брендированные коробки — если нужна подача</li>
               </ul>
-              <p class="text-sm font-semibold mt-3 text-[#1D1D1F]">Итого: 500K</p>
-              <p class="text-xs text-[#6E6E73] mt-2">Хватит на весь офис + запас на партнёров</p>
+              <p class="text-xs text-[#6E6E73] mt-3">Конкретные цены зависят от моделей, тиража и технологии нанесения. Мы подбираем товары и считаем смету после брифа.</p>
             </div>
           </div>
         </section>
 
         <!-- Section 4 -->
         <section id="budget-1m">
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Бюджет 1M+: премиум</h2>
-          <p class="text-lg leading-relaxed text-[#1D1D1F]">Это полный корпоративный пакет для крупной компании (200+ сотрудников) или для большого event'а. Включает разные уровни товаров и качество печати выше.</p>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Бюджет 1M+: комплексный проект</h2>
+          <p class="text-lg leading-relaxed text-[#1D1D1F]">От миллиона рублей начинаются проекты с несколькими линейками товаров, комбинацией технологий (DTF + вышивка + шелкография) и индивидуальной упаковкой. Обычно это крупные компании с задачей на год или масштабные мероприятия.</p>
 
           <div class="mt-6 space-y-3">
             <div class="border border-[#E5E5E5] rounded-lg p-4">
-              <h4 class="font-bold text-base">Премиум микс (2000+ позиций)</h4>
+              <h4 class="font-bold text-base">Что входит в проекты этого уровня</h4>
               <ul class="text-sm space-y-1 mt-2">
-                <li>✓ 2000 футболок (премиум хлопок) × 220 ₽ = 440K</li>
-                <li>✓ 1000 толстовок × 400 ₽ = 400K</li>
-                <li>✓ 500 ветровок × 300 ₽ = 150K</li>
-                <li>✓ 1000 бейсболок × 120 ₽ = 120K</li>
-                <li>✓ Вышивка логотипа на части товара = 200K+</li>
-                <li>✓ Упаковка и доставка = 250K+</li>
+                <li>Несколько категорий одежды: футболки, худи, ветровки, поло</li>
+                <li>Премиум-ткани: плотный хлопок 190+ г/м², флис, софтшелл</li>
+                <li>Комбинированное нанесение: DTF на основной тираж + вышивка на VIP-линейку</li>
+                <li>Аксессуары: кепки, шоперы, термокружки, стикерпаки</li>
+                <li>Брендированная упаковка и доставка по офисам</li>
               </ul>
-              <p class="text-sm font-semibold mt-3 text-[#1D1D1F]">Итого: 1.5M-2M</p>
+              <p class="text-xs text-[#6E6E73] mt-3">Проекты от 1M мы ведём с персональным менеджером. Первый шаг — бриф и расчёт сметы.</p>
             </div>
           </div>
         </section>
 
         <!-- Section 5 -->
         <section id="real-cases">
-          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Реальные кейсы из портфолио</h2>
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-heading mb-4">Примеры проектов</h2>
+          <p class="text-lg leading-relaxed text-[#1D1D1F] mb-6">Среди наших клиентов — Яндекс, Тинькофф, Лукойл, Летуаль, ЛДПР, Армия России. Вот типичные форматы проектов, которые мы делаем.</p>
+
+          <!-- ФОТО: 2-3 фото реальных выполненных заказов (flat lay или на моделях). Если есть фото с логотипами клиентов — идеально. -->
+          <div class="mb-6 bg-[#E8E8ED] h-48 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
+            <div class="text-center px-6">
+              <span class="text-[#C6F24E] text-sm font-bold block mb-1">ФОТО</span>
+              <span class="text-[#86868B] text-xs">2-3 фото реальных выполненных заказов: готовые наборы мерча, партии на складе, или изделия на моделях</span>
+            </div>
+          </div>
 
           <div class="space-y-6">
             <div class="bg-[#F5F5F7] rounded-2xl p-6">
-              <h3 class="font-bold text-lg mb-3">Яндекс: corporate onboarding</h3>
+              <h3 class="font-bold text-lg mb-3">Welcome-pack для onboarding</h3>
               <ul class="text-sm space-y-2 text-[#1D1D1F]">
-                <li><strong>Задача:</strong> welcome-пакет для новых сотрудников</li>
-                <li><strong>Товары:</strong> футболка + толстовка + кепка + эко-сумка</li>
-                <li><strong>Печать:</strong> DTF логотип + вышивка на груди</li>
-                <li><strong>Объём:</strong> 3000 комплектов в год</li>
-                <li><strong>Результат:</strong> 100% новых сотрудников получили пакет</li>
+                <li><strong>Задача:</strong> комплект для каждого нового сотрудника</li>
+                <li><strong>Типовой набор:</strong> футболка + худи + блокнот + шопер</li>
+                <li><strong>Нанесение:</strong> DTF-печать логотипа + вышивка на худи</li>
+                <li><strong>Формат:</strong> регулярные партии, допоставка по мере найма</li>
               </ul>
             </div>
 
             <div class="bg-[#F5F5F7] rounded-2xl p-6">
-              <h3 class="font-bold text-lg mb-3">Тинькофф: конференция</h3>
+              <h3 class="font-bold text-lg mb-3">Event-мерч для конференции</h3>
               <ul class="text-sm space-y-2 text-[#1D1D1F]">
-                <li><strong>Задача:</strong> мерч для event'а на 2000 человек</li>
-                <li><strong>Товары:</strong> премиум-футболки + наклейки + стикеры</li>
-                <li><strong>Печать:</strong> сублимация (полная граммофонная печать спереди)</li>
-                <li><strong>Объём:</strong> 2000 шт за 2 недели</li>
-                <li><strong>Результат:</strong> все участники в одежде бренда на фото</li>
+                <li><strong>Задача:</strong> одежда и раздатка для участников мероприятия</li>
+                <li><strong>Типовой набор:</strong> футболки + стикерпаки + бейджи + шоперы</li>
+                <li><strong>Нанесение:</strong> сублимация (полноцветная печать) или DTF</li>
+                <li><strong>Сроки:</strong> от 2 недель при тираже до 1000 шт. <!-- [уточнить у Филиппа] --></li>
               </ul>
             </div>
 
             <div class="bg-[#F5F5F7] rounded-2xl p-6">
-              <h3 class="font-bold text-lg mb-3">ЛДПР: политический мерч</h3>
+              <h3 class="font-bold text-lg mb-3">Политический и массовый мерч</h3>
               <ul class="text-sm space-y-2 text-[#1D1D1F]">
-                <li><strong>Задача:</strong> мерч для партийного event'а</li>
-                <li><strong>Товары:</strong> мужские + женские футболки + кепки</li>
-                <li><strong>Печать:</strong> шелкография (логотип + текст)</li>
-                <li><strong>Объём:</strong> 5000 футболок за месяц</li>
-                <li><strong>Результат:</strong> массовая видимость на улице</li>
+                <li><strong>Задача:</strong> крупный тираж одежды для публичных мероприятий</li>
+                <li><strong>Типовой набор:</strong> футболки (муж. + жен. лекала) + кепки</li>
+                <li><strong>Нанесение:</strong> шелкография — оптимальна для больших тиражей от 500 шт.</li>
+                <li><strong>Особенность:</strong> несколько размерных линеек, сжатые сроки</li>
               </ul>
             </div>
           </div>
@@ -338,7 +432,7 @@
       <p class="text-lg text-[#86868B] mt-6 max-w-2xl mx-auto">Загрузите макет и пришлите ТЗ — пришлём расчёт и примеры за 30 минут</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
         <a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-4 font-semibold hover:opacity-90 transition-opacity">Написать в Telegram</a>
-        <a href="https://wa.me/79152648880" target="_blank" rel="noopener" class="btn-pill border-2 border-[#6E6E73] text-white px-8 py-4 font-semibold hover:border-white transition-colors">WhatsApp</a>
+        <a href="https://max.ag/FiresElfs" target="_blank" rel="noopener" class="btn-pill border-2 border-[#6E6E73] text-white px-8 py-4 font-semibold hover:border-white transition-colors">MAX</a>
       </div>
       <div class="mt-6 text-sm text-[#86868B] max-w-xl mx-auto">
         <label class="flex items-start gap-2 cursor-pointer">
@@ -369,6 +463,7 @@
             <li><a href="o-kompanii" class="hover:text-[#1D1D1F]">О нас</a></li>
             <li><a href="portfolio" class="hover:text-[#1D1D1F]">Портфолио</a></li>
             <li><a href="blog" class="hover:text-[#1D1D1F]">Блог</a></li>
+            <li><a href="marketplejsy" class="hover:text-[#1D1D1F]">Маркетплейсы</a></li>
             <li><a href="kontakty" class="hover:text-[#1D1D1F]">Контакты</a></li>
           </ul>
         </div>
@@ -378,7 +473,7 @@
         </div>
         <div>
           <h3 class="font-bold text-sm mb-4">Контакты</h3>
-          <p class="text-sm text-[#6E6E73]">+7 (495) 380-40-32<br><a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">Telegram</a> • <a href="https://wa.me/79152648880" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">WhatsApp</a></p>
+          <p class="text-sm text-[#6E6E73]">+7 (495) 380-40-32<br><a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">Telegram</a> • <a href="https://max.ag/FiresElfs" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">MAX</a></p>
         </div>
       </div>
       <div class="text-center text-sm text-[#86868B] pt-8 border-t border-[#E5E5E5]">
@@ -387,5 +482,41 @@
     </div>
   </footer>
 
+
+  <!-- ==================== POPUP FORM (Modal) ==================== -->
+  <div id="popup-form" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')"></div>
+    <div class="relative bg-white rounded-2xl p-8 md:p-10 w-full max-w-md mx-4 shadow-2xl animate-fade-in">
+      <button onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F5F7] transition-colors text-[#86868B] hover:text-[#1D1D1F]" aria-label="Закрыть">&times;</button>
+      <h3 class="font-bold text-xl text-[#1D1D1F]">Оставьте заявку</h3>
+      <p class="text-sm text-[#6E6E73] mt-2">Перезвоним за&nbsp;30&nbsp;минут в&nbsp;рабочее время</p>
+      <form class="mt-6 flex flex-col gap-4" action="#" method="POST">
+        <input type="text" name="name" required placeholder="Имя *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+        <input type="tel" name="phone" required placeholder="Телефон *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+        <label class="flex items-start gap-2 text-xs text-[#86868B]">
+          <input type="checkbox" name="consent" required class="mt-0.5 w-4 h-4 accent-[#C6F24E] flex-shrink-0">
+          <span>Согласен на&nbsp;<a href="politika-konfidencialnosti" class="underline hover:text-[#1D1D1F] transition-colors">обработку персональных данных</a></span>
+        </label>
+        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm hover:opacity-90 transition-opacity">Отправить заявку</button>
+      </form>
+      <div class="flex justify-center gap-4 mt-6 pt-4 border-t border-[#E8E8ED]">
+        <a href="https://t.me/FiresElfs" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://max.ag/FiresElfs" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" target="_blank" rel="noopener">MAX</a>
+      </div>
+    </div>
+  </div>
+  <!-- Popup form: close on Esc -->
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var popup = document.getElementById('popup-form');
+        if (popup) { popup.classList.add('hidden'); popup.classList.remove('flex'); }
+      }
+    });
+  </script>
+  <style>
+    @keyframes fade-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fade-in 0.25s ease-out; }
+  </style>
 </body>
 </html>
