@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <title>Политика конфиденциальности — Огни Эльфов</title>
   <meta name="description" content="Политика обработки персональных данных ООО «Огни Эльфов». Соответствие 152-ФЗ.">
 
@@ -51,8 +51,19 @@
   </script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="css/custom.css">
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <!-- Schema.org: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://elfprint.ru/"},
+      {"@type": "ListItem", "position": 2, "name": "Политика конфиденциальности"}
+    ]
+  }
+  </script>
 </head>
 <body class="font-sans text-[#1D1D1F] bg-white antialiased">
 
@@ -335,8 +346,8 @@
   </div>
 </footer>
 
-  <script src="../js/animations.js"></script>
-  <script src="../js/mobile-menu.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js"></script>
 
   <!-- ==================== POPUP FORM (Modal) ==================== -->
   <div id="popup-form" class="fixed inset-0 z-[100] hidden items-center justify-center">
