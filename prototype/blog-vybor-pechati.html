@@ -39,7 +39,7 @@
   </script>
 
   <link rel="stylesheet" href="css/custom.css">
-<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body class="font-sans text-[#1D1D1F] bg-white antialiased">
 
@@ -58,7 +58,7 @@
               </a>
               <a href="catalog" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
                 <span class="w-8 h-8 bg-[#F5F5F7] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">10+</span></span>
-                <div><p class="text-sm font-semibold text-[#1D1D1F]">Малые заказы</p><p class="text-xs text-[#86868B]">От 10 штук, от 3 дней</p></div>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Малые заказы</p><p class="text-xs text-[#86868B]">От 1 штуки, от 3 дней</p></div>
               </a>
               <a href="marketplejsy" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
                 <span class="w-8 h-8 bg-[#C6F24E] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">WB</span></span>
@@ -98,9 +98,43 @@
         </div>
         <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
       </div>
+      <div class="flex items-center gap-3 lg:hidden w-full">
       <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="lg:hidden btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#F5F5F7] transition-colors ml-auto" aria-label="Меню">
+          <svg class="icon-open w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="icon-close hidden w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
     </div>
   </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl pointer-events-none opacity-0 transition-opacity duration-300 pt-20">
+    <div class="max-w-[1280px] mx-auto px-6 py-8">
+      <div class="flex flex-col gap-1">
+        <a href="uslugi" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Услуги</a>
+        <div class="pl-4 flex flex-col gap-0.5 pb-2">
+          <a href="korporativnym-klientam" class="text-sm text-[#6E6E73] py-2">Корпоративным клиентам</a>
+          <a href="catalog" class="text-sm text-[#6E6E73] py-2">Малые заказы от 1 штуки</a>
+          <a href="marketplejsy" class="text-sm text-[#6E6E73] py-2">Селлерам WB/Ozon</a>
+        </div>
+        <a href="catalog" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Каталог</a>
+        <a href="portfolio" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Кейсы</a>
+        <a href="o-kompanii" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">О нас</a>
+        <a href="blog" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Блог</a>
+        <a href="kontakty" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Контакты</a>
+      </div>
+      <div class="mt-8 flex flex-col gap-4">
+        <a href="tel:+74953804032" class="text-lg font-semibold text-[#1D1D1F]">+7 (495) 380-40-32</a>
+        <p class="text-sm text-[#86868B]">info@elfprint.ru</p>
+        <div class="flex gap-4 mt-2">
+          <a href="https://t.me/FiresElfs" class="btn-pill bg-[#F5F5F7] text-[#1D1D1F] px-5 py-2.5 text-sm font-medium" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://max.ag/FiresElfs" class="btn-pill bg-[#F5F5F7] text-[#1D1D1F] px-5 py-2.5 text-sm font-medium" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <section class="pt-24 pb-4">
     <div class="max-w-[1280px] mx-auto px-6">
@@ -127,11 +161,8 @@
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-[-0.03em] mt-4 leading-tight">Как выбрать печать на одежду: гайд для новичков</h1>
         <p class="text-[#6E6E73] mt-4">Сравниваем 4 технологии: DTF, шелкография, вышивка, сублимация</p>
         <!-- ФОТО: 4 изделия рядом, каждое с разной технологией нанесения. Слева направо: DTF на хлопке, шелкография на чёрной футболке, вышивка на поло, сублимация на полиэстере. Горизонтальный кадр, светлый фон, 1200×630px. -->
-        <div class="mt-8 bg-[#E8E8ED] h-80 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-          <div class="text-center px-8">
-            <span class="text-[#C6F24E] text-2xl font-bold block mb-2">ФОТО</span>
-            <span class="text-[#86868B] text-sm">4 изделия рядом — каждое с разной технологией: DTF на хлопке, шелкография на чёрной ткани, вышивка на поло, сублимация на полиэстере. 1200×630px</span>
-          </div>
+        <div class="mt-8 bg-[#E8E8ED] h-80 w-full rounded-2xl overflow-hidden">
+          <img src="img/мастерская-светлая.jpg" alt="Как выбрать технологию печати на одежду" class="w-full h-full object-cover" width="1200" height="800" loading="eager">
         </div>
       </header>
 
@@ -161,14 +192,11 @@
           <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Ограничения:</strong> на поверхности ткани остаётся тонкая плёнка — она заметна на ощупь. Стойкость — до 60 стирок, после чего принт может начать трескаться по краям.</p>
           <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Для кого:</strong> малые и средние тиражи (10–500 шт.), печать на хлопковых футболках, худи, шоперах. Самый частый выбор для корпоративного мерча.</p>
           <div class="bg-[#F5F5F7] rounded-lg p-4 mt-4">
-            <p class="text-sm"><strong>Минимум:</strong> от 10 шт.<br><strong>Цена:</strong> от 450 ₽/пог.м<br><strong>Срок:</strong> 3 рабочих дня</p>
+            <p class="text-sm"><strong>Минимум:</strong> от 1 шт.<br><strong>Цена:</strong> от 450 ₽/пог.м<br><strong>Срок:</strong> 3 рабочих дня</p>
           </div>
           <!-- ФОТО: Крупный план DTF-принта на хлопковой футболке, видна плёнка и яркие цвета -->
-          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-            <div class="text-center px-6">
-              <span class="text-[#C6F24E] text-sm font-bold block mb-1">ФОТО</span>
-              <span class="text-[#86868B] text-xs">Крупный план DTF-принта на хлопке. Видна тонкая плёнка, яркие цвета</span>
-            </div>
+          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl overflow-hidden">
+            <img src="img/dtf-makro.jpg" alt="DTF-принт крупным планом на хлопке" class="w-full h-full object-cover" width="2304" height="1728" loading="lazy">
           </div>
         </section>
 
@@ -177,16 +205,13 @@
           <p class="text-lg leading-relaxed text-[#1D1D1F]">Шелкография (трафаретная печать) — краска продавливается через сетку-трафарет прямо на ткань. Технологии больше 100 лет, и она до сих пор даёт лучшее соотношение цены и качества на больших тиражах.</p>
           <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Главное преимущество:</strong> чем больше тираж, тем дешевле единица. На партии от 500 шт. шелкография обходится дешевле DTF. Краска ложится плотно, цвета насыщенные, стойкость — 50+ стирок.</p>
           <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Ограничения:</strong> для каждого цвета нужен отдельный трафарет (подготовка от 1500 ₽/цвет). Поэтому шелкография невыгодна при малых тиражах и многоцветных изображениях. Фотопечать и градиенты — не её сильная сторона.</p>
-          <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Для кого:</strong> тиражи от 100 шт. с простым дизайном (1-4 цвета). Логотипы, текст, графика. Политический мерч, промо-футболки, корпоративная форма.</p>
+          <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Для кого:</strong> тиражи от 1 шт. с простым дизайном (1-4 цвета). Логотипы, текст, графика. Политический мерч, промо-футболки, корпоративная форма.</p>
           <div class="bg-[#F5F5F7] rounded-lg p-4 mt-4">
-            <p class="text-sm"><strong>Минимум:</strong> от 50 шт.<br><strong>Цена:</strong> от 35 ₽/шт. (при тираже 500+, 1 цвет)<br><strong>Подготовка трафарета:</strong> от 1500 ₽/цвет<br><strong>Срок:</strong> 5–7 рабочих дней</p>
+            <p class="text-sm"><strong>Минимум:</strong> от 1 шт.<br><strong>Цена:</strong> от 35 ₽/шт. (при тираже 500+, 1 цвет)<br><strong>Подготовка трафарета:</strong> от 1500 ₽/цвет<br><strong>Срок:</strong> 5–7 рабочих дней</p>
           </div>
           <!-- ФОТО: Шелкография крупным планом — видна плотная краска на ткани, чёткие контуры логотипа -->
-          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-            <div class="text-center px-6">
-              <span class="text-[#C6F24E] text-sm font-bold block mb-1">ФОТО</span>
-              <span class="text-[#86868B] text-xs">Шелкография крупным планом: плотная краска, чёткие контуры логотипа на ткани</span>
-            </div>
+          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl overflow-hidden">
+            <img src="img/shelko-futbolki.jpg" alt="Шелкография крупным планом на ткани" class="w-full h-full object-cover" width="2304" height="1728" loading="lazy">
           </div>
         </section>
 
@@ -195,16 +220,13 @@
           <p class="text-lg leading-relaxed text-[#1D1D1F]">Машинная вышивка — нитки ложатся прямо в ткань. Это самый долговечный и визуально «дорогой» способ нанесения. Вышитый логотип на поло или худи выглядит на порядок солиднее, чем печать.</p>
           <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Главное преимущество:</strong> максимальная стойкость (переживёт любое количество стирок) и премиальный внешний вид. Вышивку выбирают для корпоративной одежды руководства, VIP-подарков и спецодежды.</p>
           <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Ограничения:</strong> не подходит для фотопечати и сложных градиентов — только графика, текст, логотипы. Размер вышивки ограничен (обычно до 30×30 см). Стоимость выше, чем у печати.</p>
-          <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Для кого:</strong> корпоративные поло и рубашки, худи для руководства, спортивная форма, подарочные комплекты. Тиражи от 10 шт.</p>
+          <p class="text-lg leading-relaxed text-[#1D1D1F] mt-4"><strong>Для кого:</strong> корпоративные поло и рубашки, худи для руководства, спортивная форма, подарочные комплекты. Тиражи от 1 шт.</p>
           <div class="bg-[#F5F5F7] rounded-lg p-4 mt-4">
-            <p class="text-sm"><strong>Минимум:</strong> от 10 шт.<br><strong>Цена:</strong> от 15 ₽/1000 стежков<br><strong>Подготовка программы:</strong> от 2000 ₽ (разовый платёж)<br><strong>Срок:</strong> 5–10 рабочих дней</p>
+            <p class="text-sm"><strong>Минимум:</strong> от 1 шт.<br><strong>Цена:</strong> от 15 ₽/1000 стежков<br><strong>Подготовка программы:</strong> от 2000 ₽ (разовый платёж)<br><strong>Срок:</strong> 5–10 рабочих дней</p>
           </div>
           <!-- ФОТО: Вышивка крупным планом — видны нитки, объём, текстура на плотной ткани (поло или худи) -->
-          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-            <div class="text-center px-6">
-              <span class="text-[#C6F24E] text-sm font-bold block mb-1">ФОТО</span>
-              <span class="text-[#86868B] text-xs">Вышивка крупным планом: видны нитки, объём, текстура на поло или худи</span>
-            </div>
+          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl overflow-hidden">
+            <img src="img/вышивка-машина-с-изделиями.jpg" alt="Вышивка крупным планом на поло" class="w-full h-full object-cover" width="1200" height="800" loading="lazy">
           </div>
         </section>
 
@@ -218,11 +240,8 @@
             <p class="text-sm"><strong>Минимум:</strong> от 1 м²<br><strong>Цена:</strong> от 300 ₽/м²<br><strong>Срок:</strong> 5–7 рабочих дней</p>
           </div>
           <!-- ФОТО: Сублимация крупным планом — яркие цвета на полиэстере, гладкая ткань без плёнки -->
-          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-            <div class="text-center px-6">
-              <span class="text-[#C6F24E] text-sm font-bold block mb-1">ФОТО</span>
-              <span class="text-[#86868B] text-xs">Сублимация крупным планом: яркие цвета на белом полиэстере, ткань гладкая, принта не чувствуется</span>
-            </div>
+          <div class="mt-6 bg-[#E8E8ED] h-40 w-full rounded-2xl overflow-hidden">
+            <img src="img/sublimaciya-forma.jpg" alt="Сублимация на полиэстере крупным планом" class="w-full h-full object-cover" width="2304" height="1728" loading="lazy">
           </div>
         </section>
 
@@ -271,9 +290,9 @@
                 </tr>
                 <tr>
                   <td class="px-4 py-3 text-[#6E6E73]">Мин. тираж</td>
-                  <td class="px-4 py-3">от 10 шт.</td>
-                  <td class="px-4 py-3">от 50 шт.</td>
-                  <td class="px-4 py-3">от 10 шт.</td>
+                  <td class="px-4 py-3">от 1 шт.</td>
+                  <td class="px-4 py-3">от 1 шт.</td>
+                  <td class="px-4 py-3">от 1 шт.</td>
                   <td class="px-4 py-3">от 1 м²</td>
                 </tr>
                 <tr>
@@ -281,7 +300,7 @@
                   <td class="px-4 py-3">10–500 шт.</td>
                   <td class="px-4 py-3">500+ шт.</td>
                   <td class="px-4 py-3">10–200 шт.</td>
-                  <td class="px-4 py-3">от 50 шт.</td>
+                  <td class="px-4 py-3">от 1 шт.</td>
                 </tr>
                 <tr>
                   <td class="px-4 py-3 text-[#6E6E73]">Срок</td>
@@ -405,65 +424,112 @@
     </div>
   </article>
 
-  <section id="cta" class="bg-[#1D1D1F] text-white py-24 md:py-32 mt-24">
-    <div class="max-w-[1280px] mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-[-0.03em] leading-tight">Помогу выбрать технологию</h2>
-      <p class="text-lg text-[#86868B] mt-6">Напишите кратко о своей задаче — дадим совет</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-        <a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-4 font-semibold">Telegram</a>
-        <a href="https://max.ag/FiresElfs" target="_blank" rel="noopener" class="btn-pill border-2 border-[#6E6E73] text-white px-8 py-4 font-semibold">MAX</a>
-      </div>
-      <div class="mt-6 text-sm text-[#86868B] max-w-xl mx-auto">
-        <label class="flex items-start gap-2 cursor-pointer">
-          <input type="checkbox" required class="mt-1">
-          <span>Согласен на обработку персональных данных в соответствии с <a href="#" class="hover:text-[#C6F24E]">политикой конфиденциальности</a></span>
-        </label>
+  <!-- ==================== CTA — Dark Panel with Inline Form ==================== -->
+  <section id="cta" class="dark-cta py-24 md:py-32">
+    <div class="max-w-[900px] mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">Обсудим ваш проект?</h2>
+      <p class="text-[#86868B] text-lg mt-4 leading-relaxed max-w-lg mx-auto">Расскажите о&nbsp;задаче &mdash; подберём решение и&nbsp;рассчитаем стоимость. Ответим за&nbsp;30&nbsp;минут</p>
+
+      <form class="mt-10 max-w-2xl mx-auto" action="#" method="POST">
+        <div class="flex flex-col sm:flex-row gap-3">
+
+          <input type="text" name="name" required placeholder="Имя" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
+          <input type="tel" name="phone" required placeholder="Телефон" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
+          <button type="submit" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm whitespace-nowrap hover:opacity-90 transition-opacity">Отправить</button>
+        </div>
+        <label class="flex items-center justify-center gap-2 mt-5 text-xs text-[#86868B] cursor-pointer">
+        <input type="checkbox" name="consent" required class="w-4 h-4 accent-[#C6F24E] flex-shrink-0">
+        <span>Согласен на&nbsp;<a href="politika-konfidencialnosti" class="underline hover:text-white transition-colors">обработку персональных данных</a></span>
+      </label>
+      </form>
+
+
+      <p class="text-sm text-[#86868B] mt-8">Или напишите в&nbsp;мессенджер:</p>
+      <div class="flex justify-center gap-4 mt-3">
+        <a href="https://t.me/FiresElfs" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://max.ag/FiresElfs" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">MAX</a>
       </div>
     </div>
   </section>
 
-  <footer class="bg-[#F5F5F7] py-12 border-t border-[#E5E5E5]">
+  <!-- ==================== WB/OZON MINI-BANNER ==================== -->
+  <section class="py-10 bg-[#1D1D1F]">
     <div class="max-w-[1280px] mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-        <div>
-          <h3 class="font-bold text-sm mb-4">Услуги</h3>
-          <ul class="space-y-2 text-sm text-[#6E6E73]">
-            <li><a href="uslugi-dtf" class="hover:text-[#1D1D1F]">DTF-печать</a></li>
-            <li><a href="uslugi-shelkografiya" class="hover:text-[#1D1D1F]">Шелкография</a></li>
-            <li><a href="uslugi-vyshivka" class="hover:text-[#1D1D1F]">Вышивка</a></li>
-          </ul>
+      <a href="marketplejsy" class="flex flex-col md:flex-row items-center justify-between gap-4 group">
+        <div class="flex items-center gap-4">
+          <span class="bg-[#C6F24E] text-[#1D1D1F] text-xs font-bold px-3 py-1 rounded-full">WB + Ozon</span>
+          <p class="text-white font-semibold">Печать и&nbsp;фулфилмент для&nbsp;маркетплейсов &mdash; от&nbsp;10&nbsp;шт.</p>
         </div>
+        <span class="text-[#C6F24E] font-semibold text-sm group-hover:opacity-80 transition-opacity whitespace-nowrap">Узнать подробнее &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#1D1D1F] text-white py-16">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Company info -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Блог</h3>
-          <ul class="space-y-2 text-sm text-[#6E6E73]">
-            <li><a href="blog" class="hover:text-[#1D1D1F]">Все статьи</a></li>
-            <li><a href="blog-sublimacija-vs-dtf" class="hover:text-[#1D1D1F]">Сублимация vs DTF</a></li>
-            <li><a href="blog-korporativnyj-merch" class="hover:text-[#1D1D1F]">Корп. мерч</a></li>
-          </ul>
+          <a href="/" aria-label="Огни Эльфов"><svg viewBox="0 0 160 44" class="h-8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="4" height="40" rx="1" fill="#FFFFFF"/><rect x="7" y="2" width="6" height="40" rx="1" fill="#FFFFFF"/><rect x="16" y="2" width="9" height="40" rx="1" fill="#FFFFFF"/><rect x="28" y="2" width="13" height="40" rx="1" fill="#C6F24E"/><text x="50" y="18" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ОГНИ</text><text x="50" y="36" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ЭЛЬФОВ</text></svg></a>
+          <p class="text-sm text-[#86868B] mt-2">Производство мерча под ключ</p>
+          <p class="text-sm text-[#86868B] mt-4">г. Москва, ул. Фабричная, д. 6, стр. 1</p>
+          <p class="text-xs text-[#86868B] mt-1">Фабрика &laquo;Победа труда&raquo;</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-[#2A2A2C] rounded-lg px-3 py-2">
+            <span class="text-[#FFB800] text-sm">&#9733;</span>
+            <span class="text-white text-sm font-semibold">4.9</span>
+            <span class="text-[#86868B] text-xs">Яндекс.Отзывы</span>
+          </div>
         </div>
+        <!-- Navigation -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Навигация</h3>
-          <ul class="space-y-2 text-sm text-[#6E6E73]">
-            <li><a href="uslugi" class="hover:text-[#1D1D1F]">Услуги</a></li>
-            <li><a href="catalog" class="hover:text-[#1D1D1F]">Каталог</a></li>
-            <li><a href="marketplejsy" class="hover:text-[#1D1D1F]">Маркетплейсы</a></li>
-          </ul>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Навигация</h4>
+          <nav class="flex flex-col gap-3">
+            <a href="uslugi" class="text-sm text-[#86868B] hover:text-white transition-colors">Услуги</a>
+            <a href="catalog" class="text-sm text-[#86868B] hover:text-white transition-colors">Каталог</a>
+            <a href="portfolio" class="text-sm text-[#86868B] hover:text-white transition-colors">Кейсы</a>
+            <a href="blog" class="text-sm text-[#86868B] hover:text-white transition-colors">Блог</a>
+            <a href="marketplejsy" class="text-sm text-[#86868B] hover:text-white transition-colors">Маркетплейсы</a>
+          <a href="kontakty" class="text-sm text-[#86868B] hover:text-white transition-colors">Контакты</a>
+          </nav>
         </div>
+        <!-- Contacts & Social -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Реквизиты</h3>
-          <p class="text-sm text-[#6E6E73]">ИНН 7721525448<br>ОГРН 1057746319432</p>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Контакты</h4>
+          <p class="text-sm text-white font-medium"><a href="tel:+74953804032" class="hover:opacity-80 transition-opacity">+7 (495) 380-40-32</a></p>
+          <p class="text-sm text-[#86868B] mt-2">info@elfprint.ru</p>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="https://t.me/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">Telegram</a>
+            <a href="#" class="text-sm text-[#86868B] hover:text-white transition-colors">VKontakte</a>
+            <a href="https://max.ag/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">MAX</a>
+          </div>
+          <div class="mt-4 pt-4 border-t border-[#333]">
+            <p class="text-xs text-[#86868B]">ИНН: 7 721 525 448</p>
+            <p class="text-xs text-[#86868B] mt-1">ОГРН: 1 057 746 319 432</p>
+          </div>
         </div>
+        <!-- Yandex Maps widget placeholder -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Контакты</h3>
-          <p class="text-sm text-[#6E6E73]">+7 (495) 380-40-32<br><a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">Telegram</a> • <a href="https://max.ag/FiresElfs" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">MAX</a></p>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Мы на карте</h4>
+          <div class="bg-[#2A2A2C] rounded-2xl h-48 flex items-center justify-center">
+            <p class="text-xs text-[#86868B] text-center px-4">Виджет Яндекс.Карт</p>
+          </div>
         </div>
       </div>
-      <div class="text-center text-sm text-[#86868B] pt-8 border-t border-[#E5E5E5]">
-        <p>&copy; 2026 Огни Эльфов. Все права защищены.</p>
+      <div class="border-t border-[#333] mt-12 pt-8 flex flex-col md:flex-row justify-between gap-4">
+        <p class="text-xs text-[#86868B]">&copy; 2026 Огни Эльфов. Все права защищены.</p>
+        <div class="flex gap-4">
+          <a href="politika-konfidencialnosti" class="text-xs text-[#86868B] hover:text-white transition-colors">Политика конфиденциальности</a>
+          <span class="text-xs text-[#86868B]">|</span>
+          <a href="#" class="text-xs text-[#86868B] hover:text-white transition-colors">Оферта</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Reveal on scroll -->
+  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js"></script>
 
   <!-- ==================== POPUP FORM (Modal) ==================== -->
   <div id="popup-form" class="fixed inset-0 z-[100] hidden items-center justify-center">

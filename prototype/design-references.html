@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design References — Огни Эльфов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Onest', system-ui, sans-serif; background: #0A0A0A; color: #fff; }
+
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid #222;
+      padding: 20px 40px;
+    }
+    .header h1 { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; }
+    .header p { font-size: 13px; color: #666; margin-top: 4px; }
+
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+    /* Section */
+    .section { padding: 80px 0; border-bottom: 1px solid #1a1a1a; }
+    .section-header { margin-bottom: 48px; }
+    .section-num { font-size: 13px; color: #C6F24E; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .section-title { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+    .section-sub { font-size: 16px; color: #888; margin-top: 12px; line-height: 1.6; max-width: 700px; }
+
+    /* Reference card */
+    .ref-grid { display: grid; grid-template-columns: 1fr; gap: 48px; }
+
+    .ref-card {
+      background: #111;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #222;
+      transition: border-color 0.3s;
+    }
+    .ref-card:hover { border-color: #C6F24E; }
+
+    .ref-card img {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #222;
+    }
+
+    .ref-card-body { padding: 32px; }
+    .ref-card-source {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; color: #C6F24E; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      background: rgba(198,242,78,0.08);
+      padding: 4px 12px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .ref-card h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .ref-card p { font-size: 14px; color: #999; line-height: 1.7; }
+
+    /* Takeaway */
+    .takeaway {
+      margin-top: 20px; padding: 20px;
+      background: rgba(198,242,78,0.05);
+      border: 1px solid rgba(198,242,78,0.15);
+      border-radius: 12px;
+    }
+    .takeaway-label {
+      font-size: 11px; font-weight: 600; color: #C6F24E;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .takeaway ul { list-style: none; padding: 0; }
+    .takeaway li {
+      font-size: 14px; color: #ccc; padding: 6px 0;
+      padding-left: 20px; position: relative; line-height: 1.5;
+    }
+    .takeaway li::before {
+      content: ''; position: absolute; left: 0; top: 13px;
+      width: 8px; height: 8px; background: #C6F24E; border-radius: 2px;
+    }
+
+    /* Summary table */
+    .summary-table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+    .summary-table th {
+      text-align: left; font-size: 11px; color: #666;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 12px 16px; border-bottom: 1px solid #333;
+    }
+    .summary-table td {
+      padding: 16px; border-bottom: 1px solid #1a1a1a;
+      font-size: 14px; color: #ccc; vertical-align: top;
+    }
+    .summary-table tr:hover td { background: rgba(198,242,78,0.03); }
+    .summary-table .element { color: #fff; font-weight: 600; }
+    .summary-table .source { color: #C6F24E; }
+
+    /* Priority badge */
+    .priority {
+      display: inline-block; padding: 3px 10px;
+      border-radius: 100px; font-size: 11px; font-weight: 600;
+    }
+    .priority--high { background: rgba(198,242,78,0.15); color: #C6F24E; }
+    .priority--med { background: rgba(255,180,0,0.12); color: #FFB400; }
+    .priority--low { background: rgba(255,255,255,0.06); color: #666; }
+
+    /* Links */
+    a { color: #C6F24E; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .header { padding: 16px 20px; }
+      .section { padding: 48px 0; }
+      .section-title { font-size: 28px; }
+    }
+  </style>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+
+  <div class="header">
+    <div class="container">
+      <h1>Design References — elfprint.ru</h1>
+      <p>Референсы и заимствования для редизайна Огни Эльфов. Март 2026.</p>
+    </div>
+  </div>
+
+  <!-- ============ 01. HERO ============ -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-num">01 / Hero Section</div>
+        <h2 class="section-title">Hero — первое впечатление</h2>
+        <p class="section-sub">Определяет конверсию. Должен работать за 3 секунды: кто вы, что делаете, почему вам доверять. Ниже — лучшие примеры и что забрать под себя.</p>
+      </div>
+
+      <div class="ref-grid">
+        <!-- Stripe -->
+        <div class="ref-card">
+          <img src="ref-01-stripe-top.jpeg" alt="Stripe hero" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">stripe.com</div>
+            <h3>Gradient silk background + gradient text fade</h3>
+            <p>Розово-оранжевый шёлковый градиент занимает правую часть hero. Заголовок ~56px с эффектом text gradient fade (часть текста серая, часть чёрная — создаёт глубину). Сразу живая метрика сверху ("1.62% Global GDP"). Dual CTA: синий filled + белый outlined. Лого-бар клиентов (Amazon, Google, NVIDIA) прямо под hero без разрыва.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>Lime-gradient (#C6F24E → transparent) как фоновое пятно за hero-фото</li>
+                <li>Live-метрика сверху: "20+ лет на рынке" pill badge</li>
+                <li>Лого-бар клиентов: Армия России, ЛДПР, Летуаль, Тинькофф, Яндекс, Лукойл</li>
+                <li>Dual CTA: "Обсудить проект" (lime filled) + "Смотреть каталог" (outlined)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apple -->
+        <div class="ref-card">
+          <img src="ref-05-apple-hero.jpeg" alt="Apple hero" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">apple.com</div>
+            <h3>Центрированный hero: продукт — звезда</h3>
+            <p>Название продукта (~64px bold) → слоган в 1 строку → dual CTA (Learn more + Buy) → фото продукта снизу, держит на руке. Фон — тёплый серый #F5F5F7, не чистый белый. Абсолютный минимум текста. Продукт — единственный визуальный акцент.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>Layout: заголовок → подзаголовок → chips → CTA → фото мерча</li>
+                <li>Фон #F5F5F7 (уже используем) — это правильно</li>
+                <li>Продукт на переднем плане: худи/футболка с логотипом клиента</li>
+                <li>Принцип "меньше текста = сильнее впечатление"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vercel -->
+        <div class="ref-card">
+          <img src="ref-03-vercel-hero.jpeg" alt="Vercel hero" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">vercel.com</div>
+            <h3>Announcement pill + grid background + geometric art</h3>
+            <p>Сверху — pill badge с анонсом ("Events → Ship 26 is coming"). Центрированный заголовок ~48px. Подзаголовок серым. Dual CTA (чёрный filled + белый outlined). Тонкие grid-линии на фоне. Абстрактная геометрическая визуализация снизу — цветовой акцент без фотографии.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>Announcement pill: "Ответ за 30 мин" или "Акция: скидка на первый заказ"</li>
+                <li>Subtle grid-pattern на фоне hero (CSS-only, без изображений)</li>
+                <li>Если нет фото — использовать абстрактную геометрию с lime-акцентом</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fujida -->
+        <div class="ref-card">
+          <img src="ref-04-fujida-hero.jpeg" alt="Fujida hero" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">fujida.pro</div>
+            <h3>Гигантская типографика = визуал</h3>
+            <p>Название бренда занимает весь viewport как графический элемент. Чёрный на белом. Подзаголовок деликатно рядом с последней буквой. "Крутите ↓" справа как scroll hint. Никаких фотографий — только шрифт. Российский сайт, отлично работает.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>Масштаб: заголовок 56-72px minimum, вес 800</li>
+                <li>Scroll-hint элемент "Листайте ↓"</li>
+                <li>На странице "О компании" — можно сделать hero с гигантским "ОГНИ ЭЛЬФОВ"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 02. BENTO GRID ============ -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-num">02 / Services & Features</div>
+        <h2 class="section-title">Bento Grid — секция услуг</h2>
+        <p class="section-sub">Вместо одинаковых карточек 3-в-ряд — разноразмерная сетка с визуалами. Выглядит дороже и интереснее.</p>
+      </div>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <img src="ref-07-stripe-bento.jpeg" alt="Stripe bento grid" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">stripe.com</div>
+            <h3>Bento Grid — разноразмерные карточки услуг</h3>
+            <p>Верхний ряд: 2 карточки (широкая 2/3 + узкая 1/3). Нижний ряд: 3 равные. Внутри каждой — заголовок + визуал (скриншот продукта, UI-элемент, график). Карточки с border-radius ~16px, subtle border, hover-эффект. Иконка "expand" в углу каждой карточки.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>Grid: 2 колонки сверху (DTF-печать широкая + Шелкография узкая), 3 снизу (Вышивка, УФ-печать, Сублимация)</li>
+                <li>Внутри карточек: фото процесса / результата + название технологии + "от X руб."</li>
+                <li>Hover: карточка поднимается (translateY) + акцентный border</li>
+                <li>Corner icon: стрелка "перейти" для каждой услуги</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 03. TRUST / SOCIAL PROOF ============ -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-num">03 / Trust & Social Proof</div>
+        <h2 class="section-title">Доверие — числа и лого</h2>
+        <p class="section-sub">Крупные метрики + логотипы клиентов + рейтинги. Работает на B2B-аудиторию сильнее любого текста.</p>
+      </div>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <img src="ref-01-stripe-top.jpeg" alt="Stripe trust bar" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">stripe.com — trust bar</div>
+            <h3>Client logo bar + live metrics</h3>
+            <p>Лого-бар идёт горизонтальной полосой сразу после hero. Серые логотипы на белом фоне. Выше — живая метрика ("1.62% Global GDP running on Stripe") с анимированным счётчиком. Лого автоматически скроллятся если не помещаются.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>Лого-бар клиентов: серые SVG логотипы, горизонтальный scroll на мобильных</li>
+                <li>Stats-секция: 20+ лет | 2 000+ клиентов | 6 технологий | 300+ заказов/мес</li>
+                <li>Count-up анимация при scroll (IntersectionObserver + requestAnimationFrame)</li>
+                <li>Яндекс.Отзывы виджет с реальным рейтингом 4.9</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 04. DARK CTA ============ -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-num">04 / CTA Section</div>
+        <h2 class="section-title">Тёмная CTA-секция</h2>
+        <p class="section-sub">Контраст с основным светлым фоном. Привлекает внимание к форме.</p>
+      </div>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <img src="ref-02-linear-hero.jpeg" alt="Linear dark theme" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">linear.app</div>
+            <h3>Dark background + высококонтрастная типографика</h3>
+            <p>Чёрный/тёмно-серый фон (#0A0A0A). Белый текст крупным кеглем. Pill badge справа с акцентным сообщением. Product screenshot ниже. Минимум элементов — максимум воздуха.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>CTA-секция: тёмный фон #1D1D1F → белый заголовок "Обсудим ваш проект?"</li>
+                <li>Lime CTA кнопка (#C6F24E) на тёмном = максимальный контраст</li>
+                <li>Форма inline (name + phone + button) — уже есть, но добавить glow-эффект</li>
+                <li>Мессенджеры TG/MAX как secondary action</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ 05. BRAND / ATMOSPHERE ============ -->
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-num">05 / Brand Atmosphere</div>
+        <h2 class="section-title">Атмосфера бренда</h2>
+        <p class="section-sub">Full-bleed изображения, иммерсивные первые экраны, продукт = lifestyle.</p>
+      </div>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <img src="ref-06-cocos-hero.jpeg" alt="Cocos Beauty" loading="lazy">
+          <div class="ref-card-body">
+            <div class="ref-card-source">cocosbeauty.shop</div>
+            <h3>Full-bleed фото + overlay типографика</h3>
+            <p>Фото на весь экран. Название бренда поверх белым outline-шрифтом. Слоган внизу. Scroll-hint (мышка). Соцсети сбоку. Тёмная атмосфера = премиум. Российский сайт, работает хорошо.</p>
+            <div class="takeaway">
+              <div class="takeaway-label">Что берём для elfprint.ru</div>
+              <ul>
+                <li>Для страницы "О компании" — full-bleed фото фабрики/команды</li>
+                <li>Для portfolio — full-width кейсы с overlay текстом</li>
+                <li>Scroll-hint элемент (анимированная мышка/стрелка)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SUMMARY ============ -->
+  <div class="section" style="border-bottom: none;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-num">Summary</div>
+        <h2 class="section-title">Карта заимствований</h2>
+        <p class="section-sub">Что, откуда, с каким приоритетом внедряем на elfprint.ru</p>
+      </div>
+
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Элемент</th>
+            <th>Источник</th>
+            <th>Конкретный приём</th>
+            <th>Приоритет</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="element">Hero layout</td>
+            <td class="source">Apple</td>
+            <td>Центр: H1 → subtitle → chips → dual CTA → product photo</td>
+            <td><span class="priority priority--high">P0</span></td>
+          </tr>
+          <tr>
+            <td class="element">Hero background</td>
+            <td class="source">Stripe + Vercel</td>
+            <td>Lime gradient glow + subtle grid-pattern</td>
+            <td><span class="priority priority--high">P0</span></td>
+          </tr>
+          <tr>
+            <td class="element">Announcement pill</td>
+            <td class="source">Vercel</td>
+            <td>Pill badge над H1: "Ответ за 30 мин" / акция</td>
+            <td><span class="priority priority--high">P0</span></td>
+          </tr>
+          <tr>
+            <td class="element">Client logo bar</td>
+            <td class="source">Stripe</td>
+            <td>Серые SVG лого клиентов сразу под hero</td>
+            <td><span class="priority priority--high">P0</span></td>
+          </tr>
+          <tr>
+            <td class="element">Services bento grid</td>
+            <td class="source">Stripe</td>
+            <td>Разноразмерные карточки с фото процесса внутри</td>
+            <td><span class="priority priority--high">P0</span></td>
+          </tr>
+          <tr>
+            <td class="element">Stats count-up</td>
+            <td class="source">Stripe</td>
+            <td>72px числа с анимацией счётчика при скролле</td>
+            <td><span class="priority priority--med">P1</span></td>
+          </tr>
+          <tr>
+            <td class="element">Dark CTA glow</td>
+            <td class="source">Linear</td>
+            <td>Тёмный фон + lime glow за CTA-кнопкой</td>
+            <td><span class="priority priority--med">P1</span></td>
+          </tr>
+          <tr>
+            <td class="element">Scroll-triggered products</td>
+            <td class="source">Fujida</td>
+            <td>Мерч появляется при скролле с fade+slide</td>
+            <td><span class="priority priority--med">P1</span></td>
+          </tr>
+          <tr>
+            <td class="element">Hero giant typography</td>
+            <td class="source">Fujida</td>
+            <td>Гигантский "ОГНИ ЭЛЬФОВ" на странице О нас</td>
+            <td><span class="priority priority--low">P2</span></td>
+          </tr>
+          <tr>
+            <td class="element">Full-bleed portfolio</td>
+            <td class="source">Cocos Beauty</td>
+            <td>Full-width кейсы с overlay text</td>
+            <td><span class="priority priority--low">P2</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 48px; padding: 32px; background: rgba(198,242,78,0.05); border: 1px solid rgba(198,242,78,0.15); border-radius: 16px;">
+        <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 12px;">Ссылки на референсы</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px;">
+          <a href="https://stripe.com" target="_blank" style="padding: 8px 16px; background: #1a1a1a; border-radius: 100px; font-size: 13px; border: 1px solid #333;">stripe.com</a>
+          <a href="https://linear.app" target="_blank" style="padding: 8px 16px; background: #1a1a1a; border-radius: 100px; font-size: 13px; border: 1px solid #333;">linear.app</a>
+          <a href="https://vercel.com" target="_blank" style="padding: 8px 16px; background: #1a1a1a; border-radius: 100px; font-size: 13px; border: 1px solid #333;">vercel.com</a>
+          <a href="https://apple.com" target="_blank" style="padding: 8px 16px; background: #1a1a1a; border-radius: 100px; font-size: 13px; border: 1px solid #333;">apple.com</a>
+          <a href="https://fujida.pro" target="_blank" style="padding: 8px 16px; background: #1a1a1a; border-radius: 100px; font-size: 13px; border: 1px solid #333;">fujida.pro</a>
+          <a href="https://cocosbeauty.shop" target="_blank" style="padding: 8px 16px; background: #1a1a1a; border-radius: 100px; font-size: 13px; border: 1px solid #333;">cocosbeauty.shop</a>
+        </div>
+        <div style="margin-top: 20px; font-size: 13px; color: #666;">
+          Дополнительно: <a href="https://www.awwwards.com/websites/minimal/">Awwwards Minimal</a> | <a href="https://pitcher.agency/blog/best-industrial-websites">Pitcher: промышленные сайты</a> | <a href="https://www.marketermilk.com/blog/hero-section-examples">30 hero-секций</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="padding: 40px; text-align: center; color: #333; font-size: 12px;">
+    Design References for elfprint.ru redesign. Internal use only. March 2026.
+  </div>
+
+</body>
+</html>

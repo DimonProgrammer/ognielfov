@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Производство мерча и брендированной продукции под ключ в Москве | Огни Эльфов</title>
+  <meta name="description" content="Производство мерча и брендированной продукции под ключ. DTF, шелкография, вышивка, сублимация. Собственная фабрика в Москве, 20+ лет, 2 000+ клиентов. Доставка по всей России.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Производство мерча и брендированной продукции под ключ | Огни Эльфов">
+  <meta property="og:description" content="Производство мерча и брендированной продукции под ключ. Собственная фабрика в Москве, 20+ лет, 2 000+ клиентов. Доставка по всей России.">
+  <meta property="og:image" content="https://elfprint.ru/og-image.jpg">
+  <meta property="og:url" content="https://elfprint.ru/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Огни Эльфов">
+
+  <link rel="canonical" href="https://elfprint.ru/">
+
+  <!-- Google Fonts: Onest 300-900 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Onest', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: '#1D1D1F',
+            secondary: '#6E6E73',
+            tertiary: '#86868B',
+            accent: '#C6F24E',
+            'bg-secondary': '#F5F5F7',
+          },
+          maxWidth: {
+            container: '1280px',
+          },
+          letterSpacing: {
+            heading: '-0.03em',
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- V2-specific styles -->
+  <style>
+    /* Hero grid background */
+    .hero-grid-bg {
+      background-image:
+        linear-gradient(rgba(232,232,237,0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,232,237,0.4) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    /* Lime glow blob */
+    .hero-glow {
+      position: absolute;
+      right: -5%;
+      top: 5%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(198,242,78,0.18) 0%, transparent 65%);
+      pointer-events: none;
+      filter: blur(80px);
+      z-index: 0;
+    }
+
+    /* Announcement pill animation */
+    .announcement-pill {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(198,242,78,0); }
+      50% { box-shadow: 0 0 20px rgba(198,242,78,0.15); }
+    }
+
+    /* CTA glow */
+    .cta-glow-btn {
+      box-shadow: 0 0 60px rgba(198,242,78,0.2), 0 0 120px rgba(198,242,78,0.1);
+      transition: box-shadow 0.3s;
+    }
+    .cta-glow-btn:hover {
+      box-shadow: 0 0 80px rgba(198,242,78,0.35), 0 0 160px rgba(198,242,78,0.15);
+    }
+
+    /* Scroll hint bounce */
+    .scroll-hint {
+      animation: bounce-down 2s ease-in-out infinite;
+    }
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(8px); opacity: 1; }
+    }
+
+    /* Count-up stats */
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Bento card hover */
+    .bento-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border: 1px solid #E8E8ED;
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -10px rgba(29,29,31,0.08);
+      border-color: #C6F24E;
+    }
+
+    /* Dark bento card */
+    .bento-card-dark {
+      border-color: #2A2A2C;
+    }
+    .bento-card-dark:hover {
+      border-color: #C6F24E;
+      box-shadow: 0 20px 40px -10px rgba(198,242,78,0.1);
+    }
+
+    /* Accent bento card */
+    .bento-card-accent {
+      border-color: transparent;
+    }
+    .bento-card-accent:hover {
+      border-color: #1D1D1F;
+      box-shadow: 0 20px 40px -10px rgba(198,242,78,0.15);
+    }
+
+    /* Corner arrow for bento cards */
+    .bento-arrow {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .bento-card:hover .bento-arrow {
+      opacity: 1;
+    }
+
+    /* Service bento gradient headers */
+    .service-bento-header {
+      transition: transform 0.4s ease;
+    }
+    .bento-card:hover .service-bento-header {
+      transform: scale(1.02);
+    }
+
+    /* Dark CTA inline form */
+    .dark-cta-v2 input:focus {
+      border-color: #C6F24E;
+      outline: none;
+    }
+
+    /* Popup animation */
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.25s ease-out;
+    }
+  </style>
+
+  <!-- Schema.org Structured Data -- LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Огни Эльфов",
+    "url": "https://elfprint.ru",
+    "telephone": "+7 (495) 380-40-32",
+    "email": "info@elfprint.ru",
+    "image": "https://elfprint.ru/og-image.jpg",
+    "description": "Производство мерча и брендированной продукции под ключ. DTF, шелкография, вышивка, сублимация, УФ-печать. Собственная фабрика в Москве, 20+ лет опыта, 2 000+ клиентов.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Фабричная, д. 6, стр. 1",
+      "addressLocality": "Москва",
+      "postalCode": "109316",
+      "addressCountry": "RU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "55.7068",
+      "longitude": "37.6880"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "51",
+      "bestRating": "5"
+    },
+    "taxID": "7721525448",
+    "foundingDate": "2005",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "minValue": 20
+    },
+    "areaServed": "Россия",
+    "priceRange": "от 120 ₽",
+    "sameAs": [
+      "https://t.me/FiresElfs"
+    ]
+  }
+  </script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body class="bg-white text-primary font-sans antialiased">
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-[1280px] mx-auto px-6 flex items-center justify-between h-16">
+      <a href="/" class="flex items-center gap-0" aria-label="Огни Эльфов — Главная"><svg viewBox="0 0 160 44" class="h-7" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="4" height="40" rx="1" fill="#1D1D1F"/><rect x="7" y="2" width="6" height="40" rx="1" fill="#1D1D1F"/><rect x="16" y="2" width="9" height="40" rx="1" fill="#1D1D1F"/><rect x="28" y="2" width="13" height="40" rx="1" fill="#C6F24E"/><text x="50" y="18" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#1D1D1F">ОГНИ</text><text x="50" y="36" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#1D1D1F">ЭЛЬФОВ</text></svg></a>
+      <div class="hidden md:flex items-center gap-7">
+        <div class="relative group">
+          <a href="uslugi" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors flex items-center gap-1">Услуги <svg class="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 12 12"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg border border-[#E8E8ED]/60 p-4 w-[280px]">
+              <a href="korporativnym-klientam" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                <span class="w-8 h-8 bg-[#1D1D1F] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#C6F24E] text-xs font-bold">B2B</span></span>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Корпоративным клиентам</p><p class="text-xs text-[#86868B]">Мерч под ключ, безнал с НДС</p></div>
+              </a>
+              <a href="catalog" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                <span class="w-8 h-8 bg-[#F5F5F7] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">10+</span></span>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Малые заказы</p><p class="text-xs text-[#86868B]">От 1 штуки, от 3 дней</p></div>
+              </a>
+              <a href="marketplejsy" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                <span class="w-8 h-8 bg-[#C6F24E] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">WB</span></span>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Селлерам WB/Ozon</p><p class="text-xs text-[#86868B]">Печать, маркировка, фулфилмент</p></div>
+              </a>
+              <div class="border-t border-[#E8E8ED] mt-2 pt-2">
+                <a href="uslugi" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
+                  <span class="text-sm text-[#6E6E73]">Все услуги и технологии &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="catalog" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Каталог</a>
+        <a href="portfolio" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Кейсы</a>
+        <a href="o-kompanii" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">О нас</a>
+        <a href="kontakty" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Контакты</a>
+        <a href="blog" class="text-sm font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors">Блог</a>
+      </div>
+      <div class="hidden lg:flex items-center gap-4">
+        <div class="flex items-center gap-3">
+          <a href="#" class="flex items-center gap-1.5 bg-[#F5F5F7] rounded-full px-3 py-1.5 hover:bg-[#E8E8ED] transition-colors" target="_blank" rel="noopener" title="Отзывы на Яндекс.Картах">
+            <span class="text-[#FFB800] text-xs">&#9733;</span>
+            <span class="text-xs font-bold text-[#1D1D1F]">4.9</span>
+            <span class="text-[10px] text-[#6E6E73]">Яндекс</span>
+          </a>
+          <a href="#" class="flex items-center gap-1.5 bg-[#F5F5F7] rounded-full px-3 py-1.5 hover:bg-[#E8E8ED] transition-colors" target="_blank" rel="noopener" title="Отзывы на 2ГИС">
+            <span class="text-[#4DB251] text-xs font-bold">2GIS</span>
+            <span class="text-xs font-bold text-[#1D1D1F]">4.8</span>
+          </a>
+        </div>
+        <a href="tel:+74953804032" class="text-sm font-medium text-[#1D1D1F] hover:opacity-70 transition-opacity">+7 (495) 380-40-32</a>
+        <div class="flex items-center gap-2">
+          <a href="https://t.me/FiresElfs" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="Telegram" target="_blank" rel="noopener">TG</a>
+          <a href="#" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="VKontakte">VK</a>
+          <a href="https://max.ag/FiresElfs" class="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" aria-label="MAX" target="_blank" rel="noopener">MAX</a>
+        </div>
+        <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+      </div>
+      <div class="flex items-center gap-3 lg:hidden w-full">
+      <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="lg:hidden btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#F5F5F7] transition-colors ml-auto" aria-label="Меню">
+          <svg class="icon-open w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="icon-close hidden w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl pointer-events-none opacity-0 transition-opacity duration-300 pt-20">
+    <div class="max-w-[1280px] mx-auto px-6 py-8">
+      <div class="flex flex-col gap-1">
+        <a href="uslugi" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Услуги</a>
+        <div class="pl-4 flex flex-col gap-0.5 pb-2">
+          <a href="korporativnym-klientam" class="text-sm text-[#6E6E73] py-2">Корпоративным клиентам</a>
+          <a href="catalog" class="text-sm text-[#6E6E73] py-2">Малые заказы от 1 штуки</a>
+          <a href="marketplejsy" class="text-sm text-[#6E6E73] py-2">Селлерам WB/Ozon</a>
+        </div>
+        <a href="catalog" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Каталог</a>
+        <a href="portfolio" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Кейсы</a>
+        <a href="o-kompanii" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">О нас</a>
+        <a href="blog" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Блог</a>
+        <a href="kontakty" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Контакты</a>
+      </div>
+      <div class="mt-8 flex flex-col gap-4">
+        <a href="tel:+74953804032" class="text-lg font-semibold text-[#1D1D1F]">+7 (495) 380-40-32</a>
+        <p class="text-sm text-[#86868B]">info@elfprint.ru</p>
+        <div class="flex gap-4 mt-2">
+          <a href="https://t.me/FiresElfs" class="btn-pill bg-[#F5F5F7] text-[#1D1D1F] px-5 py-2.5 text-sm font-medium" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://max.ag/FiresElfs" class="btn-pill bg-[#F5F5F7] text-[#1D1D1F] px-5 py-2.5 text-sm font-medium" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== HERO SECTION (REDESIGNED) ==================== -->
+  <section class="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-28">
+    <!-- Grid background -->
+    <div class="absolute inset-0 hero-grid-bg"></div>
+    <!-- Lime glow blob -->
+    <div class="hero-glow"></div>
+
+    <div class="max-w-[1280px] mx-auto px-6 text-center relative z-10">
+
+      <!-- Announcement pill (Vercel-style) -->
+      <div class="inline-flex items-center gap-2 announcement-pill bg-white border border-[#E8E8ED] rounded-full px-5 py-2 mb-8 reveal">
+        <span class="w-2 h-2 bg-[#C6F24E] rounded-full"></span>
+        <span class="text-sm font-medium text-[#1D1D1F]">Ответ за&nbsp;30&nbsp;мин</span>
+      </div>
+
+      <!-- H1 (Fujida-style large typography) -->
+      <h1 class="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-[72px] tracking-heading leading-[1.05] max-w-5xl mx-auto reveal">
+        Производство мерча и&nbsp;брендированной продукции под&nbsp;ключ
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg md:text-xl text-[#6E6E73] mt-6 max-w-2xl mx-auto leading-relaxed reveal">
+        Собственная фабрика в&nbsp;Москве, 6&nbsp;технологий нанесения, доставка по&nbsp;всей России
+      </p>
+
+      <!-- Key benefits chips -->
+      <div class="flex flex-wrap justify-center gap-2.5 mt-8 reveal">
+        <span class="bg-[#F5F5F7] text-[#1D1D1F] text-sm font-medium px-4 py-2 rounded-full">Своя фабрика в&nbsp;Москве</span>
+        <span class="bg-[#F5F5F7] text-[#1D1D1F] text-sm font-medium px-4 py-2 rounded-full">От&nbsp;1&nbsp;штуки</span>
+        <span class="bg-[#F5F5F7] text-[#1D1D1F] text-sm font-medium px-4 py-2 rounded-full">20+ лет опыта</span>
+        <span class="bg-[#F5F5F7] text-[#1D1D1F] text-sm font-medium px-4 py-2 rounded-full">2 000+ клиентов</span>
+        <span class="bg-[#F5F5F7] text-[#1D1D1F] text-sm font-medium px-4 py-2 rounded-full">Безнал с&nbsp;НДС</span>
+      </div>
+
+      <!-- Dual CTA (Vercel-style: filled lime + outlined dark) -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 reveal">
+        <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 text-base font-semibold inline-block hover:opacity-90 transition-opacity">
+          Обсудить проект
+        </a>
+        <a href="catalog" class="btn-pill border-2 border-[#1D1D1F] text-[#1D1D1F] px-8 py-3 text-base font-semibold inline-block hover:bg-[#1D1D1F] hover:text-white transition-all">
+          Смотреть каталог
+        </a>
+      </div>
+
+      <!-- Hero image placeholder card -->
+      <div class="mt-16 bg-[#F5F5F7] rounded-3xl h-80 md:h-[480px] flex items-center justify-center shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] reveal">
+        <p class="text-[#86868B] text-sm font-medium max-w-md px-6 text-center">
+          Фото: команда в&nbsp;брендированном мерче на&nbsp;фоне производства &mdash; худи, футболки, шопперы с&nbsp;фирменным стилем
+        </p>
+      </div>
+
+      <!-- Scroll hint chevron -->
+      <div class="mt-10 flex justify-center scroll-hint">
+        <svg class="w-6 h-6 text-[#86868B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== CLIENT LOGO BAR (Stripe-style marquee) ==================== -->
+  <section class="border-t border-b border-[#F5F5F7] py-8 marquee-wrapper reveal">
+    <div class="marquee-track">
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Яндекс</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Тинькофф</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Лукойл</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Летуаль</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Армия России</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">ЛДПР</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Яндекс</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Тинькофф</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Лукойл</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Летуаль</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">Армия России</span>
+      <span class="text-2xl font-extrabold text-[#1D1D1F] opacity-[0.12] px-12 tracking-heading whitespace-nowrap">ЛДПР</span>
+    </div>
+  </section>
+
+
+  <!-- ==================== STATS (REDESIGNED - Stripe-style large numbers) ==================== -->
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 reveal-stagger">
+        <div class="text-center reveal">
+          <p class="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#1D1D1F] tracking-heading stat-number" data-count="20" data-suffix="+">0</p>
+          <p class="text-sm text-[#6E6E73] mt-3">лет на&nbsp;рынке</p>
+        </div>
+        <div class="text-center reveal">
+          <p class="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#1D1D1F] tracking-heading stat-number" data-count="2000" data-suffix="+" data-separator=" ">0</p>
+          <p class="text-sm text-[#6E6E73] mt-3">клиентов</p>
+        </div>
+        <div class="text-center reveal">
+          <p class="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#1D1D1F] tracking-heading stat-number" data-count="9000" data-separator=" ">0</p>
+          <p class="text-sm text-[#6E6E73] mt-3">изделий в&nbsp;смену</p>
+        </div>
+        <div class="text-center reveal">
+          <p class="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#1D1D1F] tracking-heading stat-number" data-count="50" data-suffix="%">0</p>
+          <p class="text-sm text-[#6E6E73] mt-3">повторные заказы</p>
+        </div>
+        <div class="text-center col-span-2 md:col-span-1 reveal">
+          <p class="text-5xl md:text-6xl lg:text-[72px] font-extrabold text-[#C6F24E] tracking-heading stat-number" data-count="30" data-suffix=" мин">0</p>
+          <p class="text-sm text-[#6E6E73] mt-3">ответ на&nbsp;заявку</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== ADVANTAGES BENTO GRID (REDESIGNED) ==================== -->
+  <section class="py-24 md:py-32 bg-[#F5F5F7]">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="text-center reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading">Почему выбирают нас</h2>
+        <p class="text-lg text-[#6E6E73] mt-4">20+ лет, собственная фабрика, импортное оборудование</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14 reveal-stagger">
+
+        <!-- Row 1: 2/3 dark + 1/3 light -->
+        <div class="md:col-span-2 bento-card bento-card-dark bg-[#1D1D1F] rounded-3xl p-8 md:p-10 relative overflow-hidden reveal">
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="w-12 h-12 bg-[#C6F24E] rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold tracking-heading text-white">Собственная фабрика в&nbsp;Москве</h3>
+          <p class="text-sm text-[#86868B] mt-3 leading-relaxed max-w-lg">Полный цикл на&nbsp;одной площадке: печать, вышивка, пошив, упаковка. Без посредников и&nbsp;наценок.</p>
+        </div>
+
+        <div class="bento-card bg-white rounded-3xl p-8 relative overflow-hidden reveal">
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="w-12 h-12 bg-[#C6F24E] rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold tracking-heading">Европейское и&nbsp;японское оборудование</h3>
+          <p class="text-sm text-[#6E6E73] mt-3 leading-relaxed">SROQUE, MIMAKI, BARUDAN. Точность печати и&nbsp;стабильное качество.</p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <span class="bg-[#F5F5F7] text-[#1D1D1F] text-xs font-medium px-2.5 py-1 rounded-full">SROQUE</span>
+            <span class="bg-[#F5F5F7] text-[#1D1D1F] text-xs font-medium px-2.5 py-1 rounded-full">MIMAKI</span>
+            <span class="bg-[#F5F5F7] text-[#1D1D1F] text-xs font-medium px-2.5 py-1 rounded-full">BARUDAN</span>
+          </div>
+        </div>
+
+        <!-- Row 2: 3x equal -->
+        <div class="bento-card bg-white rounded-3xl p-8 relative overflow-hidden reveal">
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="w-12 h-12 bg-[#C6F24E] rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold tracking-heading">Полный цикл производства</h3>
+          <p class="text-sm text-[#6E6E73] mt-3 leading-relaxed">От&nbsp;разработки дизайна до&nbsp;доставки. 6&nbsp;технологий нанесения, маркировка, упаковка.</p>
+        </div>
+
+        <div class="bento-card bg-white rounded-3xl p-8 relative overflow-hidden reveal">
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="w-12 h-12 bg-[#C6F24E] rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold tracking-heading">Любые тиражи от&nbsp;1&nbsp;штуки</h3>
+          <p class="text-sm text-[#6E6E73] mt-3 leading-relaxed">Тестовая партия, корпоративный заказ или ежедневная печать для&nbsp;маркетплейсов.</p>
+        </div>
+
+        <div class="bento-card bg-white rounded-3xl p-8 relative overflow-hidden reveal">
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="w-12 h-12 bg-[#C6F24E] rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+          </div>
+          <h3 class="text-lg font-bold tracking-heading">Доставка по&nbsp;всей России</h3>
+          <p class="text-sm text-[#6E6E73] mt-3 leading-relaxed">Транспортные компании, курьер по&nbsp;Москве. Ежедневная отгрузка на&nbsp;склады WB и&nbsp;Ozon.</p>
+        </div>
+
+        <!-- Row 3: full width accent -->
+        <div class="md:col-span-3 bento-card bento-card-accent bg-[#C6F24E] rounded-3xl p-8 md:p-10 relative overflow-hidden reveal">
+          <div class="flex flex-col md:flex-row md:items-center gap-6">
+            <div class="w-12 h-12 bg-[#1D1D1F] rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-[#C6F24E]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl md:text-2xl font-bold tracking-heading text-[#1D1D1F]">Безнал, НДС, все документы</h3>
+              <p class="text-sm text-[#1D1D1F]/70 mt-2 leading-relaxed">Договор, акты, УПД, счета-фактуры. Работаем с&nbsp;юридическими лицами и&nbsp;ИП. Честный знак для&nbsp;маркетплейсов.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== ДЛЯ КОГО ПРОИЗВОДИМ МЕРЧ ==================== -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="text-center reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading">Для&nbsp;кого производим мерч</h2>
+        <p class="text-lg text-[#6E6E73] mt-4">Три направления &mdash; одна фабрика</p>
+      </div>
+      <div class="flex flex-col gap-5 mt-14 reveal-stagger">
+
+        <!-- Corporate -->
+        <a href="korporativnym-klientam" class="bg-[#1D1D1F] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 md:gap-12 items-center card-hover reveal group">
+          <div class="flex-1">
+            <span class="text-xs font-semibold text-[#C6F24E] uppercase tracking-widest">Основное направление</span>
+            <h3 class="text-2xl md:text-3xl font-extrabold text-white mt-3 tracking-heading">Корпоративные клиенты</h3>
+            <p class="text-[#86868B] mt-4 leading-relaxed max-w-lg">Компании, которые заботятся о команде. Welcome-kit, event-мерч, брендированная одежда. От 1 человека. Средний чек 150 000&nbsp;&mdash;&nbsp;2 000 000&nbsp;&#8381;</p>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="bg-[#2A2A2C] text-[#C6F24E] text-xs font-medium px-3 py-1.5 rounded-full">Безнал с&nbsp;НДС</span>
+              <span class="bg-[#2A2A2C] text-[#C6F24E] text-xs font-medium px-3 py-1.5 rounded-full">Персональный менеджер</span>
+              <span class="bg-[#2A2A2C] text-[#C6F24E] text-xs font-medium px-3 py-1.5 rounded-full">Полный пакет документов</span>
+            </div>
+            <span class="inline-flex items-center gap-2 text-[#C6F24E] font-semibold text-sm mt-6 group-hover:opacity-80 transition-opacity">Подробнее &rarr;</span>
+          </div>
+          <div class="w-full md:w-80 flex-shrink-0">
+            <div class="bg-[#2A2A2C] rounded-2xl aspect-[4/3] flex items-center justify-center">
+              <p class="text-xs text-[#86868B] text-center px-4">Фото: welcome-kit в&nbsp;брендированной коробке</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- B2C -- small orders -->
+        <a href="catalog" class="bg-[#F5F5F7] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 md:gap-12 items-center card-hover reveal group">
+          <div class="flex-1">
+            <span class="text-xs font-semibold text-[#1D1D1F] uppercase tracking-widest">Для всех</span>
+            <h3 class="text-2xl md:text-3xl font-extrabold text-[#1D1D1F] mt-3 tracking-heading">Малые заказы от&nbsp;1&nbsp;штуки</h3>
+            <p class="text-[#6E6E73] mt-4 leading-relaxed max-w-lg">Небольшие партии для&nbsp;личных проектов, стартапов, подарков. DTF-печать &mdash; быстро и&nbsp;без&nbsp;переплат. Готовность от&nbsp;3&nbsp;рабочих дней.</p>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="bg-white text-[#1D1D1F] text-xs font-medium px-3 py-1.5 rounded-full">От&nbsp;1&nbsp;шт.</span>
+              <span class="bg-white text-[#1D1D1F] text-xs font-medium px-3 py-1.5 rounded-full">От&nbsp;3&nbsp;дней</span>
+              <span class="bg-white text-[#1D1D1F] text-xs font-medium px-3 py-1.5 rounded-full">Любые ткани</span>
+            </div>
+            <span class="inline-flex items-center gap-2 text-[#1D1D1F] font-semibold text-sm mt-6 group-hover:opacity-70 transition-opacity">Смотреть каталог &rarr;</span>
+          </div>
+          <div class="w-full md:w-80 flex-shrink-0">
+            <div class="bg-[#E8E8ED] rounded-2xl aspect-[4/3] flex items-center justify-center">
+              <p class="text-xs text-[#86868B] text-center px-4">Фото: футболки с&nbsp;принтами</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- WB/Ozon -- sellers -->
+        <a href="marketplejsy" class="bg-[#F5F5F7] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 md:gap-12 items-center card-hover reveal group">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="bg-[#C6F24E] text-[#1D1D1F] text-xs font-bold px-3 py-1 rounded-full">WB + Ozon</span>
+              <span class="text-[#86868B] text-xs">300&nbsp;изд./день</span>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-extrabold text-[#1D1D1F] tracking-heading">Селлеры маркетплейсов</h3>
+            <p class="text-[#6E6E73] mt-4 leading-relaxed max-w-lg">Полный цикл: печать, маркировка Честный знак, упаковка, ежедневная отгрузка FBO/FBS. Одна фабрика вместо&nbsp;трёх подрядчиков.</p>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="bg-white text-[#1D1D1F] text-xs font-medium px-3 py-1.5 rounded-full">От&nbsp;1&nbsp;штуки</span>
+              <span class="bg-white text-[#1D1D1F] text-xs font-medium px-3 py-1.5 rounded-full">Честный знак</span>
+              <span class="bg-white text-[#1D1D1F] text-xs font-medium px-3 py-1.5 rounded-full">FBO/FBS ежедневно</span>
+              <span class="bg-white text-[#1D1D1F] text-xs font-medium px-3 py-1.5 rounded-full">ОТК каждой партии</span>
+            </div>
+            <span class="inline-flex items-center gap-2 text-[#1D1D1F] font-semibold text-sm mt-6 group-hover:opacity-70 transition-opacity">Узнать подробнее &rarr;</span>
+          </div>
+          <div class="w-full md:w-80 flex-shrink-0">
+            <div class="bg-[#E8E8ED] rounded-2xl aspect-[4/3] flex items-center justify-center">
+              <div class="text-center px-4">
+                <div class="flex items-center justify-center gap-4 mb-3">
+                  <span class="text-2xl font-bold text-[#1D1D1F]">WB</span>
+                  <span class="text-[#86868B]">+</span>
+                  <span class="text-2xl font-bold text-[#1D1D1F]">Ozon</span>
+                </div>
+                <p class="text-xs text-[#86868B]">Фото: упакованные заказы с&nbsp;маркировкой</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== SERVICES BENTO (REDESIGNED - Stripe-style) ==================== -->
+  <section class="py-24 md:py-32 bg-[#F5F5F7]">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="text-center reveal">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading">Услуги производства мерча</h2>
+        <p class="text-lg text-[#6E6E73] mt-4 max-w-2xl mx-auto">Полный цикл: от&nbsp;подбора продукции и&nbsp;разработки дизайна до&nbsp;нанесения и&nbsp;доставки</p>
+      </div>
+
+      <!-- Row 1: 2/3 + 1/3 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14 reveal-stagger">
+        <a href="uslugi-dtf" class="md:col-span-2 bento-card bg-white rounded-3xl overflow-hidden relative group reveal">
+          <div class="service-bento-header h-48 md:h-64 flex items-center justify-center" style="background: linear-gradient(135deg, #C6F24E 0%, #A8D83A 50%, #8BC62E 100%);">
+            <p class="text-lg font-bold text-[#1D1D1F]">DTF-печать</p>
+          </div>
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-2 mb-3">
+              <h3 class="text-xl font-bold tracking-heading">DTF-печать</h3>
+              <span class="text-xs font-medium text-[#1D1D1F] bg-[#C6F24E] px-2.5 py-0.5 rounded-full">от&nbsp;1&nbsp;шт.</span>
+            </div>
+            <p class="text-sm text-[#6E6E73] leading-relaxed">Полноцветные принты на&nbsp;любых тканях. Фотокачество, стойкость до&nbsp;60&nbsp;стирок. Градиенты, мелкие детали, фото &mdash; без ограничений.</p>
+          </div>
+        </a>
+
+        <a href="uslugi-shelkografiya" class="bento-card bg-white rounded-3xl overflow-hidden relative group reveal">
+          <div class="service-bento-header h-48 md:h-64 flex items-center justify-center" style="background: linear-gradient(135deg, #6E6E73 0%, #1D1D1F 100%);">
+            <p class="text-lg font-bold text-white">Шелкография</p>
+          </div>
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-center gap-2 mb-3">
+              <h3 class="text-xl font-bold tracking-heading">Шелкография</h3>
+              <span class="text-xs font-medium text-[#1D1D1F] bg-[#C6F24E] px-2.5 py-0.5 rounded-full">от&nbsp;100&nbsp;шт.</span>
+            </div>
+            <p class="text-sm text-[#6E6E73] leading-relaxed">Выгоднее всего на&nbsp;тиражах от&nbsp;500&nbsp;шт. Насыщенные цвета, максимальная стойкость.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Row 2: 3x equal -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5 reveal-stagger">
+        <a href="uslugi-vyshivka" class="bento-card bg-white rounded-3xl overflow-hidden relative group reveal">
+          <div class="service-bento-header h-40 md:h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #FFB800 0%, #FF8C00 100%);">
+            <p class="text-lg font-bold text-[#1D1D1F]">Вышивка</p>
+          </div>
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <h3 class="text-lg font-bold tracking-heading">Вышивка</h3>
+              <span class="text-xs font-medium text-[#1D1D1F] bg-[#C6F24E] px-2.5 py-0.5 rounded-full">от&nbsp;100&nbsp;шт.</span>
+            </div>
+            <p class="text-sm text-[#6E6E73] leading-relaxed">Объёмный логотип на&nbsp;ткани. Премиальный вид, идеальна для&nbsp;корпоративной одежды.</p>
+          </div>
+        </a>
+
+        <a href="uslugi-sublimaciya" class="bento-card bg-white rounded-3xl overflow-hidden relative group reveal">
+          <div class="service-bento-header h-40 md:h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #7B61FF 0%, #5B3FD6 100%);">
+            <p class="text-lg font-bold text-white">Сублимация</p>
+          </div>
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <h3 class="text-lg font-bold tracking-heading">Сублимация</h3>
+              <span class="text-xs font-medium text-[#1D1D1F] bg-[#C6F24E] px-2.5 py-0.5 rounded-full">от&nbsp;1&nbsp;м</span>
+            </div>
+            <p class="text-sm text-[#6E6E73] leading-relaxed">Рулонная печать по&nbsp;всей площади синтетической ткани. Спортивная форма, флаги, текстиль.</p>
+          </div>
+        </a>
+
+        <a href="uslugi-uf-pechat" class="bento-card bg-white rounded-3xl overflow-hidden relative group reveal">
+          <div class="service-bento-header h-40 md:h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #00BFFF 0%, #0080FF 100%);">
+            <p class="text-lg font-bold text-white">УФ-печать</p>
+          </div>
+          <div class="bento-arrow"><svg class="w-4 h-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold tracking-heading mb-3">УФ-печать</h3>
+            <p class="text-sm text-[#6E6E73] leading-relaxed">На&nbsp;твёрдых поверхностях: пластик, дерево, металл, стекло. Подарочные коробки, сувениры.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== PROCESS STEPS ==================== -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading text-center reveal">Как мы&nbsp;работаем</h2>
+      <p class="text-lg text-[#6E6E73] mt-4 text-center reveal">От&nbsp;заявки до&nbsp;доставки &mdash; 5&nbsp;шагов</p>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4 mt-16 reveal-stagger">
+        <!-- Step 1 -->
+        <div class="step-connector text-center reveal">
+          <div class="w-14 h-14 rounded-full bg-[#C6F24E] flex items-center justify-center mx-auto">
+            <span class="text-lg font-bold text-[#1D1D1F]">1</span>
+          </div>
+          <h3 class="font-bold text-base mt-4">Бриф</h3>
+          <p class="text-sm text-[#6E6E73] mt-2 leading-relaxed">Обсуждаем задачу, бюджет, сроки и&nbsp;объём. Ответим за&nbsp;30&nbsp;минут</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="step-connector text-center reveal">
+          <div class="w-14 h-14 rounded-full bg-[#C6F24E] flex items-center justify-center mx-auto">
+            <span class="text-lg font-bold text-[#1D1D1F]">2</span>
+          </div>
+          <h3 class="font-bold text-base mt-4">Подбор метода</h3>
+          <p class="text-sm text-[#6E6E73] mt-2 leading-relaxed">Подбираем оптимальную технологию и&nbsp;материалы под&nbsp;ваш макет</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="step-connector text-center reveal">
+          <div class="w-14 h-14 rounded-full bg-[#C6F24E] flex items-center justify-center mx-auto">
+            <span class="text-lg font-bold text-[#1D1D1F]">3</span>
+          </div>
+          <h3 class="font-bold text-base mt-4">Производство</h3>
+          <p class="text-sm text-[#6E6E73] mt-2 leading-relaxed">Печатаем на&nbsp;импортном оборудовании: SROQUE (Португалия), MIMAKI и&nbsp;BARUDAN (Япония)</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="step-connector text-center reveal">
+          <div class="w-14 h-14 rounded-full bg-[#C6F24E] flex items-center justify-center mx-auto">
+            <span class="text-lg font-bold text-[#1D1D1F]">4</span>
+          </div>
+          <h3 class="font-bold text-base mt-4">Контроль качества</h3>
+          <p class="text-sm text-[#6E6E73] mt-2 leading-relaxed">Проверяем каждое изделие перед отправкой. Брак &mdash; за&nbsp;наш счёт</p>
+        </div>
+        <!-- Step 5 -->
+        <div class="step-connector text-center reveal">
+          <div class="w-14 h-14 rounded-full bg-[#C6F24E] flex items-center justify-center mx-auto">
+            <span class="text-lg font-bold text-[#1D1D1F]">5</span>
+          </div>
+          <h3 class="font-bold text-base mt-4">Доставка</h3>
+          <p class="text-sm text-[#6E6E73] mt-2 leading-relaxed">СДЭК, Почта России, курьер по&nbsp;Москве или самовывоз с&nbsp;фабрики</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CATALOG GRID ==================== -->
+  <section class="py-24 md:py-32 bg-[#F5F5F7]">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 reveal">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading">Каталог продукции</h2>
+          <p class="text-lg text-[#6E6E73] mt-3">Всё доступно для&nbsp;нанесения логотипа 6&nbsp;технологиями</p>
+        </div>
+        <a href="catalog" class="text-sm font-semibold text-[#1D1D1F] hover:opacity-70 transition-opacity underline underline-offset-4 decoration-[#C6F24E]">Весь каталог &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12 reveal-stagger">
+
+        <!-- Featured: Одежда (col-span-2 row-span-2) -->
+        <a href="catalog-odezhda" class="sm:col-span-2 sm:row-span-2 bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 md:h-72 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5 md:p-6">
+            <h3 class="text-xl md:text-2xl font-bold tracking-heading">Одежда</h3>
+            <p class="text-sm text-[#6E6E73] mt-2 leading-relaxed">Футболки 180г/240г, лонгсливы 210г, худи 340г оверсайз</p>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от&nbsp;184&nbsp;&#8381;/шт.</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Аксессуары -->
+        <a href="catalog-aksessuary" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Аксессуары</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Шопперы, рюкзаки, кепки, зонты</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от&nbsp;250&nbsp;&#8381;/шт.</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Посуда -->
+        <a href="catalog-posuda" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Посуда</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Кружки, термосы, бутылки</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от&nbsp;450&nbsp;&#8381;</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Канцелярия -->
+        <a href="catalog-kancelyariya" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Канцелярия</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Ручки, блокноты, ежедневники</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от&nbsp;120&nbsp;&#8381;</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Текстиль -->
+        <a href="catalog-tekstil" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Текстиль</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Полотенца, пледы, подушки</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от&nbsp;590&nbsp;&#8381;</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Электроника -->
+        <a href="catalog-elektronika" class="bg-white rounded-2xl border border-[#E8E8ED] card-hover block reveal group">
+          <div class="bg-[#E8E8ED] rounded-t-2xl h-48 flex items-center justify-center">
+            <span class="text-sm text-[#86868B]">Изображение категории</span>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold tracking-heading">Электроника</h3>
+            <p class="text-sm text-[#6E6E73] mt-1.5 leading-relaxed">Повербанки, колонки, наушники</p>
+            <div class="flex items-center justify-between mt-3">
+              <span class="text-sm font-semibold text-[#1D1D1F]">от&nbsp;990&nbsp;&#8381;</span>
+              <span class="text-sm font-medium text-[#6E6E73] group-hover:text-[#1D1D1F] transition-colors">Смотреть &rarr;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CASES ==================== -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 reveal">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading">Кейсы и&nbsp;примеры работ</h2>
+          <p class="text-lg text-[#6E6E73] mt-3">Яндекс, Тинькофф, Лукойл и&nbsp;ещё 2 000+ компаний</p>
+        </div>
+        <a href="portfolio" class="text-sm font-semibold text-[#1D1D1F] hover:opacity-70 transition-opacity underline underline-offset-4 decoration-[#C6F24E]">Все кейсы &rarr;</a>
+      </div>
+
+      <!-- Featured case -->
+      <div class="mt-14 bg-[#F5F5F7] rounded-3xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center card-hover reveal">
+        <div class="md:w-1/2 w-full">
+          <div class="bg-[#E5E5E7] rounded-2xl aspect-[16/10] flex items-center justify-center">
+            <p class="text-xs text-[#86868B] text-center px-4">[PLACEHOLDER] Фото кейса: мерч для&nbsp;IT-конференции</p>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <span class="text-xs font-semibold text-[#C6F24E] bg-[#1D1D1F] px-3 py-1 rounded-full uppercase tracking-widest">IT-компания</span>
+          <h3 class="text-xl md:text-2xl font-bold tracking-heading mt-4">[PLACEHOLDER] Мерч для&nbsp;конференции на&nbsp;2000&nbsp;человек</h3>
+          <p class="text-[#6E6E73] mt-3 leading-relaxed">[PLACEHOLDER] Футболки, шопперы, бейджи, стикерпаки. Дизайн с&nbsp;нуля, производство за&nbsp;10&nbsp;дней.</p>
+          <a href="portfolio" class="inline-flex items-center gap-2 text-[#1D1D1F] font-semibold text-sm mt-6 hover:opacity-70 transition-opacity">Подробнее &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 2 small cases -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5 reveal-stagger">
+        <div class="bg-[#F5F5F7] rounded-3xl p-8 card-hover reveal">
+          <div class="bg-[#E5E5E7] rounded-2xl aspect-[16/10] flex items-center justify-center mb-6">
+            <p class="text-xs text-[#86868B] text-center px-4">[PLACEHOLDER] Фото кейса: welcome-kit</p>
+          </div>
+          <h3 class="text-lg font-bold tracking-heading">[PLACEHOLDER] Welcome-kit для&nbsp;новых сотрудников</h3>
+          <a href="portfolio" class="inline-flex items-center gap-2 text-[#1D1D1F] font-semibold text-sm mt-4 hover:opacity-70 transition-opacity">Подробнее &rarr;</a>
+        </div>
+        <div class="bg-[#F5F5F7] rounded-3xl p-8 card-hover reveal">
+          <div class="bg-[#E5E5E7] rounded-2xl aspect-[16/10] flex items-center justify-center mb-6">
+            <p class="text-xs text-[#86868B] text-center px-4">[PLACEHOLDER] Фото кейса: брендированная форма</p>
+          </div>
+          <h3 class="text-lg font-bold tracking-heading">[PLACEHOLDER] Брендированная форма для&nbsp;сети ресторанов</h3>
+          <a href="portfolio" class="inline-flex items-center gap-2 text-[#1D1D1F] font-semibold text-sm mt-4 hover:opacity-70 transition-opacity">Подробнее &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== TECH GRID ==================== -->
+  <section class="py-24 md:py-32 bg-[#F5F5F7]">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 reveal">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading">Технологии нанесения</h2>
+          <p class="text-lg text-[#6E6E73] mt-3">6&nbsp;методов &mdash; подберём оптимальный под&nbsp;ваш проект</p>
+        </div>
+        <a href="uslugi" class="text-sm font-semibold text-[#1D1D1F] hover:opacity-70 transition-opacity underline underline-offset-4 decoration-[#C6F24E]">Сравнить все &rarr;</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 mt-12 reveal-stagger">
+
+        <!-- DTF -->
+        <a href="uslugi-dtf" class="bg-white rounded-2xl overflow-hidden card-hover group reveal">
+          <div class="h-28 md:h-36 flex items-center justify-center" style="background: linear-gradient(135deg, #C6F24E 0%, #A8D83A 100%);">
+            <p class="text-sm font-semibold text-[#1D1D1F]">DTF</p>
+          </div>
+          <div class="p-4 md:p-5">
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base md:text-lg font-bold tracking-heading">DTF-печать</h3>
+              <span class="text-[10px] md:text-xs font-medium bg-[#C6F24E] text-[#1D1D1F] px-2 py-0.5 rounded-full">от&nbsp;1&nbsp;шт.</span>
+            </div>
+            <p class="text-xs md:text-sm text-[#6E6E73] leading-relaxed">Полноцвет на&nbsp;любых тканях. Фото, градиенты, мелкие детали.</p>
+          </div>
+        </a>
+
+        <!-- Шелкография -->
+        <a href="uslugi-shelkografiya" class="bg-white rounded-2xl overflow-hidden card-hover group reveal">
+          <div class="h-28 md:h-36 flex items-center justify-center" style="background: linear-gradient(135deg, #6E6E73 0%, #1D1D1F 100%);">
+            <p class="text-sm font-semibold text-white">Шелкография</p>
+          </div>
+          <div class="p-4 md:p-5">
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base md:text-lg font-bold tracking-heading">Шелкография</h3>
+              <span class="text-[10px] md:text-xs font-medium bg-[#C6F24E] text-[#1D1D1F] px-2 py-0.5 rounded-full">от&nbsp;100&nbsp;шт.</span>
+            </div>
+            <p class="text-xs md:text-sm text-[#6E6E73] leading-relaxed">Трафаретная печать. Лучшая цена на&nbsp;больших тиражах.</p>
+          </div>
+        </a>
+
+        <!-- Вышивка -->
+        <a href="uslugi-vyshivka" class="bg-white rounded-2xl overflow-hidden card-hover group reveal">
+          <div class="h-28 md:h-36 flex items-center justify-center" style="background: linear-gradient(135deg, #FFB800 0%, #FF8C00 100%);">
+            <p class="text-sm font-semibold text-[#1D1D1F]">Вышивка</p>
+          </div>
+          <div class="p-4 md:p-5">
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base md:text-lg font-bold tracking-heading">Вышивка</h3>
+              <span class="text-[10px] md:text-xs font-medium bg-[#C6F24E] text-[#1D1D1F] px-2 py-0.5 rounded-full">от&nbsp;100&nbsp;шт.</span>
+            </div>
+            <p class="text-xs md:text-sm text-[#6E6E73] leading-relaxed">Объёмный логотип нитками. Премиальный вид, оборудование BARUDAN.</p>
+          </div>
+        </a>
+
+        <!-- Сублимация -->
+        <a href="uslugi-sublimaciya" class="bg-white rounded-2xl overflow-hidden card-hover group reveal">
+          <div class="h-28 md:h-36 flex items-center justify-center" style="background: linear-gradient(135deg, #7B61FF 0%, #5B3FD6 100%);">
+            <p class="text-sm font-semibold text-white">Сублимация</p>
+          </div>
+          <div class="p-4 md:p-5">
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base md:text-lg font-bold tracking-heading">Сублимация</h3>
+              <span class="text-[10px] md:text-xs font-medium bg-[#C6F24E] text-[#1D1D1F] px-2 py-0.5 rounded-full">от&nbsp;1&nbsp;м</span>
+            </div>
+            <p class="text-xs md:text-sm text-[#6E6E73] leading-relaxed">Рулонная печать по&nbsp;всей площади. Спортивная форма, текстиль из&nbsp;полиэстера.</p>
+          </div>
+        </a>
+
+        <!-- УФ-печать -->
+        <a href="uslugi-uf-pechat" class="bg-white rounded-2xl overflow-hidden card-hover group reveal">
+          <div class="h-28 md:h-36 flex items-center justify-center" style="background: linear-gradient(135deg, #00BFFF 0%, #0080FF 100%);">
+            <p class="text-sm font-semibold text-white">УФ-печать</p>
+          </div>
+          <div class="p-4 md:p-5">
+            <h3 class="text-base md:text-lg font-bold tracking-heading mb-1.5">УФ-печать</h3>
+            <p class="text-xs md:text-sm text-[#6E6E73] leading-relaxed">На&nbsp;твёрдых поверхностях: пластик, дерево, металл, стекло.</p>
+          </div>
+        </a>
+
+        <!-- Пошив -->
+        <a href="uslugi-poshiv" class="bg-white rounded-2xl overflow-hidden card-hover group reveal">
+          <div class="h-28 md:h-36 flex items-center justify-center" style="background: linear-gradient(135deg, #FF6B6B 0%, #C44040 100%);">
+            <p class="text-sm font-semibold text-white">Пошив</p>
+          </div>
+          <div class="p-4 md:p-5">
+            <div class="flex items-center gap-2 mb-1.5">
+              <h3 class="text-base md:text-lg font-bold tracking-heading">Пошив</h3>
+              <span class="text-[10px] md:text-xs font-medium bg-[#C6F24E] text-[#1D1D1F] px-2 py-0.5 rounded-full">от&nbsp;1000&nbsp;шт.</span>
+            </div>
+            <p class="text-xs md:text-sm text-[#6E6E73] leading-relaxed">Пошив одежды по&nbsp;лекалам заказчика. Оборудование YAMATO, JUKI.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== TESTIMONIALS MARQUEE ==================== -->
+  <section class="py-24 md:py-32 bg-white overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 reveal">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-heading">Отзывы клиентов</h2>
+          <p class="text-lg text-[#6E6E73] mt-3">Реальные отзывы с&nbsp;Яндекс.Карт</p>
+        </div>
+        <div class="flex items-center gap-2 bg-[#F5F5F7] rounded-xl px-4 py-2.5">
+          <span class="text-[#FFB800] text-lg">&#9733;</span>
+          <span class="text-[#1D1D1F] font-bold text-lg">4.9</span>
+          <span class="text-[#6E6E73] text-sm">/ 51&nbsp;отзыв на&nbsp;Яндекс.Картах</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 1: left direction -->
+    <div class="marquee-wrapper mt-12">
+      <div class="marquee-row marquee-row-left">
+        <!-- Card 1: Лаура -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказывали печать на&nbsp;футболках для&nbsp;корпоратива. Качество отличное, принт яркий, сроки соблюдены. Менеджер Елена помогла подобрать оптимальный вариант.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Лаура &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 2: Ольга -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Делали welcome-kit для&nbsp;новых сотрудников: худи, блокноты, ручки в&nbsp;коробке. Всё сделали в&nbsp;срок, упаковка аккуратная, качество на&nbsp;высоте.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Ольга &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 3: Игроман52 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Печатали партию футболок DTF-методом. Цвета насыщенные, после стирки не&nbsp;потеряли вид. Обращусь ещё раз.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Игроман52 &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказывали вышивку на&nbsp;поло для&nbsp;всей команды. Логотип получился объёмный и&nbsp;аккуратный. Быстро рассчитали стоимость и&nbsp;согласовали макет.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Дмитрий К. &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 5 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Работаем уже третий год. Стабильное качество, быстрые сроки, адекватные цены. Рекомендую как&nbsp;надёжного подрядчика по&nbsp;мерчу.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Анна М. &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказывали печать на&nbsp;футболках для&nbsp;корпоратива. Качество отличное, принт яркий, сроки соблюдены. Менеджер Елена помогла подобрать оптимальный вариант.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Лаура &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Делали welcome-kit для&nbsp;новых сотрудников: худи, блокноты, ручки в&nbsp;коробке. Всё сделали в&nbsp;срок, упаковка аккуратная, качество на&nbsp;высоте.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Ольга &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Печатали партию футболок DTF-методом. Цвета насыщенные, после стирки не&nbsp;потеряли вид. Обращусь ещё раз.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Игроман52 &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказывали вышивку на&nbsp;поло для&nbsp;всей команды. Логотип получился объёмный и&nbsp;аккуратный. Быстро рассчитали стоимость и&nbsp;согласовали макет.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Дмитрий К. &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Работаем уже третий год. Стабильное качество, быстрые сроки, адекватные цены. Рекомендую как&nbsp;надёжного подрядчика по&nbsp;мерчу.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Анна М. &mdash; Яндекс.Карты</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: right direction -->
+    <div class="marquee-wrapper mt-5">
+      <div class="marquee-row marquee-row-right">
+        <!-- Card 6 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Шелкография на&nbsp;шопперах &mdash; 500&nbsp;штук за&nbsp;неделю. Краска легла ровно, ни&nbsp;одного бракованного экземпляра. Буду обращаться повторно.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Сергей В. &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 7 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказывали мерч для&nbsp;митапа: 200&nbsp;футболок и&nbsp;стикерпаки. Ответили на&nbsp;заявку за&nbsp;20&nbsp;минут, всё готово за&nbsp;5&nbsp;рабочих дней.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Екатерина Л. &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 8 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Сублимация на&nbsp;кружках для&nbsp;офиса. Принт не&nbsp;стирается, цвета точно как&nbsp;в&nbsp;макете. Спасибо за&nbsp;быструю работу!</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Максим Р. &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 9 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Пошили партию худи по&nbsp;нашим лекалам. Качество швов, фурнитура, вышивка логотипа &mdash; всё на&nbsp;уровне. Фабрика реально работает.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Алексей Г. &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Card 10 -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказали УФ-печать на&nbsp;подарочных коробках. Результат отличный, краска стойкая, детали чёткие. Хорошая коммуникация на&nbsp;всех этапах.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Марина С. &mdash; Яндекс.Карты</p>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Шелкография на&nbsp;шопперах &mdash; 500&nbsp;штук за&nbsp;неделю. Краска легла ровно, ни&nbsp;одного бракованного экземпляра. Буду обращаться повторно.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Сергей В. &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказывали мерч для&nbsp;митапа: 200&nbsp;футболок и&nbsp;стикерпаки. Ответили на&nbsp;заявку за&nbsp;20&nbsp;минут, всё готово за&nbsp;5&nbsp;рабочих дней.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Екатерина Л. &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Сублимация на&nbsp;кружках для&nbsp;офиса. Принт не&nbsp;стирается, цвета точно как&nbsp;в&nbsp;макете. Спасибо за&nbsp;быструю работу!</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Максим Р. &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Пошили партию худи по&nbsp;нашим лекалам. Качество швов, фурнитура, вышивка логотипа &mdash; всё на&nbsp;уровне. Фабрика реально работает.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Алексей Г. &mdash; Яндекс.Карты</p>
+        </div>
+        <div class="testimonial-card bg-[#F5F5F7] rounded-2xl p-6">
+          <div class="flex items-center gap-1 mb-3">
+            <span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span><span class="text-[#FFB800]">&#9733;</span>
+          </div>
+          <p class="text-sm text-[#1D1D1F] leading-relaxed">Заказали УФ-печать на&nbsp;подарочных коробках. Результат отличный, краска стойкая, детали чёткие. Хорошая коммуникация на&nbsp;всех этапах.</p>
+          <p class="text-xs text-[#86868B] mt-4 font-medium">Марина С. &mdash; Яндекс.Карты</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== DARK CTA (REDESIGNED - Linear-style glow) ==================== -->
+  <section id="cta" class="bg-[#1D1D1F] py-24 md:py-32">
+    <div class="max-w-[900px] mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl md:text-[48px] font-extrabold tracking-tight text-white leading-[1.1]">Обсудим ваш проект?</h2>
+      <p class="text-[#86868B] text-lg mt-4 leading-relaxed max-w-lg mx-auto">Расскажите о&nbsp;задаче &mdash; подберём решение и&nbsp;рассчитаем стоимость. Ответим за&nbsp;30&nbsp;минут</p>
+
+      <form class="dark-cta-v2 mt-10 max-w-2xl mx-auto" action="#" method="POST">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input type="text" name="name" required placeholder="Имя" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] transition-colors">
+          <input type="tel" name="phone" required placeholder="Телефон" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] transition-colors">
+          <button type="submit" class="btn-pill cta-glow-btn bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm whitespace-nowrap hover:opacity-90 transition-opacity">Отправить</button>
+        </div>
+        <label class="flex items-center justify-center gap-2 mt-4 text-xs text-[#86868B]">
+          <input type="checkbox" name="consent" required class="accent-[#C6F24E]">
+          <span>Согласен на&nbsp;<a href="politika-konfidencialnosti" class="underline hover:text-white transition-colors">обработку персональных данных</a></span>
+        </label>
+      </form>
+
+      <p class="text-sm text-[#86868B] mt-8">Или напишите в&nbsp;мессенджер:</p>
+      <div class="flex justify-center gap-4 mt-3">
+        <a href="https://t.me/FiresElfs" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://max.ag/FiresElfs" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">MAX</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== POPUP FORM (Modal) ==================== -->
+  <div id="popup-form" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')"></div>
+    <div class="relative bg-white rounded-2xl p-8 md:p-10 w-full max-w-md mx-4 shadow-2xl animate-fade-in">
+      <button onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F5F7] transition-colors text-[#86868B] hover:text-[#1D1D1F]" aria-label="Закрыть">&times;</button>
+      <h3 class="font-bold text-xl text-[#1D1D1F]">Оставьте заявку</h3>
+      <p class="text-sm text-[#6E6E73] mt-2">Перезвоним за&nbsp;30&nbsp;минут в&nbsp;рабочее время</p>
+      <form class="mt-6 flex flex-col gap-4" action="#" method="POST">
+        <input type="text" name="name" required placeholder="Имя *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+        <input type="tel" name="phone" required placeholder="Телефон *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+        <label class="flex items-start gap-2 text-xs text-[#86868B]">
+          <input type="checkbox" name="consent" required class="mt-0.5 w-4 h-4 accent-[#C6F24E] flex-shrink-0">
+          <span>Согласен на&nbsp;<a href="politika-konfidencialnosti" class="underline hover:text-[#1D1D1F] transition-colors">обработку персональных данных</a></span>
+        </label>
+        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm hover:opacity-90 transition-opacity">Отправить заявку</button>
+      </form>
+      <div class="flex justify-center gap-4 mt-6 pt-4 border-t border-[#E8E8ED]">
+        <a href="https://t.me/FiresElfs" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://max.ag/FiresElfs" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" target="_blank" rel="noopener">MAX</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-[#1D1D1F] text-white py-16">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Company info -->
+        <div>
+          <a href="/" aria-label="Огни Эльфов"><svg viewBox="0 0 160 44" class="h-8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="4" height="40" rx="1" fill="#FFFFFF"/><rect x="7" y="2" width="6" height="40" rx="1" fill="#FFFFFF"/><rect x="16" y="2" width="9" height="40" rx="1" fill="#FFFFFF"/><rect x="28" y="2" width="13" height="40" rx="1" fill="#C6F24E"/><text x="50" y="18" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ОГНИ</text><text x="50" y="36" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ЭЛЬФОВ</text></svg></a>
+          <p class="text-sm text-[#86868B] mt-2">Производство мерча под&nbsp;ключ</p>
+          <p class="text-sm text-[#86868B] mt-4">г.&nbsp;Москва, ул.&nbsp;Фабричная, д.&nbsp;6, стр.&nbsp;1</p>
+          <p class="text-xs text-[#86868B] mt-1">Фабрика &laquo;Победа труда&raquo;</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-[#2A2A2C] rounded-lg px-3 py-2">
+            <span class="text-[#FFB800] text-sm">&#9733;</span>
+            <span class="text-white text-sm font-semibold">4.9</span>
+            <span class="text-[#86868B] text-xs">Яндекс.Отзывы</span>
+          </div>
+        </div>
+        <!-- Navigation -->
+        <div>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Навигация</h4>
+          <nav class="flex flex-col gap-3">
+            <a href="uslugi" class="text-sm text-[#86868B] hover:text-white transition-colors">Услуги</a>
+            <a href="catalog" class="text-sm text-[#86868B] hover:text-white transition-colors">Каталог</a>
+            <a href="portfolio" class="text-sm text-[#86868B] hover:text-white transition-colors">Кейсы</a>
+            <a href="blog" class="text-sm text-[#86868B] hover:text-white transition-colors">Блог</a>
+            <a href="marketplejsy" class="text-sm text-[#86868B] hover:text-white transition-colors">Маркетплейсы</a>
+            <a href="o-kompanii" class="text-sm text-[#86868B] hover:text-white transition-colors">О&nbsp;компании</a>
+            <a href="kontakty" class="text-sm text-[#86868B] hover:text-white transition-colors">Контакты</a>
+          </nav>
+        </div>
+        <!-- Contacts & Social -->
+        <div>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Контакты</h4>
+          <p class="text-sm text-white font-medium"><a href="tel:+74953804032" class="hover:opacity-80 transition-opacity">+7 (495) 380-40-32</a></p>
+          <p class="text-sm text-white font-medium mt-1"><a href="tel:+79152648880" class="hover:opacity-80 transition-opacity">+7 (915) 264-88-80</a> <span class="text-[#86868B] text-xs">Елена</span></p>
+          <p class="text-sm text-[#86868B] mt-2">info@elfprint.ru</p>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="https://t.me/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">Telegram</a>
+            <a href="#" class="text-sm text-[#86868B] hover:text-white transition-colors">VKontakte</a>
+            <a href="https://max.ag/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">MAX</a>
+          </div>
+          <div class="mt-4 pt-4 border-t border-[#333]">
+            <p class="text-xs text-[#86868B]">ИНН: 7721525448</p>
+            <p class="text-xs text-[#86868B] mt-1">ОГРН: 1057746319432</p>
+          </div>
+        </div>
+        <!-- Yandex Maps widget placeholder -->
+        <div>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Мы на&nbsp;карте</h4>
+          <div class="bg-[#2A2A2C] rounded-2xl h-48 flex items-center justify-center">
+            <p class="text-xs text-[#86868B] text-center px-4">Виджет Яндекс.Карт</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-[#333] mt-12 pt-8 flex flex-col md:flex-row justify-between gap-4">
+        <p class="text-xs text-[#86868B]">&copy; 2026 Огни Эльфов. Все права защищены.</p>
+        <div class="flex gap-4">
+          <a href="politika-konfidencialnosti" class="text-xs text-[#86868B] hover:text-white transition-colors">Политика конфиденциальности</a>
+          <span class="text-xs text-[#86868B]">|</span>
+          <a href="#" class="text-xs text-[#86868B] hover:text-white transition-colors">Оферта</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Animations -->
+  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js"></script>
+
+  <!-- Popup form: close on Esc -->
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var popup = document.getElementById('popup-form');
+        if (popup) { popup.classList.add('hidden'); popup.classList.remove('flex'); }
+      }
+    });
+  </script>
+
+  <!-- Count-up animation on scroll -->
+  <script>
+    (function() {
+      function formatNumber(num, separator) {
+        if (!separator) return num.toString();
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, separator);
+      }
+
+      function animateCountUp(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var separator = el.getAttribute('data-separator') || '';
+        var duration = 2000;
+        var start = 0;
+        var startTime = null;
+
+        function easeOutCubic(t) {
+          return 1 - Math.pow(1 - t, 3);
+        }
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var easedProgress = easeOutCubic(progress);
+          var current = Math.floor(easedProgress * target);
+          el.textContent = formatNumber(current, separator) + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = formatNumber(target, separator) + suffix;
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      var statElements = document.querySelectorAll('.stat-number[data-count]');
+      if (!statElements.length) return;
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            animateCountUp(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      statElements.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
+</body>
+</html>
