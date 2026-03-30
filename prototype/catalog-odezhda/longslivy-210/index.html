@@ -137,6 +137,12 @@
         <span class="text-[#1D1D1F] font-medium">Лонгсливы 210г</span>
       </nav>
 
+      <!-- Mobile: Title + description above gallery -->
+      <div class="md:hidden mb-5 reveal">
+        <h1 class="text-3xl font-extrabold tracking-heading leading-tight">Лонгсливы 210г</h1>
+        <p class="text-[#6E6E73] text-lg mt-2 leading-relaxed">Лонгсливы с длинным рукавом из плотного хлопка. Идеальная основа для принта на рукавах и корпоративного мерча в прохладный сезон</p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
         <!-- LEFT: Gallery -->
@@ -161,32 +167,58 @@
             </button>
           </div>
           </div><!-- /desktop-gallery -->
-          <!-- Mobile: Slider -->
+          <!-- Mobile: Slider with peek sides, arrows, dots -->
           <div class="md:hidden" id="gallery-mobile">
-            <div class="relative bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square">
-              <img id="mobile-main" src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" alt="Белый" class="w-full h-full object-cover transition-opacity duration-200" style="transition:opacity 0.15s" width="600" height="600">
-              <button onclick="mobilePrev()" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm z-10" style="transform:translateY(-50%)" aria-label="Назад"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="#1D1D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-              <button onclick="mobileNext()" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm z-10" style="transform:translateY(-50%)" aria-label="Вперёд"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="#1D1D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="relative">
+              <div class="overflow-hidden" id="slider-container">
+                <div id="slider-track" class="flex transition-transform duration-300 ease-out" style="gap:12px">
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Белый">
+                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" alt="Белый" class="w-full h-full object-cover" width="600" height="600">
+                  </div>
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Чёрный">
+                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_51_p.jpg?v=1737429782" alt="Чёрный" class="w-full h-full object-cover" width="600" height="600" loading="lazy">
+                  </div>
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Серый меланж">
+                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_50_p_f96ed32a-9147-4e4a-8319-16759377fb7c.jpg?v=1762457756" alt="Серый меланж" class="w-full h-full object-cover" width="600" height="600" loading="lazy">
+                  </div>
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Тёмно-синий">
+                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_54_p.jpg?v=1737440958" alt="Тёмно-синий" class="w-full h-full object-cover" width="600" height="600" loading="lazy">
+                  </div>
+                </div>
+              </div>
+              <!-- Arrows -->
+              <button onclick="sliderPrev()" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md z-10 active:scale-95 transition-transform" style="transform:translateY(-50%)" aria-label="Назад">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="#1D1D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button onclick="sliderNext()" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md z-10 active:scale-95 transition-transform" style="transform:translateY(-50%)" aria-label="Вперёд">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3L11 8L6 13" stroke="#1D1D1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
             </div>
-            <div id="mobile-dots" class="flex justify-center items-center gap-2 mt-3">
-              <button onclick="mobileGoTo(0)" style="width:20px;background-color:#1D1D1F" class="h-2 rounded-full transition-all duration-300" aria-label="Фото 1"></button>
-              <button onclick="mobileGoTo(1)" style="width:8px;background-color:#D1D1D6" class="h-2 rounded-full transition-all duration-300" aria-label="Фото 2"></button>
-              <button onclick="mobileGoTo(2)" style="width:8px;background-color:#D1D1D6" class="h-2 rounded-full transition-all duration-300" aria-label="Фото 3"></button>
-              <button onclick="mobileGoTo(3)" style="width:8px;background-color:#D1D1D6" class="h-2 rounded-full transition-all duration-300" aria-label="Фото 4"></button>
+            <!-- Dots -->
+            <div id="slider-dots" class="flex justify-center items-center gap-2 mt-4">
+              <button onclick="sliderGoTo(0)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:20px;background:#1D1D1F" aria-label="Фото 1"></button>
+              <button onclick="sliderGoTo(1)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:8px;background:#D1D1D6" aria-label="Фото 2"></button>
+              <button onclick="sliderGoTo(2)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:8px;background:#D1D1D6" aria-label="Фото 3"></button>
+              <button onclick="sliderGoTo(3)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:8px;background:#D1D1D6" aria-label="Фото 4"></button>
             </div>
-            <div id="mobile-slides" style="display:none">
-            <div><img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" alt="Белый" style="display:none"></div>
-            <div><img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_51_p.jpg?v=1737429782" alt="Чёрный" style="display:none"></div>
-            <div><img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_50_p_f96ed32a-9147-4e4a-8319-16759377fb7c.jpg?v=1762457756" alt="Серый меланж" style="display:none"></div>
-            <div><img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_54_p.jpg?v=1737440958" alt="Тёмно-синий" style="display:none"></div>
+          </div>
+
+          <!-- Mobile: Color selector right after gallery -->
+          <div class="md:hidden mt-5">
+            <p class="text-sm font-semibold mb-3">Цвет: <span id="mobile-color-name" class="font-normal text-[#6E6E73]">Белый</span></p>
+            <div class="flex gap-3" id="mobile-color-swatches">
+              <button class="color-swatch active" data-color="Белый" data-hex="#FFFFFF" style="background-color:#FFFFFF" title="Белый" aria-label="Белый"></button>
+              <button class="color-swatch" data-color="Чёрный" data-hex="#1D1D1F" style="background-color:#1D1D1F" title="Чёрный" aria-label="Чёрный"></button>
+              <button class="color-swatch" data-color="Серый меланж" data-hex="#9E9E9E" style="background-color:#9E9E9E" title="Серый меланж" aria-label="Серый меланж"></button>
+              <button class="color-swatch" data-color="Тёмно-синий" data-hex="#1B365D" style="background-color:#1B365D" title="Тёмно-синий" aria-label="Тёмно-синий"></button>
             </div>
           </div>
         </div>
 
         <!-- RIGHT: Info -->
         <div class="lg:col-span-5 reveal">
-          <h1 class="text-3xl md:text-4xl font-extrabold tracking-heading leading-tight">Лонгсливы 210г</h1>
-          <p class="text-[#6E6E73] text-lg mt-3 leading-relaxed">Лонгсливы с длинным рукавом из плотного хлопка. Идеальная основа для принта на рукавах и корпоративного мерча в прохладный сезон</p>
+          <h1 class="hidden md:block text-3xl md:text-4xl font-extrabold tracking-heading leading-tight">Лонгсливы 210г</h1>
+          <p class="hidden md:block text-[#6E6E73] text-lg mt-3 leading-relaxed">Лонгсливы с длинным рукавом из плотного хлопка. Идеальная основа для принта на рукавах и корпоративного мерча в прохладный сезон</p>
 
           <div class="mt-6 p-5 bg-[#F5F5F7] rounded-2xl">
             <div class="flex items-baseline gap-3">
@@ -211,8 +243,8 @@
             </details>
           </div>
 
-          <!-- Colors -->
-          <div class="mt-6">
+          <!-- Color selector (desktop only — on mobile it's under the gallery) -->
+          <div class="hidden md:block mt-6">
             <p class="text-sm font-semibold mb-3">Цвет: <span id="selected-color-name" class="font-normal text-[#6E6E73]">Белый</span></p>
             <div class="flex gap-3" id="color-swatches">
               <button class="color-swatch active" data-color="Белый" data-hex="#FFFFFF" data-src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" style="background-color:#FFFFFF" title="Белый" aria-label="Белый"></button>
@@ -513,34 +545,90 @@
 
   <!-- Mobile gallery slider JS -->
   <script>
-    var _mSlides = document.querySelectorAll('#mobile-slides > div > img');
-    var _mIdx = 0;
-    function mobileGoTo(n) {
-      _mIdx = ((n % _mSlides.length) + _mSlides.length) % _mSlides.length;
-      var img = document.getElementById('mobile-main');
-      img.style.opacity = '0';
-      setTimeout(function(){
-        img.src = _mSlides[_mIdx].src;
-        img.alt = _mSlides[_mIdx].alt;
-        img.style.opacity = '1';
-      }, 150);
-      document.querySelectorAll('#mobile-dots button').forEach(function(d,i){
-        d.style.width = (i === _mIdx) ? '20px' : '8px';
-        d.style.backgroundColor = (i === _mIdx) ? '#1D1D1F' : '#D1D1D6';
+    var _sliderIdx = 0;
+
+    function initSlider() {
+      var container = document.getElementById('slider-container');
+      if (!container) return;
+      var slides = container.querySelectorAll('.slider-slide');
+      var W = container.offsetWidth;
+      var slideW = Math.round(W * 0.78);
+      slides.forEach(function(s) { s.style.width = slideW + 'px'; });
+      sliderGoTo(_sliderIdx);
+    }
+
+    function sliderGoTo(idx) {
+      var container = document.getElementById('slider-container');
+      var track = document.getElementById('slider-track');
+      if (!container || !track) return;
+      var slides = container.querySelectorAll('.slider-slide');
+      var count = slides.length;
+      if (!count) return;
+      idx = Math.max(0, Math.min(idx, count - 1));
+      _sliderIdx = idx;
+      var W = container.offsetWidth;
+      var slideW = Math.round(W * 0.78);
+      var gap = 12;
+      var offset = (W - slideW) / 2;
+      var tx = offset - idx * (slideW + gap);
+      track.style.transform = 'translateX(' + tx + 'px)';
+      // Update dots
+      document.querySelectorAll('.slider-dot').forEach(function(dot, i) {
+        dot.style.width = (i === idx) ? '20px' : '8px';
+        dot.style.background = (i === idx) ? '#1D1D1F' : '#D1D1D6';
+      });
+      // Sync mobile color selector
+      var colorName = slides[idx].getAttribute('data-color');
+      var mobileLabel = document.getElementById('mobile-color-name');
+      if (mobileLabel) mobileLabel.textContent = colorName;
+      document.querySelectorAll('#mobile-color-swatches .color-swatch').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-color') === colorName);
+      });
+      // Sync desktop color selector
+      var desktopLabel = document.getElementById('selected-color-name');
+      if (desktopLabel) desktopLabel.textContent = colorName;
+      document.querySelectorAll('#color-swatches .color-swatch').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-color') === colorName);
       });
     }
-    function mobilePrev(){ mobileGoTo(_mIdx - 1); }
-    function mobileNext(){ mobileGoTo(_mIdx + 1); }
-    (function(){
-      var g = document.getElementById('gallery-mobile');
-      if (!g) return;
-      var sx = 0;
-      g.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, {passive:true});
-      g.addEventListener('touchend', function(e){
-        var dx = sx - e.changedTouches[0].clientX;
-        if (Math.abs(dx) > 40) dx > 0 ? mobileNext() : mobilePrev();
+
+    function sliderPrev() { sliderGoTo(_sliderIdx - 1); }
+    function sliderNext() { sliderGoTo(_sliderIdx + 1); }
+
+    // Mobile color swatch → jump slider to that color
+    document.querySelectorAll('#mobile-color-swatches .color-swatch').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var color = btn.getAttribute('data-color');
+        var slides = document.querySelectorAll('.slider-slide');
+        for (var i = 0; i < slides.length; i++) {
+          if (slides[i].getAttribute('data-color') === color) { sliderGoTo(i); break; }
+        }
+      });
+    });
+
+    // Touch swipe support
+    (function() {
+      var container = document.getElementById('slider-container');
+      if (!container) return;
+      var startX = 0, startY = 0;
+      container.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, {passive: true});
+      container.addEventListener('touchend', function(e) {
+        var dx = startX - e.changedTouches[0].clientX;
+        var dy = startY - e.changedTouches[0].clientY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+          dx > 0 ? sliderNext() : sliderPrev();
+        }
       });
     })();
+
+    // Init on load + resize
+    window.addEventListener('load', initSlider);
+    window.addEventListener('resize', initSlider);
+    // Also init immediately if DOM already loaded
+    if (document.readyState !== 'loading') initSlider();
   </script>
 </body>
 </html>
