@@ -1,6 +1,6 @@
 {
   "buildCommand": "",
-  "outputDirectory": "prototype",
+  "outputDirectory": "public",
   "framework": null,
   "cleanUrls": true,
   "trailingSlash": false
