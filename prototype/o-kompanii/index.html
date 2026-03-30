@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <title>О компании Огни Эльфов — 20+ лет производства мерча в Москве | Огни Эльфов</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>О компании Огни Эльфов — 20 лет производства мерча</title>
   <meta name="description" content="Собственная фабрика в Москве, 20+ лет опыта, 2 000+ клиентов. Оборудование SROQUE, MIMAKI, BARUDAN, YAMATO. Яндекс, Тинькофф, Лукойл заказывают у нас.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="О компании Огни Эльфов — 20+ лет производства мерча в Москве">
+  <meta property="og:title" content="О компании Огни Эльфов — 20 лет производства мерча">
   <meta property="og:description" content="Собственная фабрика в Москве, 20+ лет опыта, 2 000+ клиентов. Оборудование SROQUE, MIMAKI, BARUDAN, YAMATO.">
   <meta property="og:image" content="https://elfprint.ru/og-image.jpg">
   <meta property="og:url" content="https://elfprint.ru/o-kompanii">
@@ -51,7 +51,7 @@
   </script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="css/custom.css">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -81,6 +81,17 @@
   }
   </script>
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <!-- Schema.org: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://elfprint.ru/"},
+      {"@type": "ListItem", "position": 2, "name": "О компании"}
+    ]
+  }
+  </script>
 </head>
 <body class="font-sans text-[#1D1D1F] bg-white antialiased">
 
@@ -140,8 +151,8 @@
         <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
       </div>
       <div class="flex items-center gap-3 lg:hidden w-full">
-      <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="lg:hidden btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
-        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#F5F5F7] transition-colors ml-auto" aria-label="Меню">
+      <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="lg:hidden ml-auto btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#F5F5F7] transition-colors" aria-label="Меню">
           <svg class="icon-open w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg class="icon-close hidden w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
@@ -190,7 +201,7 @@
         <!-- Right 40% -->
         <div class="lg:w-[40%] reveal">
           <div class="bg-[#F5F5F7] rounded-2xl aspect-[4/3] flex items-center justify-center overflow-hidden">
-            <img src="../img/футболки-в-офисе-1.jpg" alt="Производство Огни Эльфов — цех в Москве" class="w-full h-full object-cover" width="800" height="600" loading="eager">
+            <img src="img/футболки-в-офисе-1.jpg" alt="Производство Огни Эльфов — цех в Москве" class="w-full h-full object-cover" width="800" height="600" loading="eager">
           </div>
         </div>
       </div>
@@ -269,7 +280,7 @@
         <!-- Card 1: SROQUE -->
         <div class="bg-[#F5F5F7] rounded-2xl p-6 card-hover reveal">
           <div class="bg-[#E8E8ED] rounded-xl aspect-[3/2] mb-5 overflow-hidden">
-            <img src="../img/dtf-принтер.jpg" alt="DTF-принтер на фабрике" class="w-full h-full object-cover" width="1200" height="800" loading="lazy">
+            <img src="img/dtf-принтер.jpg" alt="DTF-принтер на фабрике" class="w-full h-full object-cover" width="1200" height="800" loading="lazy">
           </div>
           <p class="font-bold text-lg">SROQUE</p>
           <p class="text-xs text-[#86868B] mt-1">Португалия</p>
@@ -279,7 +290,7 @@
         <!-- Card 2: MIMAKI -->
         <div class="bg-[#F5F5F7] rounded-2xl p-6 card-hover reveal">
           <div class="bg-[#E8E8ED] rounded-xl aspect-[3/2] mb-5 overflow-hidden">
-            <img src="../img/вышивка-машина-с-изделиями.jpg" alt="Вышивальная машина на производстве" class="w-full h-full object-cover" width="1200" height="800" loading="lazy">
+            <img src="img/вышивка-машина-с-изделиями.jpg" alt="Вышивальная машина на производстве" class="w-full h-full object-cover" width="1200" height="800" loading="lazy">
           </div>
           <p class="font-bold text-lg">MIMAKI</p>
           <p class="text-xs text-[#86868B] mt-1">Япония</p>
@@ -289,7 +300,7 @@
         <!-- Card 3: BARUDAN -->
         <div class="bg-[#F5F5F7] rounded-2xl p-6 card-hover reveal">
           <div class="bg-[#E8E8ED] rounded-xl aspect-[3/2] mb-5 overflow-hidden">
-            <img src="../img/цех-синие-стены.jpg" alt="Производственный цех Огни Эльфов" class="w-full h-full object-cover" width="1200" height="800" loading="lazy">
+            <img src="img/цех-синие-стены.jpg" alt="Производственный цех Огни Эльфов" class="w-full h-full object-cover" width="1200" height="800" loading="lazy">
           </div>
           <p class="font-bold text-lg">BARUDAN</p>
           <p class="text-xs text-[#86868B] mt-1">Япония</p>
@@ -299,7 +310,7 @@
         <!-- Card 4: YAMATO, JUKI -->
         <div class="bg-[#F5F5F7] rounded-2xl p-6 card-hover reveal">
           <div class="bg-[#E8E8ED] rounded-xl aspect-[3/2] mb-5 overflow-hidden">
-            <img src="../img/uv-pechat.jpg" alt="УФ-принтер на фабрике" class="w-full h-full object-cover" width="2848" height="1600" loading="lazy">
+            <img src="img/uv-pechat.jpg" alt="УФ-принтер на фабрике" class="w-full h-full object-cover" width="2848" height="1600" loading="lazy">
           </div>
           <p class="font-bold text-lg">YAMATO, JUKI</p>
           <p class="text-xs text-[#86868B] mt-1">Япония</p>
@@ -309,7 +320,7 @@
         <!-- Card 5: JC-33B -->
         <div class="bg-[#F5F5F7] rounded-2xl p-6 card-hover reveal">
           <div class="bg-[#E8E8ED] rounded-xl aspect-[3/2] mb-5 overflow-hidden">
-            <img src="../img/tampoprint.jpg" alt="Оборудование тампопечати" class="w-full h-full object-cover" width="1728" height="2304" loading="lazy">
+            <img src="img/tampoprint.jpg" alt="Оборудование тампопечати" class="w-full h-full object-cover" width="1728" height="2304" loading="lazy">
           </div>
           <p class="font-bold text-lg">JC-33B</p>
           <p class="text-[#6E6E73] text-sm mt-1">Тиснение (термопресс)</p>
@@ -470,8 +481,8 @@
   </div>
 </footer>
 
-  <script src="../js/animations.js"></script>
-  <script src="../js/mobile-menu.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/mobile-menu.js"></script>
 
   <!-- ==================== POPUP FORM (Modal) ==================== -->
   <div id="popup-form" class="fixed inset-0 z-[100] hidden items-center justify-center">
