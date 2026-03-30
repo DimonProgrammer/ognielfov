@@ -1,9 +1,48 @@
+# System
 .DS_Store
+node_modules/
+__pycache__/
+*.ttf
+
+# Claude / IDE / Tools
 .claude/
 .playwright-mcp/
 .superpowers/
-screenshots/
-node_modules/
-*.ttf
-__pycache__/
 .vercel
+
+# Vercel build output
+.vercel
+
+# Локальные рабочие материалы (не для репо)
+Скрижаль/
+Исследования/
+Конкуренты/
+Фил\ анимации/
+генерации/
+фото\ на\ главную/
+фоточки/
+photos_from_client/
+photos_selected/
+
+# Клиентские документы (хранить локально)
+*.docx
+Прайс-лист-2.pdf
+вопросы_для_Филиппа.md
+итоги_исследований.html
+
+# Скрипты и сессии
+tg_connect.py
+tg_download_photos.py
+my_session.session
+*.session
+
+# Скриншоты и референсы
+screenshots/
+donateboom-full.jpeg
+preview-reference*.jpeg
+mobile-slider-check.jpeg
+hudi-mobile.png
+live-slider.png
+slider-check.png
+slider-new-mobile.png
+slider-slide2.png
