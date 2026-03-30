@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <title>Сублимация vs DTF: какая технология лучше для мерча | Огни Эльфов</title>
   <meta name="description" content="Сравниваем сублимацию и DTF: качество, стойкость, цена, минимум. Когда выбрать каждую технологию. Примеры цен от московской фабрики.">
 
@@ -54,7 +54,7 @@
   </script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="../css/custom.css">
 
   <!-- Schema.org: Article -->
   <script type="application/ld+json">
@@ -99,7 +99,7 @@
     ]
   }
   </script>
-<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 <body class="font-sans text-[#1D1D1F] bg-white antialiased">
 
@@ -118,7 +118,7 @@
               </a>
               <a href="catalog" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
                 <span class="w-8 h-8 bg-[#F5F5F7] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">10+</span></span>
-                <div><p class="text-sm font-semibold text-[#1D1D1F]">Малые заказы</p><p class="text-xs text-[#86868B]">От 10 штук, от 3 дней</p></div>
+                <div><p class="text-sm font-semibold text-[#1D1D1F]">Малые заказы</p><p class="text-xs text-[#86868B]">От 1 штуки, от 3 дней</p></div>
               </a>
               <a href="marketplejsy" class="flex items-center gap-3 p-3 rounded-xl hover:bg-[#F5F5F7] transition-colors">
                 <span class="w-8 h-8 bg-[#C6F24E] rounded-lg flex items-center justify-center flex-shrink-0"><span class="text-[#1D1D1F] text-xs font-bold">WB</span></span>
@@ -158,9 +158,43 @@
         </div>
         <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
       </div>
+      <div class="flex items-center gap-3 lg:hidden">
+        <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#F5F5F7] transition-colors" aria-label="Меню">
+          <svg class="icon-open w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="icon-close hidden w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="lg:hidden btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+      </div>
     </div>
   </nav>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl pointer-events-none opacity-0 transition-opacity duration-300 pt-20">
+    <div class="max-w-[1280px] mx-auto px-6 py-8">
+      <div class="flex flex-col gap-1">
+        <a href="uslugi" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Услуги</a>
+        <div class="pl-4 flex flex-col gap-0.5 pb-2">
+          <a href="korporativnym-klientam" class="text-sm text-[#6E6E73] py-2">Корпоративным клиентам</a>
+          <a href="catalog" class="text-sm text-[#6E6E73] py-2">Малые заказы от 1 штуки</a>
+          <a href="marketplejsy" class="text-sm text-[#6E6E73] py-2">Селлерам WB/Ozon</a>
+        </div>
+        <a href="catalog" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Каталог</a>
+        <a href="portfolio" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Кейсы</a>
+        <a href="o-kompanii" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">О нас</a>
+        <a href="blog" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Блог</a>
+        <a href="kontakty" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Контакты</a>
+      </div>
+      <div class="mt-8 flex flex-col gap-4">
+        <a href="tel:+74953804032" class="text-lg font-semibold text-[#1D1D1F]">+7 (495) 380-40-32</a>
+        <p class="text-sm text-[#86868B]">info@elfprint.ru</p>
+        <div class="flex gap-4 mt-2">
+          <a href="https://t.me/FiresElfs" class="btn-pill bg-[#F5F5F7] text-[#1D1D1F] px-5 py-2.5 text-sm font-medium" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://max.ag/FiresElfs" class="btn-pill bg-[#F5F5F7] text-[#1D1D1F] px-5 py-2.5 text-sm font-medium" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ==================== BREADCRUMBS ==================== -->
   <section class="pt-24 pb-4">
@@ -190,11 +224,8 @@
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-heading mt-4 leading-tight">Сублимация vs DTF: какая технология лучше для мерча</h1>
         <p class="text-[#6E6E73] mt-4">Огни Эльфов — собственная фабрика в Москве</p>
         <!-- ФОТО: Два изделия рядом — слева футболка с сублимационным принтом (яркий полноцвет на белом полиэстере), справа футболка с DTF-принтом на тёмном хлопке. Горизонтальный кадр, 1200×630px, светлый фон. -->
-        <div class="mt-8 bg-[#E8E8ED] h-80 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-          <div class="text-center px-8">
-            <span class="text-[#C6F24E] text-2xl font-bold block mb-2">ФОТО</span>
-            <span class="text-[#86868B] text-sm">Два изделия рядом: сублимация на белом полиэстере (слева) и DTF на тёмном хлопке (справа). Горизонтальный кадр, светлый фон, 1200×630px</span>
-          </div>
+        <div class="mt-8 bg-[#E8E8ED] h-80 w-full rounded-2xl overflow-hidden">
+          <img src="../img/dtf-vs-shelko.jpg" alt="Сублимация vs DTF — сравнение технологий" class="w-full h-full object-cover" width="2304" height="1856" loading="eager">
         </div>
       </header>
 
@@ -251,11 +282,8 @@
           </div>
 
           <!-- ФОТО: Крупный план сублимационного принта на ткани — видна яркость цветов, отсутствие плёнки -->
-          <div class="mt-6 bg-[#E8E8ED] h-48 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-            <div class="text-center px-6">
-              <span class="text-[#C6F24E] text-sm font-bold block mb-1">ФОТО</span>
-              <span class="text-[#86868B] text-xs">Крупный план сублимационного принта на белом полиэстере. Видна яркость цветов, ткань гладкая — плёнки нет</span>
-            </div>
+          <div class="mt-6 bg-[#E8E8ED] h-48 w-full rounded-2xl overflow-hidden">
+            <img src="../img/sublimaciya-forma.jpg" alt="Крупный план сублимационного принта на ткани" class="w-full h-full object-cover" width="2304" height="1728" loading="lazy">
           </div>
         </section>
 
@@ -296,11 +324,8 @@
           </div>
 
           <!-- ФОТО: Крупный план DTF-принта на тёмной ткани — видна плёнка, яркие цвета на чёрном -->
-          <div class="mt-6 bg-[#E8E8ED] h-48 w-full rounded-2xl flex items-center justify-center border-2 border-dashed border-[#C6F24E]">
-            <div class="text-center px-6">
-              <span class="text-[#C6F24E] text-sm font-bold block mb-1">ФОТО</span>
-              <span class="text-[#86868B] text-xs">Крупный план DTF-принта на тёмной ткани (хлопок). Видна тонкая плёнка с ярким изображением на чёрном фоне</span>
-            </div>
+          <div class="mt-6 bg-[#E8E8ED] h-48 w-full rounded-2xl overflow-hidden">
+            <img src="../img/dtf-makro.jpg" alt="Крупный план DTF-принта на тёмной ткани" class="w-full h-full object-cover" width="2304" height="1728" loading="lazy">
           </div>
         </section>
 
@@ -320,7 +345,7 @@
                 <tr>
                   <td class="px-5 py-3.5 text-[#6E6E73]">Минимум</td>
                   <td class="px-5 py-3.5">от 1 м&sup2;</td>
-                  <td class="px-5 py-3.5">от 10 шт.</td>
+                  <td class="px-5 py-3.5">от 1 шт.</td>
                 </tr>
                 <tr>
                   <td class="px-5 py-3.5 text-[#6E6E73]">Работает на</td>
@@ -513,15 +538,15 @@
         <h3 class="text-2xl font-extrabold tracking-heading mb-8">Похожие статьи</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <a href="blog-article" class="group">
-            <div class="bg-[#F5F5F7] rounded-xl h-40 mb-4 flex items-center justify-center group-hover:bg-[#E5E5E5] transition-colors">
-              <span class="text-[#86868B] text-sm">DTF vs Шелкография</span>
+            <div class="bg-[#F5F5F7] rounded-xl h-40 mb-4 overflow-hidden">
+              <img src="../img/merch-brand-spread.jpeg" alt="DTF vs Шелкография" class="w-full h-full object-cover" width="2752" height="1536" loading="lazy">
             </div>
             <h4 class="font-bold text-lg group-hover:text-[#6E6E73] transition-colors">DTF-печать: что это такое и когда она лучше шелкографии</h4>
             <p class="text-sm text-[#86868B] mt-2">Сравниваем DTF и шелкографию по всем параметрам</p>
           </a>
           <a href="blog-korporativnyj-merch" class="group">
-            <div class="bg-[#F5F5F7] rounded-xl h-40 mb-4 flex items-center justify-center group-hover:bg-[#E5E5E5] transition-colors">
-              <span class="text-[#86868B] text-sm">Корпоративный мерч</span>
+            <div class="bg-[#F5F5F7] rounded-xl h-40 mb-4 overflow-hidden">
+              <img src="../img/shelko-futbolki.jpg" alt="Корпоративный мерч" class="w-full h-full object-cover" width="2304" height="1728" loading="lazy">
             </div>
             <h4 class="font-bold text-lg group-hover:text-[#6E6E73] transition-colors">Корпоративный мерч: бюджет и примеры</h4>
             <p class="text-sm text-[#86868B] mt-2">Как спланировать бюджет и выбрать товар</p>
@@ -532,63 +557,112 @@
     </div>
   </article>
 
-  <!-- ==================== CTA DARK PANEL ==================== -->
-  <section id="cta" class="bg-[#1D1D1F] text-white py-24 md:py-32 mt-24">
-    <div class="max-w-[1280px] mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-heading leading-tight">Нужна печать? Обсудим вашу задачу</h2>
-      <p class="text-lg text-[#86868B] mt-6 max-w-2xl mx-auto">Напишите нам — пришлём расчёт и примеры работ за 30 минут</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-        <a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-4 font-semibold hover:opacity-90 transition-opacity">Написать в Telegram</a>
-        <a href="https://max.ag/FiresElfs" target="_blank" rel="noopener" class="btn-pill border-2 border-[#6E6E73] text-white px-8 py-4 font-semibold hover:border-white transition-colors">MAX</a>
+  <!-- ==================== CTA — Dark Panel with Inline Form ==================== -->
+  <section id="cta" class="dark-cta py-24 md:py-32">
+    <div class="max-w-[900px] mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">Обсудим ваш проект?</h2>
+      <p class="text-[#86868B] text-lg mt-4 leading-relaxed max-w-lg mx-auto">Расскажите о&nbsp;задаче &mdash; подберём решение и&nbsp;рассчитаем стоимость. Ответим за&nbsp;30&nbsp;минут</p>
+
+      <form class="mt-10 max-w-2xl mx-auto" action="#" method="POST">
+        <div class="flex flex-col sm:flex-row gap-3">
+
+          <input type="text" name="name" required placeholder="Имя" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
+          <input type="tel" name="phone" required placeholder="Телефон" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
+          <button type="submit" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm whitespace-nowrap hover:opacity-90 transition-opacity">Отправить</button>
+        </div>
+        <label class="flex items-center justify-center gap-2 mt-5 text-xs text-[#86868B] cursor-pointer">
+        <input type="checkbox" name="consent" required class="w-4 h-4 accent-[#C6F24E] flex-shrink-0">
+        <span>Согласен на&nbsp;<a href="politika-konfidencialnosti" class="underline hover:text-white transition-colors">обработку персональных данных</a></span>
+      </label>
+      </form>
+
+
+      <p class="text-sm text-[#86868B] mt-8">Или напишите в&nbsp;мессенджер:</p>
+      <div class="flex justify-center gap-4 mt-3">
+        <a href="https://t.me/FiresElfs" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://max.ag/FiresElfs" class="btn-pill bg-[#2A2A2C] text-white px-6 py-2.5 text-sm font-medium hover:bg-[#3A3A3C] transition-colors" target="_blank" rel="noopener">MAX</a>
       </div>
-      <div class="mt-6 text-sm text-[#86868B] max-w-xl mx-auto">
-        <label class="flex items-start gap-2 cursor-pointer">
-          <input type="checkbox" required class="mt-1">
-          <span>Согласен на обработку персональных данных в соответствии с <a href="#" class="hover:text-[#C6F24E]">политикой конфиденциальности</a></span>
-        </label>
-      </div>
-      <p class="text-sm text-[#86868B] mt-6">Телефон: <a href="tel:+74953804032" class="text-white font-semibold hover:text-[#C6F24E] transition-colors">+7 (495) 380-40-32</a></p>
+    </div>
+  </section>
+
+  <!-- ==================== WB/OZON MINI-BANNER ==================== -->
+  <section class="py-10 bg-[#1D1D1F]">
+    <div class="max-w-[1280px] mx-auto px-6">
+      <a href="marketplejsy" class="flex flex-col md:flex-row items-center justify-between gap-4 group">
+        <div class="flex items-center gap-4">
+          <span class="bg-[#C6F24E] text-[#1D1D1F] text-xs font-bold px-3 py-1 rounded-full">WB + Ozon</span>
+          <p class="text-white font-semibold">Печать и&nbsp;фулфилмент для&nbsp;маркетплейсов &mdash; от&nbsp;10&nbsp;шт.</p>
+        </div>
+        <span class="text-[#C6F24E] font-semibold text-sm group-hover:opacity-80 transition-opacity whitespace-nowrap">Узнать подробнее &rarr;</span>
+      </a>
     </div>
   </section>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-[#F5F5F7] py-12 border-t border-[#E5E5E5]">
+  <footer class="bg-[#1D1D1F] text-white py-16">
     <div class="max-w-[1280px] mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Company info -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Услуги</h3>
-          <ul class="space-y-2 text-sm text-[#6E6E73]">
-            <li><a href="uslugi-dtf" class="hover:text-[#1D1D1F]">DTF-печать</a></li>
-            <li><a href="uslugi-sublimaciya" class="hover:text-[#1D1D1F]">Сублимация</a></li>
-            <li><a href="uslugi-tampoprint" class="hover:text-[#1D1D1F]">Тампопечать</a></li>
-            <li><a href="uslugi-shelkografiya" class="hover:text-[#1D1D1F]">Шелкография</a></li>
-          </ul>
+          <a href="/" aria-label="Огни Эльфов"><svg viewBox="0 0 160 44" class="h-8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="4" height="40" rx="1" fill="#FFFFFF"/><rect x="7" y="2" width="6" height="40" rx="1" fill="#FFFFFF"/><rect x="16" y="2" width="9" height="40" rx="1" fill="#FFFFFF"/><rect x="28" y="2" width="13" height="40" rx="1" fill="#C6F24E"/><text x="50" y="18" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ОГНИ</text><text x="50" y="36" font-family="Onest, sans-serif" font-weight="800" font-size="15" letter-spacing="-0.45" fill="#FFFFFF">ЭЛЬФОВ</text></svg></a>
+          <p class="text-sm text-[#86868B] mt-2">Производство мерча под ключ</p>
+          <p class="text-sm text-[#86868B] mt-4">г. Москва, ул. Фабричная, д. 6, стр. 1</p>
+          <p class="text-xs text-[#86868B] mt-1">Фабрика &laquo;Победа труда&raquo;</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-[#2A2A2C] rounded-lg px-3 py-2">
+            <span class="text-[#FFB800] text-sm">&#9733;</span>
+            <span class="text-white text-sm font-semibold">4.9</span>
+            <span class="text-[#86868B] text-xs">Яндекс.Отзывы</span>
+          </div>
         </div>
+        <!-- Navigation -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Компания</h3>
-          <ul class="space-y-2 text-sm text-[#6E6E73]">
-            <li><a href="o-kompanii" class="hover:text-[#1D1D1F]">О нас</a></li>
-            <li><a href="portfolio" class="hover:text-[#1D1D1F]">Портфолио</a></li>
-            <li><a href="blog" class="hover:text-[#1D1D1F]">Блог</a></li>
-            <li><a href="marketplejsy" class="hover:text-[#1D1D1F]">Маркетплейсы</a></li>
-            <li><a href="kontakty" class="hover:text-[#1D1D1F]">Контакты</a></li>
-          </ul>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Навигация</h4>
+          <nav class="flex flex-col gap-3">
+            <a href="uslugi" class="text-sm text-[#86868B] hover:text-white transition-colors">Услуги</a>
+            <a href="catalog" class="text-sm text-[#86868B] hover:text-white transition-colors">Каталог</a>
+            <a href="portfolio" class="text-sm text-[#86868B] hover:text-white transition-colors">Кейсы</a>
+            <a href="blog" class="text-sm text-[#86868B] hover:text-white transition-colors">Блог</a>
+            <a href="marketplejsy" class="text-sm text-[#86868B] hover:text-white transition-colors">Маркетплейсы</a>
+          <a href="kontakty" class="text-sm text-[#86868B] hover:text-white transition-colors">Контакты</a>
+          </nav>
         </div>
+        <!-- Contacts & Social -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Реквизиты</h3>
-          <p class="text-sm text-[#6E6E73]">ИНН 7721525448<br>ОГРН 1057746319432</p>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Контакты</h4>
+          <p class="text-sm text-white font-medium"><a href="tel:+74953804032" class="hover:opacity-80 transition-opacity">+7 (495) 380-40-32</a></p>
+          <p class="text-sm text-[#86868B] mt-2">info@elfprint.ru</p>
+          <div class="flex flex-col gap-2 mt-4">
+            <a href="https://t.me/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">Telegram</a>
+            <a href="#" class="text-sm text-[#86868B] hover:text-white transition-colors">VKontakte</a>
+            <a href="https://max.ag/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">MAX</a>
+          </div>
+          <div class="mt-4 pt-4 border-t border-[#333]">
+            <p class="text-xs text-[#86868B]">ИНН: 7 721 525 448</p>
+            <p class="text-xs text-[#86868B] mt-1">ОГРН: 1 057 746 319 432</p>
+          </div>
         </div>
+        <!-- Yandex Maps widget placeholder -->
         <div>
-          <h3 class="font-bold text-sm mb-4">Контакты</h3>
-          <p class="text-sm text-[#6E6E73]">+7 (495) 380-40-32<br><a href="https://t.me/FiresElfs" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">Telegram</a> • <a href="https://max.ag/FiresElfs" target="_blank" rel="noopener" class="hover:text-[#1D1D1F]">MAX</a></p>
+          <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Мы на карте</h4>
+          <div class="bg-[#2A2A2C] rounded-2xl h-48 flex items-center justify-center">
+            <p class="text-xs text-[#86868B] text-center px-4">Виджет Яндекс.Карт</p>
+          </div>
         </div>
       </div>
-      <div class="text-center text-sm text-[#86868B] pt-8 border-t border-[#E5E5E5]">
-        <p>&copy; 2026 Огни Эльфов. Все права защищены.</p>
+      <div class="border-t border-[#333] mt-12 pt-8 flex flex-col md:flex-row justify-between gap-4">
+        <p class="text-xs text-[#86868B]">&copy; 2026 Огни Эльфов. Все права защищены.</p>
+        <div class="flex gap-4">
+          <a href="politika-konfidencialnosti" class="text-xs text-[#86868B] hover:text-white transition-colors">Политика конфиденциальности</a>
+          <span class="text-xs text-[#86868B]">|</span>
+          <a href="#" class="text-xs text-[#86868B] hover:text-white transition-colors">Оферта</a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Reveal on scroll -->
+  <script src="../js/animations.js"></script>
+  <script src="../js/mobile-menu.js"></script>
 
   <!-- ==================== POPUP FORM (Modal) ==================== -->
   <div id="popup-form" class="fixed inset-0 z-[100] hidden items-center justify-center">
