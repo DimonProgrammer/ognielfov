@@ -47,3 +47,11 @@ live-slider.png
 slider-check.png
 slider-new-mobile.png
 slider-slide2.png
+
+# Скриншоты Playwright и тестовые PNG/JPEG в корне
+*.png
+*.jpeg
+*.jpg
+!public/img/**
+!src/assets/**
+Обложка\ PH/
