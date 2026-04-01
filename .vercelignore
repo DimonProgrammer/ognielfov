@@ -1,14 +1,24 @@
 *.pdf
+*.session
+*.png
+*.jpeg
+*.jpg
+tg_*.py
 Исследования/
 Скрижаль/
+Конкуренты/
 docs/
 .claude/
 генерации/
 photos_from_client/
 photos_selected/
-*.session
-tg_*.py
-donateboom-full.jpeg
-preview-references-mid.jpeg
-preview-references-summary.jpeg
-preview-references-top.jpeg
+фоточки/
+screenshots/
+Обложка PH/
+Фил анимации/
+Размерная сетка/
+фото на главную/
+src/
+deploy/
+donateboom/
+!public/**
