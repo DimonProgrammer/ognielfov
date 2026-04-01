@@ -529,28 +529,42 @@
         <h3 class="font-bold text-lg">Размерная сетка</h3>
         <button onclick="closeSizeChart()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F5F7] text-[#86868B]">&times;</button>
       </div>
-      <p class="text-xs text-[#86868B] mb-4">Все размеры в сантиметрах (замеры изделия в сложенном виде)</p>
+      <!-- SVG silhouette -->
+      <div class="flex justify-center mb-4">
+        <svg viewBox="0 0 200 180" class="w-40 h-auto text-[#E8E8ED]" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60 20 C60 10 80 4 100 4 C120 4 140 10 140 20 L140 28 C148 30 170 36 176 40 L180 56 L156 52 L156 168 L44 168 L44 52 L20 56 L24 40 C30 36 52 30 60 28 Z" stroke="#86868B" stroke-width="1.5" fill="currentColor"/>
+          <line x1="100" y1="8" x2="100" y2="168" stroke="#1D1D1F" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="106" y="90" font-size="11" font-weight="600" fill="#1D1D1F">A</text>
+          <line x1="44" y1="80" x2="156" y2="80" stroke="#1D1D1F" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="148" y="76" font-size="11" font-weight="600" fill="#1D1D1F">B</text>
+          <line x1="140" y1="28" x2="176" y2="44" stroke="#1D1D1F" stroke-width="1" stroke-dasharray="4 3"/>
+          <text x="162" y="30" font-size="11" font-weight="600" fill="#1D1D1F">C</text>
+        </svg>
+      </div>
+      <p class="text-xs text-[#86868B] mb-4">Футболка оверсайз. Замеры изделия в сложенном виде, см</p>
       <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-[#E8E8ED]">
               <th class="text-left py-2 pr-4 font-semibold">Размер</th>
-              <th class="text-center py-2 px-3 font-semibold">Ширина</th>
-              <th class="text-center py-2 px-3 font-semibold">Длина</th>
-              <th class="text-center py-2 px-3 font-semibold">Рукав</th>
+              <th class="text-center py-2 px-3 font-semibold">Длина (A)</th>
+              <th class="text-center py-2 px-3 font-semibold">Ширина (B)</th>
+              <th class="text-center py-2 px-3 font-semibold">Рукав (C)</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-[#F5F5F7]">
-            <tr><td class="py-2.5 pr-4 font-medium">S</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">52</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">71</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">21</td></tr>
-            <tr><td class="py-2.5 pr-4 font-medium">M</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">56</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">74</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">22</td></tr>
-            <tr><td class="py-2.5 pr-4 font-medium">L</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">60</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">77</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">23</td></tr>
-            <tr><td class="py-2.5 pr-4 font-medium">XL</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">64</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">80</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">24</td></tr>
-            <tr><td class="py-2.5 pr-4 font-medium">2XL</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">68</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">82</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">25</td></tr>
-            <tr><td class="py-2.5 pr-4 font-medium">3XL</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">72</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">84</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">26</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">XS</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">66</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">58,5</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">17,5</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">S</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">68</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">60</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">18,5</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">M</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">70</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">61,5</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">19,5</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">L</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">72</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">63</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">20,5</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">XL</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">74</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">64,5</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">21,5</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">2XL</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">76</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">66</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">22,5</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">3XL</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">78</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">67,5</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">23,5</td></tr>
+            <tr><td class="py-2.5 pr-4 font-medium">4XL</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">80</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">69</td><td class="text-center py-2.5 px-3 text-[#6E6E73]">24,5</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="text-xs text-[#86868B] mt-4">* Данные предварительные. Уточняйте при заказе.</p>
+      <p class="text-xs text-[#86868B] mt-4">Допуск &plusmn;2 см. A&nbsp;&mdash; длина по&nbsp;центру спинки, B&nbsp;&mdash; ширина под проймой, C&nbsp;&mdash; длина рукава от&nbsp;плечевого шва</p>
     </div>
   </div>
 
