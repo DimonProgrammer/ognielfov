@@ -129,19 +129,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://elfprint.ru/blog/sublimacija-vs-dtf</loc>
+    <loc>https://elfprint.ru/blog-sublimacija-vs-dtf</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://elfprint.ru/blog/vybor-pechati</loc>
+    <loc>https://elfprint.ru/blog-vybor-pechati</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://elfprint.ru/blog/korporativnyj-merch</loc>
+    <loc>https://elfprint.ru/blog-korporativnyj-merch</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -189,6 +189,36 @@
     <lastmod>2026-03-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://elfprint.ru/rekvizity</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://elfprint.ru/polzovatelskoe-soglashenie</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://elfprint.ru/oferta</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://elfprint.ru/cookie</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://elfprint.ru/soglasie-na-rassylku</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 
 </urlset>
