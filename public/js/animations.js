@@ -18,25 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
     onNavScroll();
   }
 
-  // ======== HERO ENTRANCE STAGGER ========
-  // Add incremental delays to reveal elements in the first section (hero)
-  const heroSection = document.querySelector('body > section:first-of-type, nav ~ section');
-  if (heroSection) {
-    heroSection.querySelectorAll('.reveal').forEach((el, i) => {
-      el.style.transitionDelay = (0.06 + i * 0.13) + 's';
-    });
-  }
-
   // ======== REVEAL ON SCROLL ========
+  const revealEls = document.querySelectorAll('.reveal');
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  revealEls.forEach(el => observer.observe(el));
+
+  // ======== HERO ENTRANCE STAGGER ========
+  // Apply stagger delays to first-section reveal elements
+  const heroSection = document.querySelector('section');
+  if (heroSection) {
+    heroSection.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (0.07 + i * 0.13) + 's';
+    });
+  }
+  // Force-show elements already visible in viewport (above-fold)
+  revealEls.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      requestAnimationFrame(() => el.classList.add('visible'));
+    }
+  });
 
   // ======== COUNT-UP ANIMATION ========
   const countObserver = new IntersectionObserver((entries) => {
