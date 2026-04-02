@@ -114,11 +114,10 @@
 }
 
 /* ======== FADE-IN ON SCROLL ======== */
-/* TEMP: disable for Figma capture */
 .reveal {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .reveal.visible {
   opacity: 1;
@@ -127,11 +126,11 @@
 
 /* Stagger children */
 .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger > .reveal:nth-child(2) { transition-delay: 100ms; }
-.reveal-stagger > .reveal:nth-child(3) { transition-delay: 200ms; }
-.reveal-stagger > .reveal:nth-child(4) { transition-delay: 300ms; }
-.reveal-stagger > .reveal:nth-child(5) { transition-delay: 400ms; }
-.reveal-stagger > .reveal:nth-child(6) { transition-delay: 500ms; }
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 110ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 220ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 330ms; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 440ms; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 550ms; }
 
 /* ======== TRUST LOGOS MARQUEE ======== */
 .marquee-wrapper {
@@ -467,4 +466,121 @@ details summary {
 }
 details summary::-webkit-details-marker {
   display: none;
+}
+
+/* ======== PAGE LOAD FADE-IN ======== */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body {
+  animation: pageFadeIn 0.4s ease both;
+}
+
+/* ======== SCROLL PROGRESS BAR ======== */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #C6F24E;
+  z-index: 9999;
+  width: 0%;
+  border-radius: 0 2px 2px 0;
+  pointer-events: none;
+  will-change: width;
+}
+
+/* ======== NAV SCROLLED STATE ======== */
+.nav-glass {
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.nav-glass.nav-scrolled {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.07);
+  border-bottom-color: rgba(0, 0, 0, 0.09);
+}
+
+/* ======== NAV LINK ANIMATED UNDERLINE ======== */
+.nav-link-ul {
+  position: relative;
+}
+.nav-link-ul::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #C6F24E;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link-ul:hover::after {
+  transform: scaleX(1);
+}
+
+/* ======== DETAILS / FAQ SMOOTH OPEN ======== */
+details > div {
+  overflow: hidden;
+}
+details[open] > div {
+  animation: detailsReveal 0.32s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes detailsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======== IMAGE HOVER ZOOM (cards that have overflow-hidden wrap) ======== */
+.card-hover .overflow-hidden img {
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+.card-hover:hover .overflow-hidden img {
+  transform: scale(1.06);
+}
+
+/* ======== BUTTON ACTIVE TACTILE FEEDBACK ======== */
+.btn-pill:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.08s;
+  box-shadow: 0 2px 6px rgba(198, 242, 78, 0.2);
+}
+
+/* ======== FORM INPUT FOCUS GLOW ======== */
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #C6F24E !important;
+  box-shadow: 0 0 0 3px rgba(198, 242, 78, 0.18);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ======== REDUCED MOTION — accessibility ======== */
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+  .reveal,
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  #scroll-progress { display: none; }
+  .nav-glass { transition: none; }
+  details[open] > div { animation: none; }
+  .card-hover .overflow-hidden img { transition: none; }
+  .nav-link-ul::after { transition: none; }
+  .btn-pill,
+  .card-hover { transition: none; }
 }
