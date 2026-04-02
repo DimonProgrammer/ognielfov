@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ======== SCROLL PROGRESS BAR ========
+  const progressBar = document.createElement('div');
+  progressBar.id = 'scroll-progress';
+  document.body.prepend(progressBar);
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (maxScroll > 0 ? scrolled / maxScroll * 100 : 0) + '%';
+  }, { passive: true });
+
+  // ======== NAV SCROLL STATE ========
+  const nav = document.querySelector('nav.nav-glass');
+  if (nav) {
+    const onNavScroll = () => nav.classList.toggle('nav-scrolled', window.scrollY > 30);
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+    onNavScroll();
+  }
+
+  // ======== HERO ENTRANCE STAGGER ========
+  // Add incremental delays to reveal elements in the first section (hero)
+  const heroSection = document.querySelector('body > section:first-of-type, nav ~ section');
+  if (heroSection) {
+    heroSection.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (0.06 + i * 0.13) + 's';
+    });
+  }
+
   // ======== REVEAL ON SCROLL ========
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -6,19 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ======== FAQ ACCORDION ========
-  document.querySelectorAll('[data-faq-toggle]').forEach(button => {
-    button.addEventListener('click', function() {
-      const answer = this.nextElementSibling;
-      const icon = this.querySelector('span:last-child');
-      answer.classList.toggle('hidden');
-      icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(45deg)';
-    });
-  });
 
   // ======== COUNT-UP ANIMATION ========
   const countObserver = new IntersectionObserver((entries) => {
