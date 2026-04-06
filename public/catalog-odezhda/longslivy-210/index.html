@@ -148,22 +148,19 @@
         <!-- LEFT: Gallery -->
         <div class="lg:col-span-7 reveal">
           <div class="hidden md:block">
-          <div class="bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/2]">
-            <img id="gallery-main" src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" alt="Лонгсливы 210г — Белый" class="w-full h-full object-cover transition-opacity duration-300" width="1200" height="800">
+          <div class="bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/4]">
+            <img id="gallery-main" src="/img/products/longslivy-210/lb-front-m.jpg" alt="Белый — полочка мужской" class="w-full h-full object-contain transition-opacity duration-300" width="1200" height="1600">
           </div>
-          <!-- Thumbnails desktop -->
-          <div class="flex gap-3 mt-4 flex-wrap">
-            <button class="gallery-thumb active w-20 h-20 rounded-xl overflow-hidden bg-[#F5F5F7] flex-shrink-0" data-src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" data-alt="Белый">
-              <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" alt="Белый" class="w-full h-full object-cover" width="160" height="160" loading="lazy">
+          <!-- Thumbnails desktop: начальный вид — виды белого цвета -->
+          <div class="flex gap-3 mt-4 flex-wrap" id="gallery-thumbs">
+            <button class="gallery-thumb active w-20 h-20 rounded-xl overflow-hidden bg-[#F5F5F7] flex-shrink-0" data-src="/img/products/longslivy-210/lb-front-m.jpg" data-alt="Белый — полочка мужской">
+              <img src="/img/products/longslivy-210/lb-front-m.jpg" alt="Белый — полочка мужской" class="w-full h-full object-cover" width="160" height="213" loading="lazy">
             </button>
-            <button class="gallery-thumb w-20 h-20 rounded-xl overflow-hidden bg-[#F5F5F7] flex-shrink-0" data-src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_51_p.jpg?v=1737429782" data-alt="Чёрный">
-              <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_51_p.jpg?v=1737429782" alt="Чёрный" class="w-full h-full object-cover" width="160" height="160" loading="lazy">
+            <button class="gallery-thumb w-20 h-20 rounded-xl overflow-hidden bg-[#F5F5F7] flex-shrink-0" data-src="/img/products/longslivy-210/lb-front-f.jpg" data-alt="Белый — полочка женский">
+              <img src="/img/products/longslivy-210/lb-front-f.jpg" alt="Белый — полочка женский" class="w-full h-full object-cover" width="160" height="213" loading="lazy">
             </button>
-            <button class="gallery-thumb w-20 h-20 rounded-xl overflow-hidden bg-[#F5F5F7] flex-shrink-0" data-src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_50_p_f96ed32a-9147-4e4a-8319-16759377fb7c.jpg?v=1762457756" data-alt="Серый меланж">
-              <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_50_p_f96ed32a-9147-4e4a-8319-16759377fb7c.jpg?v=1762457756" alt="Серый меланж" class="w-full h-full object-cover" width="160" height="160" loading="lazy">
-            </button>
-            <button class="gallery-thumb w-20 h-20 rounded-xl overflow-hidden bg-[#F5F5F7] flex-shrink-0" data-src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_54_p.jpg?v=1737440958" data-alt="Тёмно-синий">
-              <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_54_p.jpg?v=1737440958" alt="Тёмно-синий" class="w-full h-full object-cover" width="160" height="160" loading="lazy">
+            <button class="gallery-thumb w-20 h-20 rounded-xl overflow-hidden bg-[#F5F5F7] flex-shrink-0" data-src="/img/products/longslivy-210/lb-back-f.jpg" data-alt="Белый — спинка женский">
+              <img src="/img/products/longslivy-210/lb-back-f.jpg" alt="Белый — спинка женский" class="w-full h-full object-cover" width="160" height="213" loading="lazy">
             </button>
           </div>
           </div><!-- /desktop-gallery -->
@@ -172,17 +169,14 @@
             <div class="relative">
               <div class="overflow-hidden" id="slider-container">
                 <div id="slider-track" class="flex transition-transform duration-300 ease-out" style="gap:12px">
-                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Белый">
-                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_20_p.jpg?v=1737490497" alt="Белый" class="w-full h-full object-cover" width="600" height="600">
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/4]">
+                    <img src="/img/products/longslivy-210/lb-front-m.jpg" alt="Белый — полочка мужской" class="w-full h-full object-contain" width="600" height="800">
                   </div>
-                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Чёрный">
-                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_51_p.jpg?v=1737429782" alt="Чёрный" class="w-full h-full object-cover" width="600" height="600" loading="lazy">
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/4]">
+                    <img src="/img/products/longslivy-210/lb-front-f.jpg" alt="Белый — полочка женский" class="w-full h-full object-contain" width="600" height="800" loading="lazy">
                   </div>
-                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Серый меланж">
-                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_50_p_f96ed32a-9147-4e4a-8319-16759377fb7c.jpg?v=1762457756" alt="Серый меланж" class="w-full h-full object-cover" width="600" height="600" loading="lazy">
-                  </div>
-                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-square" data-color="Тёмно-синий">
-                    <img src="https://cdn.shopify.com/s/files/1/0558/0265/8899/files/g240_54_p.jpg?v=1737440958" alt="Тёмно-синий" class="w-full h-full object-cover" width="600" height="600" loading="lazy">
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/4]">
+                    <img src="/img/products/longslivy-210/lb-back-f.jpg" alt="Белый — спинка женский" class="w-full h-full object-contain" width="600" height="800" loading="lazy">
                   </div>
                 </div>
               </div>
@@ -199,7 +193,6 @@
               <button onclick="sliderGoTo(0)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:20px;background:#1D1D1F" aria-label="Фото 1"></button>
               <button onclick="sliderGoTo(1)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:8px;background:#D1D1D6" aria-label="Фото 2"></button>
               <button onclick="sliderGoTo(2)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:8px;background:#D1D1D6" aria-label="Фото 3"></button>
-              <button onclick="sliderGoTo(3)" class="slider-dot h-2 rounded-full transition-all duration-300" style="width:8px;background:#D1D1D6" aria-label="Фото 4"></button>
             </div>
           </div>
 
@@ -671,5 +664,19 @@
   </div>
 
   <script src="/b24.js"></script>
+  <script>
+    window.productColorImages = {
+      "Белый": [
+        {src: "/img/products/longslivy-210/lb-front-m.jpg", alt: "Белый — полочка мужской"},
+        {src: "/img/products/longslivy-210/lb-front-f.jpg", alt: "Белый — полочка женский"},
+        {src: "/img/products/longslivy-210/lb-back-f.jpg",  alt: "Белый — спинка женский"}
+      ],
+      "Чёрный": [
+        {src: "/img/products/longslivy-210/lch-front-m.jpg", alt: "Чёрный — полочка мужской"},
+        {src: "/img/products/longslivy-210/lch-front-f.jpg", alt: "Чёрный — полочка женский"},
+        {src: "/img/products/longslivy-210/lch-back-f.jpg",  alt: "Чёрный — спинка женский"}
+      ]
+    };
+  </script>
 </body>
 </html>
