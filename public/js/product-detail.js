@@ -94,6 +94,27 @@
   // Expose for inline script initialization
   window.rebuildGallery = rebuildGallery;
 
+  // --- Desktop gallery prev/next navigation ---
+  function initGalleryNav() {
+    var prevBtn = document.getElementById('gallery-prev');
+    var nextBtn = document.getElementById('gallery-next');
+    if (!prevBtn || !nextBtn) return;
+
+    function navigate(dir) {
+      var allThumbs = document.querySelectorAll('#gallery-thumbs .gallery-thumb');
+      if (allThumbs.length <= 1) return;
+      var activeIdx = 0;
+      allThumbs.forEach(function(t, i) { if (t.classList.contains('active')) activeIdx = i; });
+      var newIdx = (activeIdx + dir + allThumbs.length) % allThumbs.length;
+      allThumbs[newIdx].click();
+    }
+
+    prevBtn.addEventListener('click', function() { navigate(-1); });
+    nextBtn.addEventListener('click', function() { navigate(1); });
+  }
+
+  initGalleryNav();
+
   // --- Gallery: thumbnail click switches main image ---
   var thumbs = document.querySelectorAll('.gallery-thumb');
 
