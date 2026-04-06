@@ -129,7 +129,7 @@
         <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
       </div>
       <div class="flex items-center gap-3 xl:hidden w-full">
-      <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="xl:hidden ml-auto btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold">Обсудить проект</a>
+      <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="xl:hidden ml-auto btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-2.5 text-sm font-semibold whitespace-nowrap">Обсудить проект</a>
         <button id="mobile-menu-btn" class="xl:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[#F5F5F7] transition-colors" aria-label="Меню">
           <svg class="icon-open w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg class="icon-close hidden w-5 h-5 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -139,8 +139,8 @@
   </nav>
 
   <!-- Mobile Menu Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl pointer-events-none opacity-0 transition-opacity duration-300 pt-20">
-    <div class="max-w-[1280px] mx-auto px-6 py-8">
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-white overflow-y-auto pointer-events-none opacity-0 transition-opacity duration-300 pt-20">
+    <div class="max-w-[1280px] mx-auto px-6 pt-8 pb-24">
       <div class="flex flex-col gap-1">
         <a href="uslugi" class="text-lg font-semibold text-[#1D1D1F] py-3 border-b border-[#F5F5F7]">Услуги</a>
         <div class="pl-4 flex flex-col gap-0.5 pb-2">
