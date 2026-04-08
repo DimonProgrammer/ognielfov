@@ -117,6 +117,14 @@ When making ANY change to content that appears on multiple pages (phone numbers,
 - Both `.html` root files AND `/subdirectory/index.html` mirrors must be updated
 - Check for the same element in different formats (e.g. desktop vs mobile blocks, text vs JSON-LD schema)
 
+## Self-Verify Before Every Commit (MANDATORY)
+Run these checks before every commit/deploy. If any returns > 0 — fix first:
+- `grep -rn "Альфа-БАНК\|044525593" public/` → 0
+- `grep -rn "Загрузить макет\|price-popup" public/ --include="*.html" | grep -v admin` → 0
+- `grep -rn '"email": "<a' public/` → 0 (no HTML tags in JSON-LD)
+- `grep -rn 'href="/blog" class="bg-white rounded-2xl' public/blog.html` → 0
+- After mass replace: spot-check 2-3 files with grep to confirm change applied
+
 ## What NOT To Do
 - Do NOT host on foreign servers (152-FZ violation, fines up to 1-3% revenue)
 - Do NOT use Google Analytics as primary (Yandex.Metrika is primary)
