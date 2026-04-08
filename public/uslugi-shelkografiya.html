@@ -196,8 +196,7 @@
           <!-- CTAs -->
           <div class="flex flex-wrap items-center gap-5 mt-8">
             <a href="javascript:void(0)" onclick="document.getElementById('popup-form').classList.remove('hidden');document.getElementById('popup-form').classList.add('flex')" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm">Рассчитать стоимость</a>
-            <a href="javascript:void(0)" onclick="document.getElementById('price-popup').classList.remove('hidden');document.getElementById('price-popup').classList.add('flex')" class="text-sm font-medium text-[#1D1D1F] underline underline-offset-4 hover:opacity-70 transition-opacity">Скачать прайс &rarr;</a>
-          </div>
+            </div>
         </div>
 
         <!-- Right 40% -->
@@ -421,8 +420,8 @@
 
       <form class="mt-12 space-y-5 reveal" action="#" method="POST">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <input type="text" name="name" required placeholder="Имя *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
-          <input type="tel" name="phone" required placeholder="Телефон *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+          <input type="text" name="name" required placeholder="Ваше имя" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+          <input type="tel" name="phone" required placeholder="Номер телефона" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
         </div>
         <input type="email" name="email" placeholder="Email" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -467,7 +466,7 @@
           <input type="checkbox" name="consent" required class="mt-1 w-4 h-4 accent-[#C6F24E] flex-shrink-0">
           <span class="text-xs text-[#86868B] leading-relaxed">Согласен на&nbsp;<a href="/politika-konfidencialnosti" class="underline hover:text-[#1D1D1F] transition-colors">обработку персональных данных</a></span>
         </label>
-        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-4 font-semibold text-sm hover:opacity-90 transition-opacity">Отправить заявку</button>
+        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-4 font-semibold text-sm hover:opacity-90 transition-opacity">Перезвоните мне</button>
       </form>
     </div>
   </section>
@@ -573,40 +572,21 @@
   <script src="/js/animations.js"></script>
   <script src="/js/mobile-menu.js"></script>
 
-  <!-- ==================== PRICE POPUP (Modal) ==================== -->
-  <div id="price-popup" class="fixed inset-0 z-[100] hidden items-center justify-center">
-    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closePricePopup()"></div>
-    <div class="relative bg-white rounded-2xl p-8 md:p-10 w-full max-w-md mx-4 shadow-2xl animate-fade-in">
-      <button onclick="closePricePopup()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F5F7] transition-colors text-[#86868B] hover:text-[#1D1D1F]" aria-label="Закрыть">&times;</button>
-      <h3 class="font-bold text-xl text-[#1D1D1F]">Скачать прайс-лист</h3>
-      <p class="text-sm text-[#6E6E73] mt-2">Оставьте номер телефона — перезвоним и вышлем прайс</p>
-      <form class="mt-6 flex flex-col gap-4" action="#" method="POST">
-        <input type="text" name="name" required placeholder="Имя *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
-        <input type="tel" name="phone" required placeholder="Телефон *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
-        <label class="flex items-start gap-2 text-xs text-[#86868B]">
-          <input type="checkbox" name="consent" required class="mt-0.5 w-4 h-4 accent-[#C6F24E] flex-shrink-0">
-          <span>Согласен на&nbsp;<a href="/politika-konfidencialnosti" class="underline hover:text-[#1D1D1F] transition-colors">обработку персональных данных</a></span>
-        </label>
-        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm hover:opacity-90 transition-opacity">Получить прайс</button>
-      </form>
-    </div>
-  </div>
-
   <!-- ==================== POPUP FORM (Modal) ==================== -->
   <div id="popup-form" class="fixed inset-0 z-[100] hidden items-center justify-center">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')"></div>
     <div class="relative bg-white rounded-2xl p-8 md:p-10 w-full max-w-md mx-4 shadow-2xl animate-fade-in">
       <button onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F5F7] transition-colors text-[#86868B] hover:text-[#1D1D1F]" aria-label="Закрыть">&times;</button>
-      <h3 class="font-bold text-xl text-[#1D1D1F]">Оставьте заявку</h3>
-      <p class="text-sm text-[#6E6E73] mt-2">Перезвоним за&nbsp;30&nbsp;минут в&nbsp;рабочее время</p>
+      <h3 class="font-bold text-xl text-[#1D1D1F]">Рассчитаем стоимость</h3>
+      <p class="text-sm text-[#6E6E73] mt-2">Перезвоним за&nbsp;30&nbsp;минут — расскажем цены и&nbsp;сроки</p>
       <form class="mt-6 flex flex-col gap-4" action="#" method="POST">
-        <input type="text" name="name" required placeholder="Имя *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
-        <input type="tel" name="phone" required placeholder="Телефон *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+        <input type="text" name="name" required placeholder="Ваше имя" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
+        <input type="tel" name="phone" required placeholder="Номер телефона" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] placeholder:text-[#86868B] focus:outline-none focus:ring-2 focus:ring-[#C6F24E] transition-shadow">
         <label class="flex items-start gap-2 text-xs text-[#86868B]">
           <input type="checkbox" name="consent" required class="mt-0.5 w-4 h-4 accent-[#C6F24E] flex-shrink-0">
           <span>Согласен на&nbsp;<a href="/politika-konfidencialnosti" class="underline hover:text-[#1D1D1F] transition-colors">обработку персональных данных</a></span>
         </label>
-        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm hover:opacity-90 transition-opacity">Отправить заявку</button>
+        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm hover:opacity-90 transition-opacity">Перезвоните мне</button>
       </form>
       <div class="flex justify-center gap-4 mt-6 pt-4 border-t border-[#E8E8ED]">
         <a href="https://t.me/FiresElfs" class="text-sm text-[#6E6E73] hover:text-[#1D1D1F] transition-colors" target="_blank" rel="noopener">Telegram</a>
@@ -616,16 +596,10 @@
   </div>
   <!-- Popup form: close on Esc -->
   <script>
-    function closePricePopup() {
-      document.getElementById('price-popup').classList.add('hidden');
-      document.getElementById('price-popup').classList.remove('flex');
-    }
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         var popup = document.getElementById('popup-form');
         if (popup) { popup.classList.add('hidden'); popup.classList.remove('flex'); }
-        var pricePopup = document.getElementById('price-popup');
-        if (pricePopup) { pricePopup.classList.add('hidden'); pricePopup.classList.remove('flex'); }
       }
     });
   </script>

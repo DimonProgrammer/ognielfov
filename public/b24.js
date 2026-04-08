@@ -64,7 +64,7 @@
     wrap.className = 'text-center py-6';
     wrap.innerHTML =
       '<div class="text-2xl mb-2">✓</div>' +
-      '<p class="font-semibold text-[#1D1D1F]">Заявка принята!</p>' +
+      '<p class="font-semibold text-[#1D1D1F]">Готово, ждите звонка!</p>' +
       '<p class="text-sm text-[#6E6E73] mt-1">Перезвоним в течение 30&nbsp;минут в рабочее время.</p>';
     form.replaceWith(wrap);
   }

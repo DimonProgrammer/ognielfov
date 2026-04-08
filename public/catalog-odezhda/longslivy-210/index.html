@@ -344,9 +344,9 @@
       <p class="text-[#86868B] text-lg mt-4 leading-relaxed max-w-lg mx-auto">Расскажите о&nbsp;задаче &mdash; подберём решение и&nbsp;рассчитаем стоимость. Ответим за&nbsp;30&nbsp;минут</p>
       <form class="mt-10 max-w-2xl mx-auto" action="#" method="POST">
         <div class="flex flex-col sm:flex-row gap-3">
-          <input type="text" name="name" required placeholder="Имя" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
-          <input type="tel" name="phone" required placeholder="Телефон" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
-          <button type="submit" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm whitespace-nowrap">Отправить</button>
+          <input type="text" name="name" required placeholder="Ваше имя" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
+          <input type="tel" name="phone" required placeholder="Номер телефона" class="flex-1 bg-[#2A2A2C] border border-[#444] rounded-xl px-5 py-3.5 text-sm text-white placeholder:text-[#86868B] focus:outline-none focus:border-[#C6F24E] transition-colors">
+          <button type="submit" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-8 py-3.5 font-semibold text-sm whitespace-nowrap">Перезвоните мне</button>
         </div>
         <label class="flex items-center justify-center gap-2 mt-5 text-xs text-[#86868B] cursor-pointer">
           <input type="checkbox" name="consent" required class="w-4 h-4 accent-[#C6F24E] flex-shrink-0">
@@ -477,15 +477,15 @@
     <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')"></div>
     <div class="relative bg-white rounded-2xl p-8 md:p-10 w-full max-w-md mx-4 shadow-2xl">
       <button onclick="document.getElementById('popup-form').classList.add('hidden');document.getElementById('popup-form').classList.remove('flex')" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F5F7] text-[#86868B]">&times;</button>
-      <h3 class="font-bold text-xl">Заявка на Лонгсливы 210г</h3>
-      <p class="text-sm text-[#6E6E73] mt-2">Перезвоним за&nbsp;30&nbsp;минут в&nbsp;рабочее время</p>
+      <h3 class="font-bold text-xl">Рассчитаем для вас: Лонгсливы 210г</h3>
+      <p class="text-sm text-[#6E6E73] mt-2">Перезвоним за&nbsp;30&nbsp;минут — расскажем цены и&nbsp;сроки</p>
       <form class="mt-6 flex flex-col gap-4" action="#" method="POST">
         <input type="hidden" name="product" id="popup-product" value="Лонгсливы 210г">
         <input type="hidden" name="selected-color" id="popup-selected-color" value="">
         <input type="hidden" name="selected-size" id="popup-selected-size" value="">
         <input type="hidden" name="selected-quantity" id="popup-selected-quantity" value="">
-        <input type="text" name="name" required placeholder="Имя *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C6F24E]">
-        <input type="tel" name="phone" required placeholder="Телефон *" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C6F24E]">
+        <input type="text" name="name" required placeholder="Ваше имя" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C6F24E]">
+        <input type="tel" name="phone" required placeholder="Номер телефона" class="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#C6F24E]">
         <div id="popup-config-summary" class="bg-[#F5F5F7] rounded-xl px-4 py-3 text-sm hidden">
           <p class="text-[#6E6E73]">Конфигурация:</p>
           <p id="popup-config-text" class="font-medium mt-1"></p>
@@ -495,7 +495,7 @@
           <input type="checkbox" name="consent" required class="mt-0.5 accent-[#C6F24E]">
           <span>Согласен на&nbsp;<a href="/politika-konfidencialnosti" class="underline">обработку персональных данных</a></span>
         </label>
-        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] py-4 font-semibold text-sm">Отправить заявку</button>
+        <button type="submit" class="w-full btn-pill bg-[#C6F24E] text-[#1D1D1F] py-4 font-semibold text-sm">Перезвоните мне</button>
       </form>
     </div>
   </div>
