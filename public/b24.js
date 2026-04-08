@@ -80,6 +80,31 @@
     form.appendChild(err);
   }
 
+  /* ─── Маска телефона +7 (XXX) XXX-XX-XX ─── */
+  function applyPhoneMask(input) {
+    input.addEventListener('focus', function () {
+      if (!this.value) this.value = '+7 ';
+    });
+    input.addEventListener('blur', function () {
+      if (this.value === '+7 ' || this.value === '+7') this.value = '';
+    });
+    input.addEventListener('input', function () {
+      var pos = this.selectionStart;
+      var digits = this.value.replace(/\D/g, '');
+      if (!digits) { this.value = ''; return; }
+      if (digits[0] === '8') digits = '7' + digits.slice(1);
+      if (digits[0] !== '7') digits = '7' + digits;
+      digits = digits.slice(0, 11);
+      var r = '+7';
+      if (digits.length > 1) r += ' (' + digits.slice(1, Math.min(4, digits.length));
+      if (digits.length >= 4) r += ') ' + digits.slice(4, Math.min(7, digits.length));
+      if (digits.length >= 7) r += '-' + digits.slice(7, Math.min(9, digits.length));
+      if (digits.length >= 9) r += '-' + digits.slice(9, 11);
+      this.value = r;
+    });
+  }
+  document.querySelectorAll('input[type="tel"]').forEach(applyPhoneMask);
+
   /* ─── Навесить обработчик на каждую форму ─── */
   document.querySelectorAll('form[action="#"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
