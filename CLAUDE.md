@@ -111,6 +111,12 @@ Reference files:
 - Яндекс.Метрика = PRIMARY analytics (GA4 = secondary, no PD export abroad)
 - Do NOT use: Vercel, Netlify, Cloudflare Pages, Mailchimp, Notion, Sanity cloud
 
+## Change Propagation Rule (CRITICAL)
+When making ANY change to content that appears on multiple pages (phone numbers, email, hours, bank details, copy blocks, button texts, logos, etc.) — ALWAYS search the entire site for ALL occurrences and update them simultaneously. Never update just the page the user mentioned.
+- Use `grep -rn "текст" public/ --include="*.html"` to find all instances before editing
+- Both `.html` root files AND `/subdirectory/index.html` mirrors must be updated
+- Check for the same element in different formats (e.g. desktop vs mobile blocks, text vs JSON-LD schema)
+
 ## What NOT To Do
 - Do NOT host on foreign servers (152-FZ violation, fines up to 1-3% revenue)
 - Do NOT use Google Analytics as primary (Yandex.Metrika is primary)
