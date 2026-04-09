@@ -508,22 +508,32 @@ function pageHead(string $title = 'Блог CMS — Огни Эльфов'): voi
     }
   </script>
   <style>
-    body { font-family: 'Onest', system-ui, sans-serif; }
-    .btn-primary { background:#C6F24E; color:#1D1D1F; border-radius:50px; font-weight:600; padding:.6rem 1.5rem; transition:opacity .15s; }
-    .btn-primary:hover { opacity:.85; }
-    .btn-ghost { border:1.5px solid #D1D1D6; color:#1D1D1F; border-radius:50px; font-weight:500; padding:.55rem 1.4rem; transition:border-color .15s; }
-    .btn-ghost:hover { border-color:#1D1D1F; }
-    .btn-danger { color:#DC2626; border:1.5px solid #FCA5A5; border-radius:50px; font-weight:500; padding:.45rem 1rem; font-size:.8125rem; transition:all .15s; }
-    .btn-danger:hover { background:#FEF2F2; border-color:#DC2626; }
-    .field { width:100%; background:#F5F5F7; border:none; border-radius:.75rem; padding:.875rem 1rem; font-size:.9375rem; font-family:inherit; outline:none; transition:box-shadow .15s; }
-    .field:focus { box-shadow:0 0 0 2.5px #C6F24E; }
-    .label { font-size:.8125rem; font-weight:600; color:#6E6E73; margin-bottom:.35rem; display:block; }
-    #ql-editor-wrap .ql-editor { min-height: 420px; font-family:'Onest',sans-serif; font-size:1rem; line-height:1.7; }
-    #ql-editor-wrap .ql-toolbar { border-radius:.75rem .75rem 0 0; background:#F5F5F7; border-color:#E8E8ED; }
-    #ql-editor-wrap .ql-container { border-radius:0 0 .75rem .75rem; border-color:#E8E8ED; }
-    #ql-editor-wrap .ql-editor:focus { outline:none; }
-    .draft-badge { background:#F5F5F7; color:#6E6E73; padding:.2rem .7rem; border-radius:50px; font-size:.75rem; font-weight:600; }
-    .pub-badge  { background:#ECFDF5; color:#059669; padding:.2rem .7rem; border-radius:50px; font-size:.75rem; font-weight:600; }
+    *{box-sizing:border-box}
+    body{font-family:'Onest',system-ui,sans-serif;overflow-x:hidden}
+    .btn-primary{background:#C6F24E;color:#1D1D1F;border-radius:50px;font-weight:600;padding:.55rem 1.25rem;transition:opacity .15s;white-space:nowrap;font-size:.875rem;display:inline-block;text-align:center}
+    .btn-primary:hover{opacity:.85}
+    .btn-ghost{border:1.5px solid #D1D1D6;color:#1D1D1F;border-radius:50px;font-weight:500;padding:.5rem 1.1rem;transition:border-color .15s;white-space:nowrap;font-size:.875rem;display:inline-block;text-align:center}
+    .btn-ghost:hover{border-color:#1D1D1F}
+    .btn-danger{color:#DC2626;border:1.5px solid #FCA5A5;border-radius:50px;font-weight:500;padding:.4rem .85rem;font-size:.8125rem;transition:all .15s;white-space:nowrap}
+    .btn-danger:hover{background:#FEF2F2;border-color:#DC2626}
+    .field{width:100%;background:#F5F5F7;border:none;border-radius:.75rem;padding:.875rem 1rem;font-size:.9375rem;font-family:inherit;outline:none;transition:box-shadow .15s;-webkit-appearance:none;max-width:100%}
+    .field:focus{box-shadow:0 0 0 2.5px #C6F24E}
+    .label{font-size:.8125rem;font-weight:600;color:#6E6E73;margin-bottom:.35rem;display:block}
+    /* Quill мобильный */
+    #ql-editor-wrap .ql-editor{min-height:320px;font-family:'Onest',sans-serif;font-size:1rem;line-height:1.7}
+    #ql-editor-wrap .ql-toolbar{border-radius:.75rem .75rem 0 0;background:#F5F5F7;border-color:#E8E8ED;overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap}
+    #ql-editor-wrap .ql-container{border-radius:0 0 .75rem .75rem;border-color:#E8E8ED}
+    #ql-editor-wrap .ql-editor:focus{outline:none}
+    #ql-editor-wrap .ql-formats{white-space:nowrap}
+    .draft-badge{background:#F5F5F7;color:#6E6E73;padding:.2rem .7rem;border-radius:50px;font-size:.75rem;font-weight:600}
+    .pub-badge{background:#ECFDF5;color:#059669;padding:.2rem .7rem;border-radius:50px;font-size:.75rem;font-weight:600}
+    /* Таблица на мобиле */
+    .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:1rem}
+    @media(max-width:640px){
+      .save-bar-title{display:none}
+      .save-bar-btns{width:100%;justify-content:flex-end}
+      main{padding-left:1rem;padding-right:1rem}
+    }
   </style>
 </head>
 <body class="bg-[#FAFAFA] text-[#1D1D1F] min-h-screen">
@@ -625,8 +635,8 @@ function renderList(): void {
       <a href="?action=new" class="btn-primary">Написать первую</a>
     </div>
   <?php else: ?>
-    <div class="bg-white rounded-2xl overflow-hidden border border-[#E8E8ED]">
-      <table class="w-full text-sm">
+    <div class="table-wrap bg-white rounded-2xl border border-[#E8E8ED]">
+      <table class="w-full text-sm" style="min-width:520px">
         <thead class="bg-[#F5F5F7] text-[#6E6E73] text-xs uppercase tracking-wider">
           <tr>
             <th class="text-left px-6 py-3 font-600">Заголовок</th>
@@ -697,11 +707,13 @@ function renderEditor(array $d): void {
 <main class="max-w-4xl mx-auto px-6 py-8">
 
   <!-- Sticky save bar -->
-  <div class="sticky top-14 z-40 bg-[#FAFAFA]/95 backdrop-blur-sm py-3 -mx-6 px-6 border-b border-[#E8E8ED] flex items-center justify-between mb-8">
-    <h1 class="font-extrabold text-lg"><?= $editing ? 'Редактировать статью' : 'Новая статья' ?></h1>
-    <div class="flex gap-3">
-      <button form="cms-form" name="draft_btn" onclick="document.getElementById('draft-hidden').value='1'" type="submit" class="btn-ghost text-sm">Сохранить черновик</button>
-      <button form="cms-form" name="publish_btn" onclick="document.getElementById('draft-hidden').value=''" type="submit" class="btn-primary text-sm">Опубликовать</button>
+  <div class="sticky top-14 z-40 bg-[#FAFAFA]/95 backdrop-blur-sm py-3 -mx-4 px-4 sm:-mx-6 sm:px-6 border-b border-[#E8E8ED] mb-8">
+    <div class="flex items-center justify-between gap-3">
+      <h1 class="font-extrabold text-base sm:text-lg save-bar-title truncate"><?= $editing ? 'Редактировать' : 'Новая статья' ?></h1>
+      <div class="flex gap-2 save-bar-btns flex-shrink-0">
+        <button form="cms-form" name="draft_btn" onclick="document.getElementById('draft-hidden').value='1'" type="submit" class="btn-ghost">Черновик</button>
+        <button form="cms-form" name="publish_btn" onclick="document.getElementById('draft-hidden').value=''" type="submit" class="btn-primary">Опубликовать</button>
+      </div>
     </div>
   </div>
 
@@ -724,7 +736,7 @@ function renderEditor(array $d): void {
       </div>
       <div>
         <label class="label">URL статьи (slug)</label>
-        <div class="flex items-center gap-2">
+        <div class="flex flex-wrap items-center gap-2">
           <span class="text-sm text-[#86868B] whitespace-nowrap">elfprint.ru/blog-</span>
           <input type="text" name="slug" id="slug-field" value="<?= h($slug) ?>"
                  <?= $editing ? 'readonly class="field bg-[#E8E8ED] text-[#6E6E73] flex-1"' : 'class="field flex-1"' ?>
@@ -793,11 +805,11 @@ function renderEditor(array $d): void {
     </div>
 
     <!-- Нижняя панель -->
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-2">
       <a href="?" class="text-sm text-[#86868B] hover:text-[#1D1D1F]">← Отмена</a>
-      <div class="flex gap-3">
-        <button name="draft_btn" onclick="document.getElementById('draft-hidden').value='1'" type="submit" class="btn-ghost">Сохранить черновик</button>
-        <button name="publish_btn" onclick="document.getElementById('draft-hidden').value=''" type="submit" class="btn-primary">Опубликовать →</button>
+      <div class="flex gap-2">
+        <button name="draft_btn" onclick="document.getElementById('draft-hidden').value='1'" type="submit" class="btn-ghost flex-1 sm:flex-none">Черновик</button>
+        <button name="publish_btn" onclick="document.getElementById('draft-hidden').value=''" type="submit" class="btn-primary flex-1 sm:flex-none">Опубликовать →</button>
       </div>
     </div>
   </form>
