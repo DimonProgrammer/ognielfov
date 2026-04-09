@@ -124,6 +124,8 @@ Run these checks before every commit/deploy. If any returns > 0 — fix first:
 - `grep -rn '"email": "<a' public/` → 0 (no HTML tags in JSON-LD)
 - `grep -rn 'href="/blog" class="bg-white rounded-2xl' public/blog.html` → 0
 - After mass replace: spot-check 2-3 files with grep to confirm change applied
+- `grep -rn "от [2-9] дней\|от [2-9][0-9]* дней\|от [2-9] дня" public/ --include="*.html" | grep -v "admin\|logo\|30 минут\|доставк"` → 0 (min order days)
+- `grep -rn "от [2-9][0-9]\+ шт\b\|от [0-9][0-9][0-9] шт\b" public/ --include="*.html" | grep -v "admin\|logo\|экономич\|₽"` → 0 (min order qty)
 
 ## What NOT To Do
 - Do NOT host on foreign servers (152-FZ violation, fines up to 1-3% revenue)
