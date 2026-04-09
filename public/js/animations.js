@@ -209,4 +209,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ======== SELECT COLOR ON CHANGE ========
+  document.querySelectorAll('select').forEach(sel => {
+    const update = () => {
+      sel.style.color = sel.value ? '#1D1D1F' : '';
+    };
+    sel.addEventListener('change', update);
+    update();
+  });
 });

@@ -1,0 +1,10 @@
+# Защита файла с хешем пароля
+<Files ".pass">
+  Order allow,deny
+  Deny from all
+</Files>
+
+# Не индексировать admin
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

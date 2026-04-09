@@ -212,19 +212,36 @@ function handleSave(): void {
         }
     }
     $content  = $_POST['content'] ?? '';   // HTML from Quill — already sanitized client-side
-    $draft    = isset($_POST['draft']);
+    $draft    = ($_POST['draft'] ?? '') === '1';
     $editing  = !empty($_POST['editing']);
 
-    if (!$title || !$slug) {
-        $_SESSION['err'] = 'Заполните заголовок';
-        header('Location: ?action=new');
+    if (!$title || !$slug || !$content) {
+        $_SESSION['err'] = $content ? 'Заполните заголовок' : 'Добавьте содержание статьи';
+        header('Location: ' . ($_POST['editing'] ? "?action=edit&slug={$slug}" : '?action=new'));
         exit;
     }
 
     $outFile    = BLOG_DIR . "/blog-{$slug}.html";
     $outFileIdx = BLOG_DIR . "/blog-{$slug}/index.html";
 
-    $articleHtml = generateArticleHtml($title, $slug, $category, $date, $desc, $image, $content, $draft);
+    // ── Защита от перезаписи: новая статья не должна затирать существующую ──
+    if (!$editing && file_exists($outFile)) {
+        $_SESSION['err'] = "Статья с URL /blog-{$slug} уже существует. Измените slug.";
+        header('Location: ?action=new');
+        exit;
+    }
+
+    // При редактировании сохраняем оригинальную дату публикации
+    $pubDate = $date;
+    if ($editing && file_exists($outFile)) {
+        $oldHtml = file_get_contents($outFile);
+        if (preg_match('/article:published_time" content="([^"T]+)/', $oldHtml, $pm)) {
+            $pubDate = $pm[1]; // Сохраняем дату первой публикации
+        }
+    }
+    $modDate = date('Y-m-d'); // Дата редактирования — всегда сегодня
+
+    $articleHtml = generateArticleHtml($title, $slug, $category, $pubDate, $desc, $image, $content, $draft, $modDate);
 
     file_put_contents($outFile, $articleHtml);
 
@@ -235,15 +252,23 @@ function handleSave(): void {
     file_put_contents($outFileIdx, $articleHtml);
 
     // Обновляем blog.html и blog/index.html (только если публикуем)
+    $cardInserted = true;
     if (!$draft) {
-        $card = generateCard($title, $slug, $category, $date, $desc, $image);
-        if (!$editing) {
-            prependCard($card, BLOG_FILE);
-            prependCard($card, BLOG_IDX);
-        } else {
+        $card = generateCard($title, $slug, $category, $pubDate, $desc, $image);
+        if ($editing) {
+            // updateCard: удаляем старую карточку CMS-маркером ИЛИ по href
             updateCard($card, $slug, BLOG_FILE);
             updateCard($card, $slug, BLOG_IDX);
+        } else {
+            $ok1 = prependCard($card, BLOG_FILE);
+            $ok2 = prependCard($card, BLOG_IDX);
+            $cardInserted = $ok1 && $ok2;
         }
+    }
+
+    if (!$draft && !$cardInserted) {
+        // Grid needle не найден — статья сохранена, но в листинг не попала
+        $_SESSION['warn'] = "Статья сохранена, но не добавлена в /blog/ — добавьте карточку вручную или обратитесь к разработчику.";
     }
 
     $link = "/blog-{$slug}/";
@@ -251,7 +276,8 @@ function handleSave(): void {
 }
 
 function generateArticleHtml(string $title, string $slug, string $cat, string $date,
-                              string $desc, string $image, string $content, bool $draft): string
+                              string $desc, string $image, string $content, bool $draft,
+                              string $modDate = ''): string
 {
     if (!file_exists(TEMPLATE)) {
         die('Шаблон не найден: ' . TEMPLATE);
@@ -287,10 +313,11 @@ function generateArticleHtml(string $title, string $slug, string $cat, string $d
         '<meta property="og:image" content="' . h("https://elfprint.ru{$imgSrc}") . '"', $part1, 1);
     $part1 = preg_replace('/<link rel="canonical" href="[^"]*"/',
         '<link rel="canonical" href="' . h($canonical) . '"', $part1, 1);
+    $modDateActual = $modDate ?: $date;
     $part1 = preg_replace('/<meta property="article:published_time" content="[^"]*"/',
         '<meta property="article:published_time" content="' . h($date . 'T12:00:00+03:00') . '"', $part1, 1);
     $part1 = preg_replace('/<meta property="article:modified_time" content="[^"]*"/',
-        '<meta property="article:modified_time" content="' . h($date . 'T12:00:00+03:00') . '"', $part1, 1);
+        '<meta property="article:modified_time" content="' . h($modDateActual . 'T12:00:00+03:00') . '"', $part1, 1);
     // JSON-LD
     $part1 = preg_replace_callback('/<script type="application\/ld\+json">(.*?)<\/script>/s', function($m) use ($title, $desc, $date, $canonical) {
         $json = json_decode($m[1], true) ?? [];
@@ -392,22 +419,36 @@ function generateCard(string $title, string $slug, string $cat, string $date,
 HTML;
 }
 
-function prependCard(string $card, string $file): void {
-    if (!file_exists($file)) return;
+function prependCard(string $card, string $file): bool {
+    if (!file_exists($file)) return false;
     $html   = file_get_contents($file);
-    $needle = 'class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">';
-    $pos    = strpos($html, $needle);
-    if ($pos === false) return;
-    $insert = $pos + strlen($needle);
-    $html   = substr($html, 0, $insert) . $card . substr($html, $insert);
-    file_put_contents($file, $html);
+    // Пробуем несколько вариантов grid-контейнера
+    $needles = [
+        'class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">',
+        'class="grid grid-cols-1 md:grid-cols-3 gap-8">',
+    ];
+    foreach ($needles as $needle) {
+        $pos = strpos($html, $needle);
+        if ($pos !== false) {
+            $insert = $pos + strlen($needle);
+            $html   = substr($html, 0, $insert) . $card . substr($html, $insert);
+            file_put_contents($file, $html);
+            return true;
+        }
+    }
+    return false; // Grid не найден
 }
 
 function updateCard(string $card, string $slug, string $file): void {
     if (!file_exists($file)) return;
     $html = file_get_contents($file);
-    // Remove old card for this slug
+    // 1. Удаляем старую карточку по CMS-маркеру (новые статьи)
     $html = preg_replace('/\s*<!-- CMS:' . preg_quote($slug, '/') . ' -->.*?<\/a>/s', '', $html);
+    // 2. Удаляем карточку по href (статьи без маркера — ручные или старые)
+    $html = preg_replace(
+        '/\s*<a\s+href="\/blog-' . preg_quote($slug, '/') . '"[^>]*class="bg-white rounded-2xl overflow-hidden[^"]*"[^>]*>.*?<\/a>/s',
+        '', $html
+    );
     file_put_contents($file, $html);
     prependCard($card, $file);
 }
@@ -660,7 +701,7 @@ function renderEditor(array $d): void {
     <h1 class="font-extrabold text-lg"><?= $editing ? 'Редактировать статью' : 'Новая статья' ?></h1>
     <div class="flex gap-3">
       <button form="cms-form" name="draft_btn" onclick="document.getElementById('draft-hidden').value='1'" type="submit" class="btn-ghost text-sm">Сохранить черновик</button>
-      <button form="cms-form" name="publish_btn" type="submit" class="btn-primary text-sm">Опубликовать</button>
+      <button form="cms-form" name="publish_btn" onclick="document.getElementById('draft-hidden').value=''" type="submit" class="btn-primary text-sm">Опубликовать</button>
     </div>
   </div>
 
@@ -756,7 +797,7 @@ function renderEditor(array $d): void {
       <a href="?" class="text-sm text-[#86868B] hover:text-[#1D1D1F]">← Отмена</a>
       <div class="flex gap-3">
         <button name="draft_btn" onclick="document.getElementById('draft-hidden').value='1'" type="submit" class="btn-ghost">Сохранить черновик</button>
-        <button name="publish_btn" type="submit" class="btn-primary">Опубликовать →</button>
+        <button name="publish_btn" onclick="document.getElementById('draft-hidden').value=''" type="submit" class="btn-primary">Опубликовать →</button>
       </div>
     </div>
   </form>
@@ -769,13 +810,24 @@ var quill = new Quill('#quill-editor', {
   theme: 'snow',
   placeholder: 'Начните писать статью...',
   modules: {
-    toolbar: [
-      [{ header: 2 }, { header: 3 }],
-      ['bold', 'italic'],
-      [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link', 'image', 'blockquote', 'code-block'],
-      ['clean']
-    ]
+    toolbar: {
+      container: [
+        [{ header: 2 }, { header: 3 }],
+        ['bold', 'italic'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link', 'image', 'blockquote', 'code-block'],
+        ['clean']
+      ],
+      handlers: {
+        image: function() {
+          var url = prompt('URL изображения:');
+          if (url) {
+            var range = quill.getSelection();
+            quill.insertEmbed(range ? range.index : 0, 'image', url);
+          }
+        }
+      }
+    }
   }
 });
 
@@ -786,6 +838,47 @@ if (existingContent && existingContent.trim() !== '') {
   // Сбрасываем историю чтобы undo не стёр контент
   quill.history.clear();
 }
+
+// ── Авто-сохранение в localStorage ──────────────────────────────────────────
+var AUTOSAVE_KEY = 'cms_draft_<?= h($slug ?: 'new') ?>';
+
+// Восстановить из localStorage если нет серверного контента
+if (!existingContent || existingContent.trim() === '') {
+  var saved = localStorage.getItem(AUTOSAVE_KEY);
+  if (saved) {
+    try {
+      var savedData = JSON.parse(saved);
+      if (savedData.content) quill.clipboard.dangerouslyPasteHTML(savedData.content);
+      if (savedData.title && !document.getElementById('title-field').value)
+        document.getElementById('title-field').value = savedData.title;
+      if (savedData.desc && !document.getElementById('desc-field').value)
+        document.getElementById('desc-field').value = savedData.desc;
+      // Показываем уведомление
+      var notice = document.createElement('div');
+      notice.style.cssText = 'background:#FFF9C4;border:1px solid #F0D500;border-radius:.5rem;padding:.5rem 1rem;font-size:.8125rem;margin-bottom:1rem;';
+      notice.innerHTML = '💾 Восстановлен черновик из авто-сохранения. <button onclick="localStorage.removeItem(\''+AUTOSAVE_KEY+'\');this.parentNode.remove()" style="color:#6E6E73;text-decoration:underline;background:none;border:none;cursor:pointer;font-size:.8125rem">Очистить</button>';
+      document.querySelector('main').insertBefore(notice, document.getElementById('cms-form'));
+    } catch(e) {}
+  }
+}
+
+// Сохранять каждые 30 секунд
+setInterval(function() {
+  var html = quill.root.innerHTML;
+  if (html && html !== '<p><br></p>') {
+    localStorage.setItem(AUTOSAVE_KEY, JSON.stringify({
+      content: html,
+      title: document.getElementById('title-field').value,
+      desc: document.getElementById('desc-field').value,
+      ts: Date.now()
+    }));
+  }
+}, 30000);
+
+// Очищаем авто-сохранение при успешной отправке
+document.getElementById('cms-form').addEventListener('submit', function() {
+  localStorage.removeItem(AUTOSAVE_KEY);
+});
 
 // Auto-slug from title
 var titleField = document.getElementById('title-field');
@@ -842,6 +935,8 @@ function beforeSubmit() {
 
 // ─── SUCCESS ──────────────────────────────────────────────────────────────────
 function renderSuccess(string $title, string $link, bool $draft): void {
+    $warn = $_SESSION['warn'] ?? '';
+    unset($_SESSION['warn']);
     pageHead('Готово!'); pageNav(); ?>
 <main class="max-w-2xl mx-auto px-6 py-20 text-center">
   <div class="bg-white rounded-2xl p-12 border border-[#E8E8ED]">
@@ -854,6 +949,9 @@ function renderSuccess(string $title, string $link, bool $draft): void {
       <?= $draft ? 'Черновик сохранён' : 'Статья опубликована!' ?>
     </h1>
     <p class="text-[#6E6E73] mb-8"><?= h($title) ?></p>
+    <?php if ($warn): ?>
+      <div style="background:#FFF3CD;border:1px solid #FFC107;border-radius:.75rem;padding:.75rem 1rem;font-size:.8125rem;color:#856404;margin-bottom:1.5rem;text-align:left"><?= h($warn) ?></div>
+    <?php endif; ?>
     <?php if (!$draft): ?>
     <a href="<?= h($link) ?>" target="_blank"
        class="btn-primary inline-block mb-4">Открыть статью →</a>
