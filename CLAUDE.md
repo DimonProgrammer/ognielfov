@@ -111,6 +111,23 @@ Reference files:
 - Яндекс.Метрика = PRIMARY analytics (GA4 = secondary, no PD export abroad)
 - Do NOT use: Vercel, Netlify, Cloudflare Pages, Mailchimp, Notion, Sanity cloud
 
+## Self-Improvement Protocol
+When I make a repeated mistake OR discover a new pattern that prevents future errors:
+1. Add a one-line rule to the relevant section below (Self-Verify, What NOT To Do, or a new section)
+2. Include a grep/check command if verifiable
+3. Use the `claude-md-management:revise-claude-md` skill to update this file in future sessions
+
+**Format for new lessons:**
+```
+- LESSON [keyword]: rule description — check: `grep command` → 0
+```
+
+**Recorded lessons this project:**
+- LESSON [min-order]: "от X дней/шт" claims must use X=1 — grep check added to Self-Verify
+- LESSON [propagation]: changes to repeated content (phone, email, bank) need site-wide grep before editing
+- LESSON [json-ld]: never wrap email/phone in HTML tags inside JSON-LD scripts
+- LESSON [ftp-mirror]: always upload BOTH root .html AND /subdir/index.html mirrors
+
 ## Change Propagation Rule (CRITICAL)
 When making ANY change to content that appears on multiple pages (phone numbers, email, hours, bank details, copy blocks, button texts, logos, etc.) — ALWAYS search the entire site for ALL occurrences and update them simultaneously. Never update just the page the user mentioned.
 - Use `grep -rn "текст" public/ --include="*.html"` to find all instances before editing
