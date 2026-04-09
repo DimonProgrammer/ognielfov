@@ -82,9 +82,11 @@
 
   /* ─── Маска телефона +7 (XXX) XXX-XX-XX ─── */
   function applyPhoneMask(input) {
-    input.addEventListener('focus', function () {
+    function initValue() {
       if (!this.value) this.value = '+7 ';
-    });
+    }
+    input.addEventListener('focus', initValue);
+    input.addEventListener('touchstart', initValue, { passive: true });
     input.addEventListener('blur', function () {
       if (this.value === '+7 ' || this.value === '+7') this.value = '';
     });
