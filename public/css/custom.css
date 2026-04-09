@@ -171,25 +171,18 @@
 .stepper-wrapper {
   position: relative;
 }
-.stepper-wave {
-  position: absolute;
-  top: 28px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  z-index: 0;
-  pointer-events: none;
-}
-.stepper-wave path {
-  stroke: #C6F24E;
-  stroke-width: 3;
-  fill: none;
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
-  transition: stroke-dashoffset 1.5s ease;
-}
-.stepper-wave.visible path {
-  stroke-dashoffset: 0;
+/* Horizontal connector line (desktop) */
+@media (min-width: 768px) {
+  .stepper-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #C6F24E;
+    z-index: 0;
+  }
 }
 .step-item {
   position: relative;
@@ -206,15 +199,6 @@
   justify-content: center;
   margin: 0 auto;
   box-shadow: 0 4px 14px rgba(198, 242, 78, 0.3);
-}
-/* Mobile: vertical wave */
-@media (max-width: 767px) {
-  .stepper-wave {
-    top: 0;
-    left: 28px;
-    width: 4px;
-    height: 100%;
-  }
 }
 
 /* ======== HORIZONTAL SCROLL (TECHNOLOGIES) ======== */
