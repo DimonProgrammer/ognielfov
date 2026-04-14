@@ -63,7 +63,7 @@
         var imgEl = document.createElement('img');
         imgEl.src = imgData.src;
         imgEl.alt = imgData.alt || '';
-        imgEl.className = 'w-full h-full object-contain';
+        imgEl.className = 'w-full h-full object-cover object-bottom';
         imgEl.width = 600;
         imgEl.height = 800;
         imgEl.loading = 'lazy';

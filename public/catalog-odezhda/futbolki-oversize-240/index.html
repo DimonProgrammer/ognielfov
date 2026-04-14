@@ -586,8 +586,9 @@
     function initSlider() {
       var container = document.getElementById('slider-container');
       if (!container) return;
-      var slides = container.querySelectorAll('.slider-slide');
       var W = container.offsetWidth;
+      if (W === 0) { requestAnimationFrame(initSlider); return; }
+      var slides = container.querySelectorAll('.slider-slide');
       var slideW = Math.min(Math.round(W * 0.78), 255);
       slides.forEach(function(s) { s.style.width = slideW + 'px'; });
       sliderGoTo(_sliderIdx);
