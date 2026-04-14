@@ -131,6 +131,7 @@
         SOURCE_ID:          'WEB',
         SOURCE_DESCRIPTION: window.location.href + utmInfo(),
         COMMENTS:           buildComments(data),
+        ASSIGNED_BY_ID:     28, /* Елена Демидова */
       };
 
       /* Дублировать на email (fire-and-forget, не блокирует UX) */
