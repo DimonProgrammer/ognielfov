@@ -13,7 +13,7 @@ import sys
 FTP_HOST = "31.31.196.240"
 FTP_USER = "u3475879_kdfskdfk"
 FTP_PASS = "vadpa8-zydnog-heqboJ"
-REMOTE_BASE = "/www/elfprint.ru"
+REMOTE_BASE = ""
 LOCAL_BASE = "public"
 
 SKIP_FILES = {
