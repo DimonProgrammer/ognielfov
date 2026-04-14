@@ -39,8 +39,12 @@ $service = isset($data['service']) ? trim($data['service']) : '';
 $qty     = isset($data['quantity']) ? trim($data['quantity']) : '';
 $deadline= isset($data['deadline']) ? trim($data['deadline']) : '';
 
-$body  = "Новая заявка с сайта elfprint.ru\n";
+$title   = isset($data['title']) ? trim($data['title']) : 'Заявка с сайта';
+
+$body  = "НОВАЯ ЗАЯВКА — elfprint.ru\n";
 $body .= "==========================================\n\n";
+$body .= "Тип:          $title\n";
+$body .= "\n";
 if ($name)    $body .= "Имя:          $name\n";
 if ($phone)   $body .= "Телефон:      $phone\n";
 if ($email)   $body .= "Email:        $email\n";
@@ -50,11 +54,11 @@ if ($qty)     $body .= "Количество:   $qty шт.\n";
 if ($deadline)$body .= "Срок:         $deadline\n";
 if ($comment) $body .= "\nКомментарий:\n$comment\n";
 $body .= "\n==========================================\n";
-$body .= "Страница: $page\n";
-$body .= "Дата:     " . date('d.m.Y H:i') . " (МСК)\n";
+$body .= "Страница:     $page\n";
+$body .= "Дата:         " . date('d.m.Y H:i') . " (МСК)\n";
 
-$headers  = "From: no-reply@elfprint.ru\r\n";
-$headers .= "Reply-To: no-reply@elfprint.ru\r\n";
+$headers  = "From: =?UTF-8?B?" . base64_encode("Сайт elfprint.ru") . "?= <elfprint@inbox.ru>\r\n";
+$headers .= "Reply-To: elfprint@inbox.ru\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 $headers .= "X-Mailer: elfprint-site\r\n";
 
