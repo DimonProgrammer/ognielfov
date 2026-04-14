@@ -53,13 +53,17 @@
       });
     }
 
-    // 3. Rebuild mobile slider
-    var sliderTrack = document.getElementById('slider-track');
-    if (sliderTrack) {
-      sliderTrack.innerHTML = '';
+    // 3. Rebuild mobile slider (CSS Scroll Snap — no JS width calculation)
+    var sliderContainer = document.getElementById('slider-container');
+    if (sliderContainer) {
+      // Remove existing slides only (keep <style> tag)
+      Array.from(sliderContainer.children).forEach(function(el) {
+        if (el.classList && el.classList.contains('slider-slide')) el.remove();
+      });
       images.forEach(function(imgData) {
         var slide = document.createElement('div');
-        slide.className = 'slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/4]';
+        slide.className = 'slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden';
+        slide.style.cssText = 'width:82%;flex-shrink:0;scroll-snap-align:center;aspect-ratio:3/4';
         var imgEl = document.createElement('img');
         imgEl.src = imgData.src;
         imgEl.alt = imgData.alt || '';
@@ -68,7 +72,7 @@
         imgEl.height = 800;
         imgEl.loading = 'lazy';
         slide.appendChild(imgEl);
-        sliderTrack.appendChild(slide);
+        sliderContainer.appendChild(slide);
       });
 
       // Rebuild dots
@@ -86,8 +90,9 @@
         });
       }
 
-      // Reset slider position
+      // Reset to first slide
       if (typeof sliderGoTo === 'function') sliderGoTo(0);
+      else if (sliderContainer) sliderContainer.scrollTo({ left: 0, behavior: 'instant' });
     }
   }
 

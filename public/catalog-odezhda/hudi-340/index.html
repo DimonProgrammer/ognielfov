@@ -195,15 +195,14 @@
           <!-- Mobile: Slider with peek sides, arrows, dots -->
           <div class="md:hidden" id="gallery-mobile">
             <div class="relative">
-              <div class="overflow-hidden" id="slider-container">
-                <div id="slider-track" class="flex transition-transform duration-300 ease-out" style="gap:12px">
-                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/4]">
+              <div id="slider-container" style="overflow-x:scroll;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;display:flex;padding:0 8%;gap:10px">
+                <style>#slider-container::-webkit-scrollbar{display:none}</style>
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden" style="width:82%;flex-shrink:0;scroll-snap-align:center;aspect-ratio:3/4">
                     <img src="/img/products/hudi-340/hb-front-m.jpg" alt="Белый — полочка мужской" class="w-full h-full object-cover object-bottom" width="600" height="800">
                   </div>
-                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden aspect-[3/4]">
+                  <div class="slider-slide flex-shrink-0 bg-[#F5F5F7] rounded-2xl overflow-hidden" style="width:82%;flex-shrink:0;scroll-snap-align:center;aspect-ratio:3/4">
                     <img src="/img/products/hudi-340/hb-back-m.jpg" alt="Белый — спинка мужской" class="w-full h-full object-cover object-bottom" width="600" height="800" loading="lazy">
                   </div>
-                </div>
               </div>
               <!-- Arrows -->
               <button onclick="sliderPrev()" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md z-10 active:scale-95 transition-transform" style="transform:translateY(-50%)" aria-label="Назад">
@@ -539,58 +538,55 @@
     };
   </script>
 
-  <!-- Mobile gallery slider JS -->
+  <!-- Mobile gallery: CSS Scroll Snap — no JS layout calculation needed -->
   <script>
     var _sliderIdx = 0;
 
-    function initSlider() {
-      var container = document.getElementById('slider-container');
-      if (!container) return;
-      var W = container.offsetWidth;
-      if (W === 0) { requestAnimationFrame(initSlider); return; }
-      var slides = container.querySelectorAll('.slider-slide');
-      var slideW = Math.min(Math.round(W * 0.78), 255);
-      slides.forEach(function(s) { s.style.width = slideW + 'px'; });
-      sliderGoTo(_sliderIdx);
+    function updateDots(idx) {
+      document.querySelectorAll('.slider-dot').forEach(function(dot, i) {
+        dot.style.width = (i === idx) ? '20px' : '8px';
+        dot.style.background = (i === idx) ? '#1D1D1F' : '#D1D1D6';
+      });
     }
 
     function sliderGoTo(idx) {
       var container = document.getElementById('slider-container');
-      var track = document.getElementById('slider-track');
-      if (!container || !track) return;
+      if (!container) return;
       var slides = container.querySelectorAll('.slider-slide');
       var count = slides.length;
       if (!count) return;
       idx = Math.max(0, Math.min(idx, count - 1));
       _sliderIdx = idx;
-      var W = container.offsetWidth;
-      var slideW = Math.min(Math.round(W * 0.78), 255);
-      var gap = 12;
-      var offset = (W - slideW) / 2;
-      var tx = offset - idx * (slideW + gap);
-      track.style.transform = 'translateX(' + tx + 'px)';
-      // Update dots
-      document.querySelectorAll('.slider-dot').forEach(function(dot, i) {
-        dot.style.width = (i === idx) ? '20px' : '8px';
-        dot.style.background = (i === idx) ? '#1D1D1F' : '#D1D1D6';
-      });
-      // Sync mobile color selector
-      var colorName = slides[idx].getAttribute('data-color');
-      var mobileLabel = document.getElementById('mobile-color-name');
-      if (mobileLabel) mobileLabel.textContent = colorName;
-      document.querySelectorAll('#mobile-color-swatches .color-swatch').forEach(function(btn) {
-        btn.classList.toggle('active', btn.getAttribute('data-color') === colorName);
-      });
-      // Sync desktop color selector
-      var desktopLabel = document.getElementById('selected-color-name');
-      if (desktopLabel) desktopLabel.textContent = colorName;
-      document.querySelectorAll('#color-swatches .color-swatch').forEach(function(btn) {
-        btn.classList.toggle('active', btn.getAttribute('data-color') === colorName);
-      });
+      var slide = slides[idx];
+      var scrollLeft = slide.offsetLeft - (container.offsetWidth - slide.offsetWidth) / 2;
+      container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      updateDots(idx);
     }
 
     function sliderPrev() { sliderGoTo(_sliderIdx - 1); }
     function sliderNext() { sliderGoTo(_sliderIdx + 1); }
+
+    // Sync dots on native scroll
+    (function() {
+      var container = document.getElementById('slider-container');
+      if (!container) return;
+      var ticking = false;
+      container.addEventListener('scroll', function() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function() {
+          var slides = container.querySelectorAll('.slider-slide');
+          var center = container.scrollLeft + container.offsetWidth / 2;
+          var closest = 0, closestDist = Infinity;
+          slides.forEach(function(slide, i) {
+            var dist = Math.abs((slide.offsetLeft + slide.offsetWidth / 2) - center);
+            if (dist < closestDist) { closestDist = dist; closest = i; }
+          });
+          if (closest !== _sliderIdx) { _sliderIdx = closest; updateDots(closest); }
+          ticking = false;
+        });
+      }, { passive: true });
+    })();
 
     // Mobile color swatch → jump slider to that color
     document.querySelectorAll('#mobile-color-swatches .color-swatch').forEach(function(btn) {
@@ -602,30 +598,6 @@
         }
       });
     });
-
-    // Touch swipe support
-    (function() {
-      var container = document.getElementById('slider-container');
-      if (!container) return;
-      var startX = 0, startY = 0;
-      container.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-      }, {passive: true});
-      container.addEventListener('touchend', function(e) {
-        var dx = startX - e.changedTouches[0].clientX;
-        var dy = startY - e.changedTouches[0].clientY;
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-          dx > 0 ? sliderNext() : sliderPrev();
-        }
-      });
-    })();
-
-    // Init on load + resize
-    window.addEventListener('load', initSlider);
-    window.addEventListener('resize', initSlider);
-    // Also init immediately if DOM already loaded
-    if (document.readyState !== 'loading') initSlider();
   </script>
 </body>
 </html>
