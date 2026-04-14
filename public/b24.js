@@ -5,7 +5,8 @@
 (function () {
   'use strict';
 
-  var WEBHOOK = 'https://b24-91104r.bitrix24.ru/rest/14/2wt6srq9qh4joj1u/crm.lead.add.json';
+  var WEBHOOK   = 'https://b24-91104r.bitrix24.ru/rest/14/2wt6srq9qh4joj1u/crm.lead.add.json';
+  var MAIL_URL  = '/send-mail.php';
 
   /* ─── Название страницы (без «| Огни Эльфов») ─── */
   function pageName() {
@@ -76,7 +77,7 @@
     if (old) old.remove();
     var err = document.createElement('p');
     err.className = 'b24-err text-xs text-red-500 mt-1';
-    err.textContent = 'Не удалось отправить. Позвоните: +7 495 646-07-59';
+    err.textContent = 'Не удалось отправить. Позвоните: +7 (495) 380-40-32';
     form.appendChild(err);
   }
 
@@ -131,6 +132,24 @@
         SOURCE_DESCRIPTION: window.location.href + utmInfo(),
         COMMENTS:           buildComments(data),
       };
+
+      /* Дублировать на email (fire-and-forget, не блокирует UX) */
+      fetch(MAIL_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({
+          title:    fields.TITLE,
+          name:     data.name    || '',
+          phone:    data.phone   || '',
+          email:    data.email   || '',
+          product:  data.product || '',
+          service:  data.service || '',
+          quantity: data.quantity|| '',
+          deadline: data.deadline|| '',
+          comment:  data.comment || '',
+          page:     window.location.href,
+        }),
+      }).catch(function() {}); /* молча игнорируем ошибку */
 
       /* Отправить в Битрикс24 */
       fetch(WEBHOOK, {

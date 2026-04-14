@@ -324,7 +324,6 @@
           <div class="mt-6">
             <div class="flex items-center justify-between mb-3">
               <p class="text-sm font-semibold">Размер: <span id="selected-size-name" class="font-normal text-[#6E6E73]">—</span></p>
-              <button id="size-chart-toggle" class="text-xs text-[#6E6E73] underline hover:text-[#1D1D1F] transition-colors">Размерная сетка</button>
             </div>
             <div class="flex flex-wrap gap-2" id="size-chips">
               <button class="size-chip" data-size="S">S</button>
@@ -514,6 +513,7 @@
       <div>
         <h4 class="text-sm font-semibold text-[#86868B] uppercase tracking-wider mb-4">Контакты</h4>
         <p class="text-sm text-white font-medium"><a href="tel:+74953804032" class="hover:opacity-80 transition-opacity">+7 (495) 380-40-32</a></p>
+        <p class="text-sm text-white font-medium mt-1"><a href="tel:+79152648880" class="hover:opacity-80 transition-opacity">+7 (915) 264-88-80</a> <span class="text-[#86868B] text-xs">Елена</span></p>
         <p class="text-sm text-[#86868B] mt-2"><a href="mailto:elfprint@inbox.ru" class="hover:opacity-70 transition-opacity">elfprint@inbox.ru</a></p>
         <div class="flex flex-col gap-2 mt-4">
           <a href="https://t.me/FiresElfs" class="text-sm text-[#86868B] hover:text-white transition-colors" target="_blank" rel="noopener">Telegram</a>
@@ -586,71 +586,6 @@
     </div>
   </div>
 
-  <!-- Size Chart Modal -->
-  <div id="size-chart-modal" class="fixed inset-0 z-[100] hidden items-end md:items-center justify-center">
-    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeSizeChart()"></div>
-    <div class="relative bg-white rounded-t-2xl md:rounded-2xl p-6 md:p-8 w-full max-w-lg mx-0 md:mx-4 shadow-2xl animate-slide-up md:animate-fade-in">
-      <div class="flex items-center justify-between mb-6">
-        <h3 class="font-bold text-xl text-[#1D1D1F]">Размерная сетка</h3>
-        <button onclick="closeSizeChart()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F5F5F7] transition-colors text-[#86868B] hover:text-[#1D1D1F]" aria-label="Закрыть">&times;</button>
-      </div>
-      <p class="text-sm text-[#6E6E73] mb-4">Футболки Оверсайз 180г (приталенные). Замеры в сантиметрах</p>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-[#E8E8ED]">
-              <th class="py-3 text-left font-semibold text-[#1D1D1F]">Размер</th>
-              <th class="py-3 text-center font-semibold text-[#1D1D1F]">Ширина</th>
-              <th class="py-3 text-center font-semibold text-[#1D1D1F]">Длина</th>
-              <th class="py-3 text-center font-semibold text-[#1D1D1F]">Рукав</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-[#F5F5F7]">
-            <tr><td class="py-3 font-medium">S</td><td class="py-3 text-center text-[#6E6E73]">48</td><td class="py-3 text-center text-[#6E6E73]">68</td><td class="py-3 text-center text-[#6E6E73]">19</td></tr>
-            <tr><td class="py-3 font-medium">M</td><td class="py-3 text-center text-[#6E6E73]">50</td><td class="py-3 text-center text-[#6E6E73]">70</td><td class="py-3 text-center text-[#6E6E73]">20</td></tr>
-            <tr><td class="py-3 font-medium">L</td><td class="py-3 text-center text-[#6E6E73]">52</td><td class="py-3 text-center text-[#6E6E73]">72</td><td class="py-3 text-center text-[#6E6E73]">21</td></tr>
-            <tr><td class="py-3 font-medium">XL</td><td class="py-3 text-center text-[#6E6E73]">54</td><td class="py-3 text-center text-[#6E6E73]">74</td><td class="py-3 text-center text-[#6E6E73]">22</td></tr>
-            <tr><td class="py-3 font-medium">2XL</td><td class="py-3 text-center text-[#6E6E73]">56</td><td class="py-3 text-center text-[#6E6E73]">76</td><td class="py-3 text-center text-[#6E6E73]">23</td></tr>
-            <tr><td class="py-3 font-medium">3XL</td><td class="py-3 text-center text-[#6E6E73]">58</td><td class="py-3 text-center text-[#6E6E73]">78</td><td class="py-3 text-center text-[#6E6E73]">24</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="text-xs text-[#86868B] mt-4">Замеры приблизительные, допуск &plusmn;2 см. Уточняйте у менеджера</p>
-    </div>
-  </div>
-
-  <!-- Sticky mobile CTA bar -->
-  <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl border-t border-[#E8E8ED] px-4 py-3 hidden lg:hidden">
-    <div class="flex items-center justify-between gap-4">
-      <div>
-        <p class="text-sm font-bold">от 249 ₽/шт</p>
-        <p class="text-xs text-[#86868B]">Футболки Оверсайз 180г</p>
-      </div>
-      <button onclick="openProductOrderPopup()" class="btn-pill bg-[#C6F24E] text-[#1D1D1F] px-6 py-3 font-semibold text-sm flex-shrink-0">Оставить заявку</button>
-    </div>
-  </div>
-
-  <!-- Popup close on Esc -->
-  <script>
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        var popup = document.getElementById('popup-form');
-        if (popup) { popup.classList.add('hidden'); popup.classList.remove('flex'); }
-        closeSizeChart();
-      }
-    });
-  </script>
-  <style>
-    @keyframes fade-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fade-in { animation: fade-in 0.25s ease-out; }
-    @keyframes slide-up { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
-    .animate-slide-up { animation: slide-up 0.3s ease-out; }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .reveal, [class*="transition"], [class*="animate"], .card-hover,
-    .gallery-thumb img, #slider-track { transition: none !important; animation: none !important; }
-  }
-</style>
 
   <!-- Mobile gallery slider JS -->
   <script>
@@ -661,7 +596,7 @@
       if (!container) return;
       var slides = container.querySelectorAll('.slider-slide');
       var W = container.offsetWidth;
-      var slideW = Math.round(W * 0.78);
+      var slideW = Math.min(Math.round(W * 0.78), 255);
       slides.forEach(function(s) { s.style.width = slideW + 'px'; });
       sliderGoTo(_sliderIdx);
     }
@@ -676,7 +611,7 @@
       idx = Math.max(0, Math.min(idx, count - 1));
       _sliderIdx = idx;
       var W = container.offsetWidth;
-      var slideW = Math.round(W * 0.78);
+      var slideW = Math.min(Math.round(W * 0.78), 255);
       var gap = 12;
       var offset = (W - slideW) / 2;
       var tx = offset - idx * (slideW + gap);
